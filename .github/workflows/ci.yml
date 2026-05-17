@@ -20,6 +20,8 @@ jobs:
         run: ruff check src tests scripts
       - name: Test
         run: pytest -q
+      - name: HF package checker
+        run: PYTHONPATH=src python scripts/check_hf_package.py
       - name: Build package
         run: python -m build
       - name: Check package metadata
