@@ -4,8 +4,13 @@ Date: 2026-05-17
 
 ## Public URL
 
-- Intended Hugging Face repo: `https://huggingface.co/yusufguenena/inspectnet-cx`
-- Publication status: blocked. The local `hf` CLI reports `Not logged in`, and no Hugging Face token is available in the environment.
+- Hugging Face repo: `https://huggingface.co/yusufdxb/inspectnet-cx`
+- Visibility: public model repo.
+- Publication status: live.
+- Upload commit (HF): `6a048ac1fa4ddcb9538d3cdc008b0de0fbe17a9a`.
+- Upload timestamp (UTC): `2026-05-17T17:53:09Z`.
+- Authenticated as: `yusufdxb` (write scope).
+- Namespace note: the brief named `yusufguenena/inspectnet-cx`, but the active HF account is `yusufdxb`. Published under `yusufdxb/inspectnet-cx` with explicit user confirmation. No `yusufguenena` namespace was registered.
 
 ## Release Tag
 
@@ -63,10 +68,22 @@ It is not production factory-inspection software, not a fully validated edge mod
 - Trained PaDiM ONNX/OpenVINO artifacts load, but parity is not clean enough for deployment claims.
 - No TensorRT validation, Jetson latency, operator workflow, monitoring, or production threshold validation exists.
 
+## Post-Publication Verification
+
+- README rendered on the public page; positioning sentence ("reproducible industrial anomaly-inspection scaffold ... It is not production-ready or edge-validated") confirmed via HTML fetch (10 in-page hits across body + meta).
+- All 16 content files plus `.gitattributes` listed by the HF API (`/api/models/yusufdxb/inspectnet-cx`); file tree matches `hf_package/inspectnet-cx/` byte-for-byte.
+- Asset URLs verified by HEAD request (all return HTTP 307 to LFS/CDN, which is the standard HF resolve flow):
+  - `resolve/main/README.md`
+  - `resolve/main/assets/release_visual.svg`
+  - `resolve/main/claims_ledger.md`
+  - `resolve/main/artifact_index.json`
+  - `resolve/main/reports/anomalib_padim_mvtec_ad_bottle_result.json`
+- Repo metadata tags as published: `anomalib`, `anomaly-detection`, `industrial-inspection`, `mvtec-ad`, `padim`, `openvino`, `onnx`, `image-classification`, `en`, `license:apache-2.0`, `region:us`. Pipeline tag: `image-classification`. Matches README YAML front-matter.
+- No dataset leakage: MVTec AD images, masks, anomaly maps, ONNX, OpenVINO, NPZ caches, and secrets are all absent from the uploaded tree (confirmed before upload by file inventory and post-upload by API file list).
+
 ## Remaining Blockers
 
-- Hugging Face publication requires a valid token with write access to `yusufguenena/inspectnet-cx`.
-- Public page render, public artifact downloads, public SVG render, and repo metadata verification remain blocked until upload succeeds.
+- None outstanding for the v0.1.0 public release.
 
 ## Honest Roadmap
 
