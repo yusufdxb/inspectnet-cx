@@ -55,9 +55,31 @@ Result: passed. Pytest reported `38 passed`; ruff passed; package build passed; 
 - No raw MVTec AD images, masks, anomaly maps, checkpoints, ONNX files, OpenVINO files, NPZ arrays, caches, or secrets in the HF package.
 - Package checker enforces absence of local home paths, Hugging Face token markers, and private-key markers.
 
+## Multi-Category PaDiM Verification (Sprint 2)
+
+PaDiM (ResNet-18, layers layer1/layer2/layer3) has been verified on four MVTec AD
+categories. Commands and per-category detail are in
+`docs/threshold_analysis_padim_multi_category.md`.
+
+Results (image-level AUROC, Youden F1, F1-max F1):
+
+| category | AUROC  | Youden F1 | F1-max F1 |
+| -------- | -----: | --------: | --------: |
+| bottle   | 0.9976 |    0.9756 |    0.9921 |
+| cable    | 0.8720 |    0.8601 |    0.8601 |
+| capsule  | 0.8807 |    0.9439 |    0.9507 |
+| leather  | 0.9925 |    0.9834 |    0.9836 |
+
+Key finding: operating-point thresholds are category-specific and must not be
+reused across categories. Leather and bottle are strong fits for this PaDiM
+variant; cable and capsule are harder (AUROC 0.87-0.88).
+
 ## Public Positioning
 
-InspectNet-CX is a reproducible industrial anomaly-inspection scaffold with real MVTec AD bottle PaDiM baseline evidence, reusable checkpoint inference examples, and early export-path diagnostics.
+InspectNet-CX is a reproducible industrial anomaly-inspection scaffold with real
+MVTec AD PaDiM baseline evidence across bottle, cable, capsule, and leather
+categories, reusable checkpoint inference examples, and early export-path
+diagnostics.
 
 It is not production factory-inspection software, not a fully validated edge model, not Jetson validated, and not a trained native InspectNet-CX detector checkpoint.
 
