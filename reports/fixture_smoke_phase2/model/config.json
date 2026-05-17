@@ -1,0 +1,21 @@
+{
+  "architectures": [
+    "InspectNetCXForAnomalyDetection"
+  ],
+  "auto_map": {
+    "AutoConfig": "configuration_inspectnet_cx.InspectNetCXConfig",
+    "AutoModel": "modeling_inspectnet_cx.InspectNetCXForAnomalyDetection"
+  },
+  "backbone": "phase0-tiny-cnn",
+  "calibration_method": "normal_quantile",
+  "dtype": "float32",
+  "feature_layers": [
+    "stage2",
+    "stage3"
+  ],
+  "image_size": 32,
+  "model_type": "inspectnet-cx",
+  "prototype_size": 128,
+  "threshold": 0.5,
+  "transformers_version": "5.5.0"
+}

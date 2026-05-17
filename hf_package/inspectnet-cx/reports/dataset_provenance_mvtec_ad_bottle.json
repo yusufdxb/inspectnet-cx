@@ -1,0 +1,23 @@
+{
+  "dataset": "MVTec AD",
+  "category_subset": "bottle",
+  "local_root": "~/datasets/mvtec_ad/bottle",
+  "source_repo": "https://huggingface.co/datasets/micguida1/mvtech_anomaly_detection",
+  "official_homepage": "https://www.mvtec.com/research-teaching/datasets/mvtec-ad",
+  "archive_path": "~/.cache/huggingface/hub/datasets--micguida1--mvtech_anomaly_detection/snapshots/eb692b36147a3b3f12c561b879a062104c1f20b8/mvtec_anomaly_detection.tar.xz",
+  "archive_sha256": "cf4313b13603bec67abb49ca959488f7eedce2a9f7795ec54446c649ac98cd3d",
+  "expected_sha256_from_anomalib_2_4_1": "cf4313b13603bec67abb49ca959488f7eedce2a9f7795ec54446c649ac98cd3d",
+  "license": "CC BY-NC-SA 4.0; non-commercial use only",
+  "citation": "Bergmann et al., A Comprehensive Real-World Dataset for Unsupervised Anomaly Detection, CVPR 2019",
+  "extracted_files": {
+    "train/good": 209,
+    "test/good": 20,
+    "test/broken_large": 20,
+    "test/broken_small": 22,
+    "test/contamination": 21,
+    "ground_truth/broken_large": 20,
+    "ground_truth/broken_small": 22,
+    "ground_truth/contamination": 21
+  },
+  "note": "Anomalib 2.4.1 official MyDrive URL returned HTTP 404 on 2026-05-13, so the verified archive was fetched from Hugging Face and only bottle/readme/license were extracted under ~/datasets/mvtec_ad."
+}

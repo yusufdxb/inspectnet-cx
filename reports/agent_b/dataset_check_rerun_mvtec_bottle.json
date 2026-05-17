@@ -1,0 +1,86 @@
+{
+  "dataset_root": "/home/yusuf/datasets",
+  "status": "blocked",
+  "datasets": {
+    "mvtec_ad": {
+      "path": "/home/yusuf/datasets/mvtec_ad",
+      "exists": true,
+      "image_count": 355,
+      "has_train_dir": false,
+      "has_test_dir": false,
+      "has_ground_truth_dir": false,
+      "ready_categories": [
+        "bottle"
+      ],
+      "ready_category_count": 1,
+      "anomalib_data": "MVTecAD",
+      "example_category": "bottle",
+      "status": "ready_for_local_checks",
+      "next_actions": [
+        "Run dry Anomalib plan: inspectnet-baseline --plan-only --dataset mvtec_ad --method patchcore --category bottle --data-root /home/yusuf/datasets",
+        "Calibrate Phase 0 threshold: inspectnet-calibrate-normal-threshold --dataset mvtec_ad --category bottle --dataset-root /home/yusuf/datasets --model artifacts/inspectnet-cx-phase0"
+      ]
+    },
+    "visa": {
+      "path": "/home/yusuf/datasets/visa",
+      "exists": false,
+      "image_count": 0,
+      "has_train_dir": false,
+      "has_test_dir": false,
+      "has_ground_truth_dir": false,
+      "ready_categories": [],
+      "ready_category_count": 0,
+      "anomalib_data": "Visa",
+      "example_category": "candle",
+      "status": "missing",
+      "next_actions": [
+        "Create /home/yusuf/datasets/visa outside the repository.",
+        "Acquire the dataset from the official source and record license/version/checksum.",
+        "Re-run: inspectnet-dataset-check --root /home/yusuf/datasets"
+      ]
+    },
+    "mvtec_ad2": {
+      "path": "/home/yusuf/datasets/mvtec_ad2",
+      "exists": false,
+      "image_count": 0,
+      "has_train_dir": false,
+      "has_test_dir": false,
+      "has_ground_truth_dir": false,
+      "ready_categories": [],
+      "ready_category_count": 0,
+      "anomalib_data": "MVTecAD2",
+      "example_category": "sheet_metal",
+      "status": "missing",
+      "next_actions": [
+        "Create /home/yusuf/datasets/mvtec_ad2 outside the repository.",
+        "Acquire the dataset from the official source and record license/version/checksum.",
+        "Re-run: inspectnet-dataset-check --root /home/yusuf/datasets"
+      ]
+    },
+    "mvtec_loco": {
+      "path": "/home/yusuf/datasets/mvtec_loco",
+      "exists": false,
+      "image_count": 0,
+      "has_train_dir": false,
+      "has_test_dir": false,
+      "has_ground_truth_dir": false,
+      "ready_categories": [],
+      "ready_category_count": 0,
+      "anomalib_data": "MVTecLOCO",
+      "example_category": "breakfast_box",
+      "status": "missing",
+      "next_actions": [
+        "Create /home/yusuf/datasets/mvtec_loco outside the repository.",
+        "Acquire the dataset from the official source and record license/version/checksum.",
+        "Re-run: inspectnet-dataset-check --root /home/yusuf/datasets"
+      ]
+    }
+  },
+  "note": "Structure checks are conservative and do not validate official dataset integrity, licenses, checksums, or train/test label semantics.",
+  "evaluation_examples": [
+    "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_ad --category bottle --data-root /home/yusuf/datasets",
+    "inspectnet-baseline --plan-only --method patchcore --dataset visa --category candle --data-root /home/yusuf/datasets",
+    "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_ad2 --category sheet_metal --data-root /home/yusuf/datasets",
+    "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_loco --category breakfast_box --data-root /home/yusuf/datasets"
+  ]
+}

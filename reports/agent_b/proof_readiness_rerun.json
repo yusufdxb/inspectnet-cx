@@ -1,0 +1,356 @@
+{
+  "status": "blocked",
+  "python_version": "3.10.12",
+  "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.35",
+  "is_jetson_orin_nx": false,
+  "cuda_available": true,
+  "cuda_devices": [
+    "NVIDIA GeForce RTX 5070"
+  ],
+  "packages": {
+    "torch": {
+      "installed": true,
+      "version": "2.11.0+cu128"
+    },
+    "torchvision": {
+      "installed": true,
+      "version": "0.26.0+cu128"
+    },
+    "transformers": {
+      "installed": true,
+      "version": "5.5.0"
+    },
+    "anomalib": {
+      "installed": true,
+      "version": "2.4.1"
+    },
+    "timm": {
+      "installed": true,
+      "version": "1.0.26"
+    },
+    "onnx": {
+      "installed": true,
+      "version": "1.21.0"
+    },
+    "onnxruntime": {
+      "installed": true,
+      "version": "1.23.2"
+    },
+    "onnxscript": {
+      "installed": true,
+      "version": "0.7.0"
+    },
+    "openvino": {
+      "installed": true,
+      "version": "2026.1.0"
+    }
+  },
+  "dependency_readiness": {
+    "anomalib": {
+      "installed": true,
+      "version": "2.4.1",
+      "status": "ready",
+      "install_hint": "pip install -e '.[baseline]' or pip install -e '.[all]'",
+      "commands_enabled": [
+        "inspectnet-baseline --method patchcore|efficientad|padim|simplenet"
+      ],
+      "commands_blocked": []
+    },
+    "onnx": {
+      "installed": true,
+      "version": "1.21.0",
+      "status": "ready",
+      "install_hint": "pip install -e '.[export]' or pip install -e '.[all]'",
+      "commands_enabled": [
+        "inspectnet-export --format onnx --verify"
+      ],
+      "commands_blocked": []
+    },
+    "onnxruntime": {
+      "installed": true,
+      "version": "1.23.2",
+      "status": "ready",
+      "install_hint": "pip install -e '.[export]' or pip install -e '.[all]'",
+      "commands_enabled": [
+        "ONNX export runtime parity checks"
+      ],
+      "commands_blocked": []
+    },
+    "onnxscript": {
+      "installed": true,
+      "version": "0.7.0",
+      "status": "ready",
+      "install_hint": "pip install -e '.[export]' or pip install -e '.[all]'",
+      "commands_enabled": [
+        "PyTorch 2.11 ONNX graph export"
+      ],
+      "commands_blocked": []
+    },
+    "openvino": {
+      "installed": true,
+      "version": "2026.1.0",
+      "status": "ready",
+      "install_hint": "pip install openvino",
+      "commands_enabled": [
+        "inspectnet-export --format openvino --source-onnx <model.onnx>"
+      ],
+      "commands_blocked": []
+    },
+    "timm": {
+      "installed": true,
+      "version": "1.0.26",
+      "status": "ready",
+      "install_hint": "pip install -e '.[baseline]' or pip install -e '.[all]'",
+      "commands_enabled": [
+        "Anomalib backbone-dependent baselines"
+      ],
+      "commands_blocked": []
+    },
+    "torch": {
+      "installed": true,
+      "version": "2.11.0+cu128",
+      "status": "ready",
+      "install_hint": "pip install -e '.[dev]'",
+      "commands_enabled": [
+        "inspectnet-create-phase0-model",
+        "inspectnet-latency"
+      ],
+      "commands_blocked": []
+    },
+    "torchvision": {
+      "installed": true,
+      "version": "0.26.0+cu128",
+      "status": "ready",
+      "install_hint": "pip install -e '.[all]'",
+      "commands_enabled": [
+        "inspectnet-baseline with Anomalib image transforms"
+      ],
+      "commands_blocked": []
+    },
+    "transformers": {
+      "installed": true,
+      "version": "5.5.0",
+      "status": "ready",
+      "install_hint": "pip install -e '.[dev]'",
+      "commands_enabled": [
+        "InspectNetCXForAnomalyDetection.from_pretrained"
+      ],
+      "commands_blocked": []
+    }
+  },
+  "proof_groups": {
+    "core_api": {
+      "status": "ready",
+      "packages": [
+        "torch",
+        "transformers"
+      ]
+    },
+    "anomalib_baselines": {
+      "status": "ready",
+      "packages": [
+        "anomalib",
+        "torchvision",
+        "timm"
+      ]
+    },
+    "onnx_export": {
+      "status": "ready",
+      "packages": [
+        "onnx",
+        "onnxruntime",
+        "onnxscript"
+      ]
+    },
+    "openvino_export": {
+      "status": "ready",
+      "packages": [
+        "openvino"
+      ]
+    }
+  },
+  "datasets": {
+    "mvtec_ad": {
+      "path": "/home/yusuf/datasets/mvtec_ad",
+      "exists": true
+    },
+    "visa": {
+      "path": "/home/yusuf/datasets/visa",
+      "exists": false
+    },
+    "mvtec_ad2": {
+      "path": "/home/yusuf/datasets/mvtec_ad2",
+      "exists": false
+    },
+    "mvtec_loco": {
+      "path": "/home/yusuf/datasets/mvtec_loco",
+      "exists": false
+    }
+  },
+  "dataset_structure": {
+    "dataset_root": "/home/yusuf/datasets",
+    "status": "blocked",
+    "datasets": {
+      "mvtec_ad": {
+        "path": "/home/yusuf/datasets/mvtec_ad",
+        "exists": true,
+        "image_count": 355,
+        "has_train_dir": false,
+        "has_test_dir": false,
+        "has_ground_truth_dir": false,
+        "ready_categories": [
+          "bottle"
+        ],
+        "ready_category_count": 1,
+        "anomalib_data": "MVTecAD",
+        "example_category": "bottle",
+        "status": "ready_for_local_checks",
+        "next_actions": [
+          "Run dry Anomalib plan: inspectnet-baseline --plan-only --dataset mvtec_ad --method patchcore --category bottle --data-root /home/yusuf/datasets",
+          "Calibrate Phase 0 threshold: inspectnet-calibrate-normal-threshold --dataset mvtec_ad --category bottle --dataset-root /home/yusuf/datasets --model artifacts/inspectnet-cx-phase0"
+        ]
+      },
+      "visa": {
+        "path": "/home/yusuf/datasets/visa",
+        "exists": false,
+        "image_count": 0,
+        "has_train_dir": false,
+        "has_test_dir": false,
+        "has_ground_truth_dir": false,
+        "ready_categories": [],
+        "ready_category_count": 0,
+        "anomalib_data": "Visa",
+        "example_category": "candle",
+        "status": "missing",
+        "next_actions": [
+          "Create /home/yusuf/datasets/visa outside the repository.",
+          "Acquire the dataset from the official source and record license/version/checksum.",
+          "Re-run: inspectnet-dataset-check --root /home/yusuf/datasets"
+        ]
+      },
+      "mvtec_ad2": {
+        "path": "/home/yusuf/datasets/mvtec_ad2",
+        "exists": false,
+        "image_count": 0,
+        "has_train_dir": false,
+        "has_test_dir": false,
+        "has_ground_truth_dir": false,
+        "ready_categories": [],
+        "ready_category_count": 0,
+        "anomalib_data": "MVTecAD2",
+        "example_category": "sheet_metal",
+        "status": "missing",
+        "next_actions": [
+          "Create /home/yusuf/datasets/mvtec_ad2 outside the repository.",
+          "Acquire the dataset from the official source and record license/version/checksum.",
+          "Re-run: inspectnet-dataset-check --root /home/yusuf/datasets"
+        ]
+      },
+      "mvtec_loco": {
+        "path": "/home/yusuf/datasets/mvtec_loco",
+        "exists": false,
+        "image_count": 0,
+        "has_train_dir": false,
+        "has_test_dir": false,
+        "has_ground_truth_dir": false,
+        "ready_categories": [],
+        "ready_category_count": 0,
+        "anomalib_data": "MVTecLOCO",
+        "example_category": "breakfast_box",
+        "status": "missing",
+        "next_actions": [
+          "Create /home/yusuf/datasets/mvtec_loco outside the repository.",
+          "Acquire the dataset from the official source and record license/version/checksum.",
+          "Re-run: inspectnet-dataset-check --root /home/yusuf/datasets"
+        ]
+      }
+    },
+    "note": "Structure checks are conservative and do not validate official dataset integrity, licenses, checksums, or train/test label semantics.",
+    "evaluation_examples": [
+      "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_ad --category bottle --data-root /home/yusuf/datasets",
+      "inspectnet-baseline --plan-only --method patchcore --dataset visa --category candle --data-root /home/yusuf/datasets",
+      "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_ad2 --category sheet_metal --data-root /home/yusuf/datasets",
+      "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_loco --category breakfast_box --data-root /home/yusuf/datasets"
+    ]
+  },
+  "export_readiness": {
+    "onnx": {
+      "status": "ready",
+      "export_format": "onnx",
+      "model_dir": null,
+      "onnx_path": null,
+      "packages": {
+        "torch": {
+          "installed": true,
+          "version": "2.11.0+cu128"
+        },
+        "onnx": {
+          "installed": true,
+          "version": "1.21.0"
+        },
+        "onnxruntime": {
+          "installed": true,
+          "version": "1.23.2"
+        },
+        "onnxscript": {
+          "installed": true,
+          "version": "0.7.0"
+        },
+        "openvino": {
+          "installed": true,
+          "version": "2026.1.0"
+        }
+      },
+      "blocked_reasons": [],
+      "proof_note": "Export readiness only proves dependency and file availability. It does not prove runtime accuracy, OpenVINO parity, TensorRT compatibility, or Jetson latency."
+    },
+    "openvino": {
+      "status": "ready",
+      "export_format": "openvino",
+      "model_dir": null,
+      "onnx_path": null,
+      "packages": {
+        "torch": {
+          "installed": true,
+          "version": "2.11.0+cu128"
+        },
+        "onnx": {
+          "installed": true,
+          "version": "1.21.0"
+        },
+        "onnxruntime": {
+          "installed": true,
+          "version": "1.23.2"
+        },
+        "onnxscript": {
+          "installed": true,
+          "version": "0.7.0"
+        },
+        "openvino": {
+          "installed": true,
+          "version": "2026.1.0"
+        }
+      },
+      "blocked_reasons": [],
+      "proof_note": "Export readiness only proves dependency and file availability. It does not prove runtime accuracy, OpenVINO parity, TensorRT compatibility, or Jetson latency."
+    }
+  },
+  "blocked_reasons": [
+    "one or more benchmark datasets are missing or structurally unverified",
+    "Jetson Orin NX 16GB latency has not been measured on target hardware"
+  ],
+  "next_commands": [
+    "pip install -e '.[all]'",
+    "inspectnet-dataset-check --root ~/datasets --output reports/dataset_check.json",
+    "inspectnet-export --check-only --format onnx",
+    "inspectnet-latency --target-hardware jetson-orin-nx-16gb --require-jetson --device auto --image-size 512"
+  ],
+  "proof_requirements": {
+    "fixture_smoke": "requires only generated tiny local images; proves command wiring, not benchmark quality",
+    "real_anomaly_quality": "requires installed Anomalib and real datasets",
+    "calibration_quality": "requires normal validation split and threshold-dependent metrics",
+    "benchmark_metrics": "requires MVTec AD, VisA, AD2, and LOCO data",
+    "jetson_latency": "requires execution on Jetson Orin NX 16GB",
+    "deployability": "requires trained model, export parity, target-runtime latency, monitoring, operator runbook, and failure-mode validation"
+  }
+}

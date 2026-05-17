@@ -1,0 +1,47 @@
+{
+  "status": "failed",
+  "onnx_path": "artifacts/agent_b/inspectnet-cx-phase0/model.onnx",
+  "openvino_path": "artifacts/agent_b/inspectnet-cx-phase0/openvino/model.xml",
+  "provider": "CPU",
+  "output_names": [
+    "image_score",
+    "anomaly_heatmap",
+    "binary_mask",
+    "threshold",
+    "confidence"
+  ],
+  "tolerance": 0.0001,
+  "cases": [
+    {
+      "case": "zeros_stable",
+      "max_abs_diffs_vs_onnxruntime": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "binary_mask_mismatch_count": 0,
+      "binary_mask_ambiguous_mismatch_count": 0,
+      "binary_mask_match_ratio": 1.0,
+      "continuous_parity_passed": true,
+      "exact_binary_mask_parity_passed": true
+    },
+    {
+      "case": "seed0_random_threshold_boundary",
+      "max_abs_diffs_vs_onnxruntime": [
+        0.00011175870895385742,
+        0.00011175870895385742,
+        1.0,
+        0.0,
+        2.7954578399658203e-05
+      ],
+      "binary_mask_mismatch_count": 21876,
+      "binary_mask_ambiguous_mismatch_count": 21871,
+      "binary_mask_match_ratio": 0.5640146683673469,
+      "continuous_parity_passed": false,
+      "exact_binary_mask_parity_passed": false
+    }
+  ],
+  "proof_note": "OpenVINO CPU continuous tensor outputs are compared against ONNX Runtime. Exact binary mask parity may differ near the Phase 0 placeholder threshold."
+}

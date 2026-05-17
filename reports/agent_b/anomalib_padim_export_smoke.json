@@ -1,0 +1,4496 @@
+{
+  "status": "loaded_parity_failed",
+  "onnx_path": "artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx",
+  "openvino_path": "artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml",
+  "provider": "CPU",
+  "image_size": 256,
+  "input_count": 83,
+  "onnx_inputs": [
+    [
+      "input",
+      [
+        "batch_size",
+        3,
+        256,
+        256
+      ],
+      "tensor(float)"
+    ]
+  ],
+  "onnx_outputs": [
+    [
+      "pred_score",
+      [
+        "Clippred_score_dim_0",
+        "Clippred_score_dim_1"
+      ],
+      "tensor(float)"
+    ],
+    [
+      "pred_label",
+      [
+        "Clippred_score_dim_0",
+        "Clippred_score_dim_1"
+      ],
+      "tensor(bool)"
+    ],
+    [
+      "anomaly_map",
+      [
+        "Clippred_score_dim_0",
+        "Clippred_score_dim_1",
+        "Clipanomaly_map_dim_2",
+        "Clipanomaly_map_dim_3"
+      ],
+      "tensor(float)"
+    ],
+    [
+      "pred_mask",
+      [
+        "Clippred_score_dim_0",
+        "Clippred_score_dim_1",
+        "Clipanomaly_map_dim_2",
+        "Clipanomaly_map_dim_3"
+      ],
+      "tensor(bool)"
+    ]
+  ],
+  "openvino_outputs": [
+    {
+      "names": [
+        "pred_score"
+      ],
+      "partial_shape": "[?,1]",
+      "element_type": "<Type: 'float32'>"
+    },
+    {
+      "names": [
+        "pred_label"
+      ],
+      "partial_shape": "[?,1]",
+      "element_type": "<Type: 'char'>"
+    },
+    {
+      "names": [
+        "anomaly_map"
+      ],
+      "partial_shape": "[?,1,256,256]",
+      "element_type": "<Type: 'float32'>"
+    },
+    {
+      "names": [
+        "pred_mask"
+      ],
+      "partial_shape": "[?,1,256,256]",
+      "element_type": "<Type: 'char'>"
+    }
+  ],
+  "cases": [
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/000.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.004855513572692871,
+          "mean_abs_error": 0.004855513572692871,
+          "max_rel_error": 0.005454545374959707,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.0232410728931427,
+          "mean_abs_error": 0.0029445383697748184,
+          "max_rel_error": 0.06785841286182404,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.0232410728931427,
+      "max_mean_abs_error": 0.004855513572692871,
+      "max_rel_error": 0.06785841286182404
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/001.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0027004480361938477,
+          "mean_abs_error": 0.0027004480361938477,
+          "max_rel_error": 0.003409464843571186,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022610962390899658,
+          "mean_abs_error": 0.0030587706714868546,
+          "max_rel_error": 0.06595293432474136,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022610962390899658,
+      "max_mean_abs_error": 0.0030587706714868546,
+      "max_rel_error": 0.06595293432474136
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/002.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0070609450340271,
+          "mean_abs_error": 0.0070609450340271,
+          "max_rel_error": 0.00865213479846716,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023326486349105835,
+          "mean_abs_error": 0.0029651897493749857,
+          "max_rel_error": 0.06795280426740646,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023326486349105835,
+      "max_mean_abs_error": 0.0070609450340271,
+      "max_rel_error": 0.06795280426740646
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/003.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0004926919937133789,
+          "mean_abs_error": 0.0004926919937133789,
+          "max_rel_error": 0.0005476819351315498,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020820587873458862,
+          "mean_abs_error": 0.002616646233946085,
+          "max_rel_error": 0.060339298099279404,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.020820587873458862,
+      "max_mean_abs_error": 0.002616646233946085,
+      "max_rel_error": 0.060339298099279404
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/004.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0018118619918823242,
+          "mean_abs_error": 0.0018118619918823242,
+          "max_rel_error": 0.002371282782405615,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022304266691207886,
+          "mean_abs_error": 0.0032037561759352684,
+          "max_rel_error": 0.06497284770011902,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022304266691207886,
+      "max_mean_abs_error": 0.0032037561759352684,
+      "max_rel_error": 0.06497284770011902
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/005.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.002869248390197754,
+          "mean_abs_error": 0.002869248390197754,
+          "max_rel_error": 0.002879400970414281,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02279597520828247,
+          "mean_abs_error": 0.0034946503583341837,
+          "max_rel_error": 0.06636065244674683,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02279597520828247,
+      "max_mean_abs_error": 0.0034946503583341837,
+      "max_rel_error": 0.06636065244674683
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/006.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.019627779722213745,
+          "mean_abs_error": 0.002703289035707712,
+          "max_rel_error": 0.056544989347457886,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.019627779722213745,
+      "max_mean_abs_error": 0.002703289035707712,
+      "max_rel_error": 0.056544989347457886
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/007.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.004333853721618652,
+          "mean_abs_error": 0.004333853721618652,
+          "max_rel_error": 0.005708265118300915,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.019837915897369385,
+          "mean_abs_error": 0.002578957471996546,
+          "max_rel_error": 0.05749618262052536,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.019837915897369385,
+      "max_mean_abs_error": 0.004333853721618652,
+      "max_rel_error": 0.05749618262052536
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/008.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.001802682876586914,
+          "mean_abs_error": 0.001802682876586914,
+          "max_rel_error": 0.0023219052236527205,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022532224655151367,
+          "mean_abs_error": 0.0029215430840849876,
+          "max_rel_error": 0.06565286964178085,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022532224655151367,
+      "max_mean_abs_error": 0.0029215430840849876,
+      "max_rel_error": 0.06565286964178085
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/009.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0021027326583862305,
+          "mean_abs_error": 0.0021027326583862305,
+          "max_rel_error": 0.0030342116951942444,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023831605911254883,
+          "mean_abs_error": 0.003156444989144802,
+          "max_rel_error": 0.06955468654632568,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023831605911254883,
+      "max_mean_abs_error": 0.003156444989144802,
+      "max_rel_error": 0.06955468654632568
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/010.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0025751590728759766,
+          "mean_abs_error": 0.0025751590728759766,
+          "max_rel_error": 0.0034904261119663715,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021298110485076904,
+          "mean_abs_error": 0.0028182142414152622,
+          "max_rel_error": 0.06170526519417763,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021298110485076904,
+      "max_mean_abs_error": 0.0028182142414152622,
+      "max_rel_error": 0.06170526519417763
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/011.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.004897117614746094,
+          "mean_abs_error": 0.004897117614746094,
+          "max_rel_error": 0.006964193191379309,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02292931079864502,
+          "mean_abs_error": 0.003175323363393545,
+          "max_rel_error": 0.06683094054460526,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02292931079864502,
+      "max_mean_abs_error": 0.004897117614746094,
+      "max_rel_error": 0.06683094054460526
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/012.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.008459866046905518,
+          "mean_abs_error": 0.008459866046905518,
+          "max_rel_error": 0.010906735435128212,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02031397819519043,
+          "mean_abs_error": 0.002972077578306198,
+          "max_rel_error": 0.058442819863557816,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02031397819519043,
+      "max_mean_abs_error": 0.008459866046905518,
+      "max_rel_error": 0.058442819863557816
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/013.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.00891256332397461,
+          "mean_abs_error": 0.00891256332397461,
+          "max_rel_error": 0.011096615344285965,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.018677741289138794,
+          "mean_abs_error": 0.002621458377689123,
+          "max_rel_error": 0.053799401968717575,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.018677741289138794,
+      "max_mean_abs_error": 0.00891256332397461,
+      "max_rel_error": 0.053799401968717575
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/014.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0021455883979797363,
+          "mean_abs_error": 0.0021455883979797363,
+          "max_rel_error": 0.0025671469047665596,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020684927701950073,
+          "mean_abs_error": 0.002738379640504718,
+          "max_rel_error": 0.059722673147916794,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.020684927701950073,
+      "max_mean_abs_error": 0.002738379640504718,
+      "max_rel_error": 0.059722673147916794
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/015.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0020322203636169434,
+          "mean_abs_error": 0.0020322203636169434,
+          "max_rel_error": 0.002567957155406475,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023035705089569092,
+          "mean_abs_error": 0.0029812876600772142,
+          "max_rel_error": 0.06719017028808594,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023035705089569092,
+      "max_mean_abs_error": 0.0029812876600772142,
+      "max_rel_error": 0.06719017028808594
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/016.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0017036199569702148,
+          "mean_abs_error": 0.0017036199569702148,
+          "max_rel_error": 0.0025503330398350954,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.01994776725769043,
+          "mean_abs_error": 0.0027731452137231827,
+          "max_rel_error": 0.05759181082248688,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.01994776725769043,
+      "max_mean_abs_error": 0.0027731452137231827,
+      "max_rel_error": 0.05759181082248688
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/017.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.004139125347137451,
+          "mean_abs_error": 0.004139125347137451,
+          "max_rel_error": 0.006219454109668732,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02300196886062622,
+          "mean_abs_error": 0.002882360015064478,
+          "max_rel_error": 0.06717005372047424,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02300196886062622,
+      "max_mean_abs_error": 0.004139125347137451,
+      "max_rel_error": 0.06717005372047424
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/018.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.007963001728057861,
+          "mean_abs_error": 0.007963001728057861,
+          "max_rel_error": 0.009835577569901943,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022229373455047607,
+          "mean_abs_error": 0.002954152412712574,
+          "max_rel_error": 0.06465896219015121,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022229373455047607,
+      "max_mean_abs_error": 0.007963001728057861,
+      "max_rel_error": 0.06465896219015121
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/019.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.008111357688903809,
+          "mean_abs_error": 0.008111357688903809,
+          "max_rel_error": 0.01059667207300663,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022927403450012207,
+          "mean_abs_error": 0.0028960094787180424,
+          "max_rel_error": 0.06660071015357971,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022927403450012207,
+      "max_mean_abs_error": 0.008111357688903809,
+      "max_rel_error": 0.06660071015357971
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/000.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.00408327579498291,
+          "mean_abs_error": 0.00408327579498291,
+          "max_rel_error": 0.007232709787786007,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023449569940567017,
+          "mean_abs_error": 0.003336220746859908,
+          "max_rel_error": 0.0684799924492836,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023449569940567017,
+      "max_mean_abs_error": 0.00408327579498291,
+      "max_rel_error": 0.0684799924492836
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/001.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.013549089431762695,
+          "mean_abs_error": 0.013549089431762695,
+          "max_rel_error": 0.01467175967991352,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022152960300445557,
+          "mean_abs_error": 0.0030925478786230087,
+          "max_rel_error": 0.06444945186376572,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022152960300445557,
+      "max_mean_abs_error": 0.013549089431762695,
+      "max_rel_error": 0.06444945186376572
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/002.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0038687586784362793,
+          "mean_abs_error": 0.0038687586784362793,
+          "max_rel_error": 0.0048925066366791725,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022059857845306396,
+          "mean_abs_error": 0.0031258794479072094,
+          "max_rel_error": 0.06421516090631485,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022059857845306396,
+      "max_mean_abs_error": 0.0038687586784362793,
+      "max_rel_error": 0.06421516090631485
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/003.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.006291687488555908,
+          "mean_abs_error": 0.006291687488555908,
+          "max_rel_error": 0.008513400331139565,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.01986369490623474,
+          "mean_abs_error": 0.002792821265757084,
+          "max_rel_error": 0.05733516439795494,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.01986369490623474,
+      "max_mean_abs_error": 0.006291687488555908,
+      "max_rel_error": 0.05733516439795494
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/004.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0011126995086669922,
+          "mean_abs_error": 0.0011126995086669922,
+          "max_rel_error": 0.0012346857693046331,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023592114448547363,
+          "mean_abs_error": 0.0033763721585273743,
+          "max_rel_error": 0.06912914663553238,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023592114448547363,
+      "max_mean_abs_error": 0.0033763721585273743,
+      "max_rel_error": 0.06912914663553238
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/005.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0007191896438598633,
+          "mean_abs_error": 0.0007191896438598633,
+          "max_rel_error": 0.0010703237494453788,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022819489240646362,
+          "mean_abs_error": 0.0029980111867189407,
+          "max_rel_error": 0.06654558330774307,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022819489240646362,
+      "max_mean_abs_error": 0.0029980111867189407,
+      "max_rel_error": 0.06654558330774307
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/006.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.005350708961486816,
+          "mean_abs_error": 0.005350708961486816,
+          "max_rel_error": 0.007107192650437355,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022304534912109375,
+          "mean_abs_error": 0.002983883023262024,
+          "max_rel_error": 0.06500102579593658,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022304534912109375,
+      "max_mean_abs_error": 0.005350708961486816,
+      "max_rel_error": 0.06500102579593658
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/007.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.002041935920715332,
+          "mean_abs_error": 0.002041935920715332,
+          "max_rel_error": 0.0035371589474380016,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023315608501434326,
+          "mean_abs_error": 0.003351499792188406,
+          "max_rel_error": 0.06803346425294876,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023315608501434326,
+      "max_mean_abs_error": 0.003351499792188406,
+      "max_rel_error": 0.06803346425294876
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/008.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0019505023956298828,
+          "mean_abs_error": 0.0019505023956298828,
+          "max_rel_error": 0.0031582661904394627,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02167162299156189,
+          "mean_abs_error": 0.0028655207715928555,
+          "max_rel_error": 0.06285542994737625,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02167162299156189,
+      "max_mean_abs_error": 0.0028655207715928555,
+      "max_rel_error": 0.06285542994737625
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/009.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0014322996139526367,
+          "mean_abs_error": 0.0014322996139526367,
+          "max_rel_error": 0.0016573668690398335,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021628767251968384,
+          "mean_abs_error": 0.0030562779866158962,
+          "max_rel_error": 0.062802255153656,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021628767251968384,
+      "max_mean_abs_error": 0.0030562779866158962,
+      "max_rel_error": 0.062802255153656
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/010.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0009998083114624023,
+          "mean_abs_error": 0.0009998083114624023,
+          "max_rel_error": 0.0013897093012928963,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022348910570144653,
+          "mean_abs_error": 0.0031612066086381674,
+          "max_rel_error": 0.06516621261835098,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022348910570144653,
+      "max_mean_abs_error": 0.0031612066086381674,
+      "max_rel_error": 0.06516621261835098
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/011.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0017252564430236816,
+          "mean_abs_error": 0.0017252564430236816,
+          "max_rel_error": 0.0027125480119138956,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021860897541046143,
+          "mean_abs_error": 0.0028327691834419966,
+          "max_rel_error": 0.06349244713783264,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021860897541046143,
+      "max_mean_abs_error": 0.0028327691834419966,
+      "max_rel_error": 0.06349244713783264
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/012.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0022170543670654297,
+          "mean_abs_error": 0.0022170543670654297,
+          "max_rel_error": 0.0027495722752064466,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02008950710296631,
+          "mean_abs_error": 0.002598924795165658,
+          "max_rel_error": 0.05797640606760979,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02008950710296631,
+      "max_mean_abs_error": 0.002598924795165658,
+      "max_rel_error": 0.05797640606760979
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/013.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0039424896240234375,
+          "mean_abs_error": 0.0039424896240234375,
+          "max_rel_error": 0.005479809828102589,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020901888608932495,
+          "mean_abs_error": 0.0026753509882837534,
+          "max_rel_error": 0.06033656746149063,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.020901888608932495,
+      "max_mean_abs_error": 0.0039424896240234375,
+      "max_rel_error": 0.06033656746149063
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/014.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.002623140811920166,
+          "mean_abs_error": 0.002623140811920166,
+          "max_rel_error": 0.004501048009842634,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02018412947654724,
+          "mean_abs_error": 0.002942688763141632,
+          "max_rel_error": 0.058338358998298645,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02018412947654724,
+      "max_mean_abs_error": 0.002942688763141632,
+      "max_rel_error": 0.058338358998298645
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/015.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.01045215129852295,
+          "mean_abs_error": 0.01045215129852295,
+          "max_rel_error": 0.012100456282496452,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022756427526474,
+          "mean_abs_error": 0.003088456578552723,
+          "max_rel_error": 0.06634947657585144,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022756427526474,
+      "max_mean_abs_error": 0.01045215129852295,
+      "max_rel_error": 0.06634947657585144
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/016.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.002027273178100586,
+          "mean_abs_error": 0.002027273178100586,
+          "max_rel_error": 0.002452270360663533,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022893190383911133,
+          "mean_abs_error": 0.003166029928252101,
+          "max_rel_error": 0.06691581755876541,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022893190383911133,
+      "max_mean_abs_error": 0.003166029928252101,
+      "max_rel_error": 0.06691581755876541
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/017.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.002468585968017578,
+          "mean_abs_error": 0.002468585968017578,
+          "max_rel_error": 0.0034032263793051243,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022513270378112793,
+          "mean_abs_error": 0.0028389347717165947,
+          "max_rel_error": 0.0658712238073349,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022513270378112793,
+      "max_mean_abs_error": 0.0028389347717165947,
+      "max_rel_error": 0.0658712238073349
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/018.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020856738090515137,
+          "mean_abs_error": 0.0030034687370061874,
+          "max_rel_error": 0.06075916066765785,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.020856738090515137,
+      "max_mean_abs_error": 0.0030034687370061874,
+      "max_rel_error": 0.06075916066765785
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/019.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0014194250106811523,
+          "mean_abs_error": 0.0014194250106811523,
+          "max_rel_error": 0.0018408374162390828,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022708892822265625,
+          "mean_abs_error": 0.003175741992890835,
+          "max_rel_error": 0.06622959673404694,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.022708892822265625,
+      "max_mean_abs_error": 0.003175741992890835,
+      "max_rel_error": 0.06622959673404694
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/020.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.005930662155151367,
+          "mean_abs_error": 0.005930662155151367,
+          "max_rel_error": 0.006406635046005249,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021886050701141357,
+          "mean_abs_error": 0.002571734134107828,
+          "max_rel_error": 0.06359682232141495,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021886050701141357,
+      "max_mean_abs_error": 0.005930662155151367,
+      "max_rel_error": 0.06359682232141495
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/021.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0007364749908447266,
+          "mean_abs_error": 0.0007364749908447266,
+          "max_rel_error": 0.0010339140426367521,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023557066917419434,
+          "mean_abs_error": 0.003149060532450676,
+          "max_rel_error": 0.06878649443387985,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023557066917419434,
+      "max_mean_abs_error": 0.003149060532450676,
+      "max_rel_error": 0.06878649443387985
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/000.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0019979476928710938,
+          "mean_abs_error": 0.0019979476928710938,
+          "max_rel_error": 0.003240197664126754,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021044254302978516,
+          "mean_abs_error": 0.002864242997020483,
+          "max_rel_error": 0.06128374859690666,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021044254302978516,
+      "max_mean_abs_error": 0.002864242997020483,
+      "max_rel_error": 0.06128374859690666
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/001.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.002994239330291748,
+          "mean_abs_error": 0.002994239330291748,
+          "max_rel_error": 0.006054343190044165,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021742522716522217,
+          "mean_abs_error": 0.003015524707734585,
+          "max_rel_error": 0.06288957595825195,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021742522716522217,
+      "max_mean_abs_error": 0.003015524707734585,
+      "max_rel_error": 0.06288957595825195
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/002.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.007033586502075195,
+          "mean_abs_error": 0.007033586502075195,
+          "max_rel_error": 0.007753743324428797,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.018693119287490845,
+          "mean_abs_error": 0.0027608773671090603,
+          "max_rel_error": 0.05397653579711914,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.018693119287490845,
+      "max_mean_abs_error": 0.007033586502075195,
+      "max_rel_error": 0.05397653579711914
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/003.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.004711717367172241,
+          "mean_abs_error": 0.004711717367172241,
+          "max_rel_error": 0.011898474767804146,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.018717437982559204,
+          "mean_abs_error": 0.002464293036609888,
+          "max_rel_error": 0.05382604897022247,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.018717437982559204,
+      "max_mean_abs_error": 0.004711717367172241,
+      "max_rel_error": 0.05382604897022247
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/004.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.001338183879852295,
+          "mean_abs_error": 0.001338183879852295,
+          "max_rel_error": 0.0024407105520367622,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02311408519744873,
+          "mean_abs_error": 0.0032950565218925476,
+          "max_rel_error": 0.0672641396522522,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02311408519744873,
+      "max_mean_abs_error": 0.0032950565218925476,
+      "max_rel_error": 0.0672641396522522
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/005.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.007926225662231445,
+          "mean_abs_error": 0.007926225662231445,
+          "max_rel_error": 0.011628773994743824,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021696418523788452,
+          "mean_abs_error": 0.002763481345027685,
+          "max_rel_error": 0.0628528743982315,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021696418523788452,
+      "max_mean_abs_error": 0.007926225662231445,
+      "max_rel_error": 0.0628528743982315
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/006.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0014731884002685547,
+          "mean_abs_error": 0.0014731884002685547,
+          "max_rel_error": 0.0025675760116428137,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020134955644607544,
+          "mean_abs_error": 0.0028276012744754553,
+          "max_rel_error": 0.0584808886051178,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.020134955644607544,
+      "max_mean_abs_error": 0.0028276012744754553,
+      "max_rel_error": 0.0584808886051178
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/007.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02212601900100708,
+          "mean_abs_error": 0.0028919843025505543,
+          "max_rel_error": 0.06433898955583572,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02212601900100708,
+      "max_mean_abs_error": 0.0028919843025505543,
+      "max_rel_error": 0.06433898955583572
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/008.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0009199380874633789,
+          "mean_abs_error": 0.0009199380874633789,
+          "max_rel_error": 0.0016086812829598784,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023120582103729248,
+          "mean_abs_error": 0.002831697929650545,
+          "max_rel_error": 0.0673409253358841,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023120582103729248,
+      "max_mean_abs_error": 0.002831697929650545,
+      "max_rel_error": 0.0673409253358841
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/009.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.004195511341094971,
+          "mean_abs_error": 0.004195511341094971,
+          "max_rel_error": 0.0073658316396176815,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.023136496543884277,
+          "mean_abs_error": 0.003066109027713537,
+          "max_rel_error": 0.06756094098091125,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.023136496543884277,
+      "max_mean_abs_error": 0.004195511341094971,
+      "max_rel_error": 0.06756094098091125
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/010.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0012900233268737793,
+          "mean_abs_error": 0.0012900233268737793,
+          "max_rel_error": 0.0021033277735114098,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020326077938079834,
+          "mean_abs_error": 0.002791525097563863,
+          "max_rel_error": 0.058503977954387665,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.020326077938079834,
+      "max_mean_abs_error": 0.002791525097563863,
+      "max_rel_error": 0.058503977954387665
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/011.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0001398921012878418,
+          "mean_abs_error": 0.0001398921012878418,
+          "max_rel_error": 0.00025686321896500885,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02261170744895935,
+          "mean_abs_error": 0.003261364996433258,
+          "max_rel_error": 0.06589972227811813,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02261170744895935,
+      "max_mean_abs_error": 0.003261364996433258,
+      "max_rel_error": 0.06589972227811813
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/012.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0021919608116149902,
+          "mean_abs_error": 0.0021919608116149902,
+          "max_rel_error": 0.005100275855511427,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020083606243133545,
+          "mean_abs_error": 0.0028383349999785423,
+          "max_rel_error": 0.0582253560423851,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.020083606243133545,
+      "max_mean_abs_error": 0.0028383349999785423,
+      "max_rel_error": 0.0582253560423851
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/013.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02300727367401123,
+          "mean_abs_error": 0.0029816555324941874,
+          "max_rel_error": 0.06718657910823822,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02300727367401123,
+      "max_mean_abs_error": 0.0029816555324941874,
+      "max_rel_error": 0.06718657910823822
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/014.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021387696266174316,
+          "mean_abs_error": 0.002969765104353428,
+          "max_rel_error": 0.0618772991001606,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021387696266174316,
+      "max_mean_abs_error": 0.002969765104353428,
+      "max_rel_error": 0.0618772991001606
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/015.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.001556694507598877,
+          "mean_abs_error": 0.001556694507598877,
+          "max_rel_error": 0.002392612863332033,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.019673705101013184,
+          "mean_abs_error": 0.0028689061291515827,
+          "max_rel_error": 0.05661410838365555,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.019673705101013184,
+      "max_mean_abs_error": 0.0028689061291515827,
+      "max_rel_error": 0.05661410838365555
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/016.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.003046691417694092,
+          "mean_abs_error": 0.003046691417694092,
+          "max_rel_error": 0.005614965222775936,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021319270133972168,
+          "mean_abs_error": 0.002641808008775115,
+          "max_rel_error": 0.06161564216017723,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021319270133972168,
+      "max_mean_abs_error": 0.003046691417694092,
+      "max_rel_error": 0.06161564216017723
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/017.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021438419818878174,
+          "mean_abs_error": 0.002640605205669999,
+          "max_rel_error": 0.06230207532644272,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.021438419818878174,
+      "max_mean_abs_error": 0.002640605205669999,
+      "max_rel_error": 0.06230207532644272
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/018.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0018811225891113281,
+          "mean_abs_error": 0.0018811225891113281,
+          "max_rel_error": 0.0020493885967880487,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.018699288368225098,
+          "mean_abs_error": 0.0028756323736160994,
+          "max_rel_error": 0.053838130086660385,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.018699288368225098,
+      "max_mean_abs_error": 0.0028756323736160994,
+      "max_rel_error": 0.053838130086660385
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/019.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.000667870044708252,
+          "mean_abs_error": 0.000667870044708252,
+          "max_rel_error": 0.0010791782988235354,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02112644910812378,
+          "mean_abs_error": 0.003159324871376157,
+          "max_rel_error": 0.06143445149064064,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02112644910812378,
+      "max_mean_abs_error": 0.003159324871376157,
+      "max_rel_error": 0.06143445149064064
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/020.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.002190828323364258,
+          "mean_abs_error": 0.002190828323364258,
+          "max_rel_error": 0.003963001072406769,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02211582660675049,
+          "mean_abs_error": 0.003132760524749756,
+          "max_rel_error": 0.06406529247760773,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.02211582660675049,
+      "max_mean_abs_error": 0.003132760524749756,
+      "max_rel_error": 0.06406529247760773
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/000.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0007933974266052246,
+          "mean_abs_error": 0.0007933974266052246,
+          "max_rel_error": 0.0022613336332142353,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.018809109926223755,
+          "mean_abs_error": 0.0025749451015144587,
+          "max_rel_error": 0.05414893105626106,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.018809109926223755,
+      "max_mean_abs_error": 0.0025749451015144587,
+      "max_rel_error": 0.05414893105626106
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/001.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0008080005645751953,
+          "mean_abs_error": 0.0008080005645751953,
+          "max_rel_error": 0.0021827786695212126,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02313399314880371,
+          "mean_abs_error": 0.0032585388980805874,
+          "max_rel_error": 0.06763871759176254,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.02313399314880371,
+      "max_mean_abs_error": 0.0032585388980805874,
+      "max_rel_error": 0.06763871759176254
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/002.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0011054575443267822,
+          "mean_abs_error": 0.0011054575443267822,
+          "max_rel_error": 0.0033980035223066807,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021390825510025024,
+          "mean_abs_error": 0.0028411787934601307,
+          "max_rel_error": 0.0620424710214138,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.021390825510025024,
+      "max_mean_abs_error": 0.0028411787934601307,
+      "max_rel_error": 0.0620424710214138
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/003.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0030749738216400146,
+          "mean_abs_error": 0.0030749738216400146,
+          "max_rel_error": 0.00981958582997322,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021300822496414185,
+          "mean_abs_error": 0.0031171878799796104,
+          "max_rel_error": 0.062103427946567535,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.021300822496414185,
+      "max_mean_abs_error": 0.0031171878799796104,
+      "max_rel_error": 0.062103427946567535
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/004.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0013064444065093994,
+          "mean_abs_error": 0.0013064444065093994,
+          "max_rel_error": 0.004130423069000244,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022541463375091553,
+          "mean_abs_error": 0.0033879787661135197,
+          "max_rel_error": 0.06565392762422562,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.022541463375091553,
+      "max_mean_abs_error": 0.0033879787661135197,
+      "max_rel_error": 0.06565392762422562
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/005.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0008538663387298584,
+          "mean_abs_error": 0.0008538663387298584,
+          "max_rel_error": 0.00275440257973969,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02122032642364502,
+          "mean_abs_error": 0.003093339968472719,
+          "max_rel_error": 0.06182819604873657,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.02122032642364502,
+      "max_mean_abs_error": 0.003093339968472719,
+      "max_rel_error": 0.06182819604873657
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/006.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0003262162208557129,
+          "mean_abs_error": 0.0003262162208557129,
+          "max_rel_error": 0.0007359625305980444,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020973920822143555,
+          "mean_abs_error": 0.0028890890534967184,
+          "max_rel_error": 0.061220891773700714,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": false,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": false,
+      "max_abs_error": 0.020973920822143555,
+      "max_mean_abs_error": 0.0028890890534967184,
+      "max_rel_error": 0.061220891773700714
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/007.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0015725791454315186,
+          "mean_abs_error": 0.0015725791454315186,
+          "max_rel_error": 0.00475509325042367,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02153027057647705,
+          "mean_abs_error": 0.0028705503791570663,
+          "max_rel_error": 0.06249837949872017,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.02153027057647705,
+      "max_mean_abs_error": 0.0028705503791570663,
+      "max_rel_error": 0.06249837949872017
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/008.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0004162788391113281,
+          "mean_abs_error": 0.0004162788391113281,
+          "max_rel_error": 0.0013702017022296786,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022995293140411377,
+          "mean_abs_error": 0.003390201833099127,
+          "max_rel_error": 0.06714924424886703,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.022995293140411377,
+      "max_mean_abs_error": 0.003390201833099127,
+      "max_rel_error": 0.06714924424886703
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/009.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0002688169479370117,
+          "mean_abs_error": 0.0002688169479370117,
+          "max_rel_error": 0.0008175805560313165,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021312862634658813,
+          "mean_abs_error": 0.002888299524784088,
+          "max_rel_error": 0.06185418367385864,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.021312862634658813,
+      "max_mean_abs_error": 0.002888299524784088,
+      "max_rel_error": 0.06185418367385864
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/010.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0005719959735870361,
+          "mean_abs_error": 0.0005719959735870361,
+          "max_rel_error": 0.0017611138755455613,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020087838172912598,
+          "mean_abs_error": 0.0026489179581403732,
+          "max_rel_error": 0.05804389342665672,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.020087838172912598,
+      "max_mean_abs_error": 0.0026489179581403732,
+      "max_rel_error": 0.05804389342665672
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/011.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0002262890338897705,
+          "mean_abs_error": 0.0002262890338897705,
+          "max_rel_error": 0.0007462853100150824,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02186483144760132,
+          "mean_abs_error": 0.003082368988543749,
+          "max_rel_error": 0.06350459903478622,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.02186483144760132,
+      "max_mean_abs_error": 0.003082368988543749,
+      "max_rel_error": 0.06350459903478622
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/012.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0013745427131652832,
+          "mean_abs_error": 0.0013745427131652832,
+          "max_rel_error": 0.004045803565531969,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020654886960983276,
+          "mean_abs_error": 0.0026757563464343548,
+          "max_rel_error": 0.059830356389284134,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.020654886960983276,
+      "max_mean_abs_error": 0.0026757563464343548,
+      "max_rel_error": 0.059830356389284134
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/013.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0011767148971557617,
+          "mean_abs_error": 0.0011767148971557617,
+          "max_rel_error": 0.0036094209644943476,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.02030801773071289,
+          "mean_abs_error": 0.003006565384566784,
+          "max_rel_error": 0.05864398553967476,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.02030801773071289,
+      "max_mean_abs_error": 0.003006565384566784,
+      "max_rel_error": 0.05864398553967476
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/014.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0010493993759155273,
+          "mean_abs_error": 0.0010493993759155273,
+          "max_rel_error": 0.002224729862064123,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020514249801635742,
+          "mean_abs_error": 0.0031016874127089977,
+          "max_rel_error": 0.05957317724823952,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.020514249801635742,
+      "max_mean_abs_error": 0.0031016874127089977,
+      "max_rel_error": 0.05957317724823952
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/015.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0008874237537384033,
+          "mean_abs_error": 0.0008874237537384033,
+          "max_rel_error": 0.0022070615086704493,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020795106887817383,
+          "mean_abs_error": 0.002962985076010227,
+          "max_rel_error": 0.059928689152002335,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.020795106887817383,
+      "max_mean_abs_error": 0.002962985076010227,
+      "max_rel_error": 0.059928689152002335
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/016.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0010942816734313965,
+          "mean_abs_error": 0.0010942816734313965,
+          "max_rel_error": 0.0032326714135706425,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021089792251586914,
+          "mean_abs_error": 0.0029767327941954136,
+          "max_rel_error": 0.06142450496554375,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.021089792251586914,
+      "max_mean_abs_error": 0.0029767327941954136,
+      "max_rel_error": 0.06142450496554375
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/017.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.001629471778869629,
+          "mean_abs_error": 0.001629471778869629,
+          "max_rel_error": 0.004676599521189928,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.021384328603744507,
+          "mean_abs_error": 0.0030047567561268806,
+          "max_rel_error": 0.062493696808815,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.021384328603744507,
+      "max_mean_abs_error": 0.0030047567561268806,
+      "max_rel_error": 0.062493696808815
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/018.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0007033944129943848,
+          "mean_abs_error": 0.0007033944129943848,
+          "max_rel_error": 0.0020642925519496202,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.022256314754486084,
+          "mean_abs_error": 0.003019261173903942,
+          "max_rel_error": 0.06466089934110641,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.022256314754486084,
+      "max_mean_abs_error": 0.003019261173903942,
+      "max_rel_error": 0.06466089934110641
+    },
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/019.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0007212162017822266,
+          "mean_abs_error": 0.0007212162017822266,
+          "max_rel_error": 0.0021090891677886248,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.020911067724227905,
+          "mean_abs_error": 0.0025287428870797157,
+          "max_rel_error": 0.06071910262107849,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.020911067724227905,
+      "max_mean_abs_error": 0.0025287428870797157,
+      "max_rel_error": 0.06071910262107849
+    }
+  ],
+  "summary": {
+    "max_abs_error": 0.023831605911254883,
+    "max_mean_abs_error": 0.013549089431762695,
+    "max_rel_error": 0.06955468654632568,
+    "boolean_outputs_match": false
+  },
+  "proof_note": "This checks whether exported trained Anomalib PaDiM ONNX/OpenVINO artifacts load and agree with each other on local images. A failed status means export files are present and loadable, but parity is not clean enough for deployment claims. This does not prove checkpoint-to-export parity, optimized runtime, or target hardware readiness."
+}

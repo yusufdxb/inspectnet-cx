@@ -1,0 +1,47 @@
+{
+  "status": "fixture_smoke_completed",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "dataset_root": "reports/fixture_smoke_phase2/datasets",
+  "model_dir": "reports/fixture_smoke_phase2/model",
+  "calibration": {
+    "status": "calibrated_phase0_threshold",
+    "dataset": "mvtec_ad",
+    "category": "bottle",
+    "dataset_root": "reports/fixture_smoke_phase2/datasets",
+    "model_dir": "reports/fixture_smoke_phase2/model",
+    "normal_image_count": 2,
+    "quantile": 0.5,
+    "threshold": 0.49999362230300903,
+    "score_min": 0.4999905824661255,
+    "score_median": 0.4999905824661255,
+    "score_max": 0.4999966621398926,
+    "threshold_source": "normal_only_local_split",
+    "proof_note": "This calibrates a threshold from normal images only. It does not prove anomaly detection quality, F1, AUROC, or production readiness."
+  },
+  "evaluation": {
+    "sample_count": 2,
+    "normal_count": 1,
+    "anomaly_count": 1,
+    "true_positives": 1,
+    "false_positives": 0,
+    "fixture_accuracy": 1.0
+  },
+  "predictions": [
+    {
+      "path": "reports/fixture_smoke_phase2/datasets/mvtec_ad/bottle/test/good/000.png",
+      "label": "normal",
+      "image_score": 0.4999934434890747,
+      "threshold": 0.49999362230300903,
+      "predicted_anomaly": false
+    },
+    {
+      "path": "reports/fixture_smoke_phase2/datasets/mvtec_ad/bottle/test/scratch/000.png",
+      "label": "anomaly",
+      "image_score": 0.5000593066215515,
+      "threshold": 0.49999362230300903,
+      "predicted_anomaly": true
+    }
+  ],
+  "proof_note": "This exercises dataset loading, normal-only calibration, inference, and threshold application on a tiny synthetic fixture. It is not real anomaly-detection evidence."
+}

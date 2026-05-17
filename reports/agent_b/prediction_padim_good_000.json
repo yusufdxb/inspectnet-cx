@@ -1,0 +1,26 @@
+{
+  "status": "completed_predictions",
+  "backend": "anomalib_padim",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "dataset_root": "/home/yusuf/datasets",
+  "checkpoint": "artifacts/agent_b/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt",
+  "input_count": 1,
+  "latency_ms_per_image": 3292.691034002928,
+  "predictions": [
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/000.png",
+      "expected_label": "normal",
+      "image_score": 0.3502582311630249,
+      "predicted_label": "normal",
+      "predicted_anomaly": false,
+      "mask_path": "reports/agent_b/prediction_padim_good_000_masks/000_mask.png",
+      "anomaly_map_path": "reports/agent_b/prediction_padim_good_000_maps/000_anomaly_map.png",
+      "threshold_info": {
+        "threshold_source": "Anomalib checkpoint post_processor",
+        "threshold_value": null
+      }
+    }
+  ],
+  "proof_note": "Reusable Anomalib PaDiM checkpoint inference on local images. This is not an InspectNet-CX-native exported model and does not prove edge deployment."
+}

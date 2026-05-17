@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">InspectNet-CX release visual</title>
+  <desc id="desc">A compact technical diagram showing the industrial anomaly inspection pipeline, a stylized anomaly heatmap example, and the verified MVTec AD bottle PaDiM benchmark summary.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; }
+      .title { fill: #0f172a; font: 700 30px Arial, sans-serif; }
+      .subtitle { fill: #475569; font: 16px Arial, sans-serif; }
+      .h { fill: #0f172a; font: 700 18px Arial, sans-serif; }
+      .txt { fill: #334155; font: 14px Arial, sans-serif; }
+      .small { fill: #64748b; font: 12px Arial, sans-serif; }
+      .metric { fill: #0f172a; font: 700 22px Arial, sans-serif; }
+      .box { fill: #eff6ff; stroke: #60a5fa; stroke-width: 1.5; }
+      .warn { fill: #fff7ed; stroke: #fb923c; stroke-width: 1.5; }
+      .ok { fill: #ecfdf5; stroke: #34d399; stroke-width: 1.5; }
+      .arrow { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .heat1 { fill: #dbeafe; }
+      .heat2 { fill: #93c5fd; }
+      .heat3 { fill: #fbbf24; opacity: 0.84; }
+      .heat4 { fill: #ef4444; opacity: 0.88; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="520"/>
+  <text x="42" y="58" class="title">InspectNet-CX</text>
+  <text x="42" y="86" class="subtitle">Industrial anomaly-inspection scaffold with real MVTec AD bottle PaDiM evidence</text>
+
+  <rect x="40" y="120" width="700" height="330" rx="8" class="panel"/>
+  <text x="68" y="155" class="h">Pipeline</text>
+  <rect x="76" y="188" width="132" height="66" rx="7" class="box"/>
+  <text x="96" y="214" class="txt">MVTec AD</text>
+  <text x="98" y="235" class="small">bottle subset</text>
+  <path d="M 220 221 L 270 221" class="arrow"/>
+  <rect x="284" y="188" width="132" height="66" rx="7" class="box"/>
+  <text x="312" y="214" class="txt">PaDiM</text>
+  <text x="306" y="235" class="small">ResNet-18 CPU</text>
+  <path d="M 428 221 L 478 221" class="arrow"/>
+  <rect x="492" y="188" width="132" height="66" rx="7" class="ok"/>
+  <text x="517" y="214" class="txt">JSON CLI</text>
+  <text x="513" y="235" class="small">score, mask, map</text>
+  <path d="M 558 265 L 558 310" class="arrow"/>
+  <rect x="492" y="326" width="132" height="66" rx="7" class="warn"/>
+  <text x="523" y="352" class="txt">Export</text>
+  <text x="509" y="373" class="small">ONNX/OpenVINO</text>
+  <path d="M 480 359 L 416 359" class="arrow"/>
+  <rect x="244" y="326" width="172" height="66" rx="7" class="warn"/>
+  <text x="267" y="352" class="txt">Parity diagnostics</text>
+  <text x="266" y="373" class="small">not deployment-ready</text>
+  <text x="76" y="300" class="small">Raw dataset images and trained export files are not bundled in the compact HF package.</text>
+
+  <rect x="772" y="120" width="388" height="330" rx="8" class="panel"/>
+  <text x="800" y="155" class="h">Stylized anomaly-map example</text>
+  <rect x="816" y="184" width="126" height="170" rx="16" fill="#e2e8f0" stroke="#94a3b8"/>
+  <rect x="836" y="202" width="86" height="130" rx="28" fill="#f8fafc" stroke="#64748b"/>
+  <circle cx="880" cy="252" r="42" class="heat1"/>
+  <circle cx="894" cy="266" r="31" class="heat2"/>
+  <circle cx="909" cy="282" r="21" class="heat3"/>
+  <circle cx="922" cy="294" r="13" class="heat4"/>
+  <text x="815" y="382" class="small">Diagram only: no MVTec image pixels are embedded.</text>
+
+  <line x1="980" y1="185" x2="1128" y2="185" stroke="#cbd5e1"/>
+  <text x="982" y="216" class="txt">MVTec AD Bottle</text>
+  <text x="982" y="248" class="small">Backend</text>
+  <text x="1080" y="248" class="small">PaDiM</text>
+  <text x="982" y="284" class="small">Image AUROC</text>
+  <text x="1080" y="284" class="metric">0.9960</text>
+  <text x="982" y="322" class="small">Image F1</text>
+  <text x="1080" y="322" class="metric">0.9756</text>
+  <text x="982" y="360" class="small">Pixel AUROC</text>
+  <text x="1080" y="360" class="metric">0.9794</text>
+  <text x="982" y="404" class="small">Boundary: scaffold evidence, not factory validation.</text>
+</svg>

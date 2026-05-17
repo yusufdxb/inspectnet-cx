@@ -1,0 +1,7 @@
+{
+  "status": "exported_phase0_openvino",
+  "format": "openvino_ir",
+  "path": "artifacts/agent_b/inspectnet-cx-phase0/openvino/model.xml",
+  "source_onnx": "artifacts/agent_b/inspectnet-cx-phase0/model.onnx",
+  "proof_note": "OpenVINO conversion succeeded for the Phase 0 placeholder model only. Run parity and latency on target hardware before making deployment claims."
+}

@@ -1,0 +1,30 @@
+{
+  "status": "ready",
+  "export_format": "openvino",
+  "model_dir": null,
+  "onnx_path": "artifacts/agent_b/inspectnet-cx-phase0/model.onnx",
+  "packages": {
+    "torch": {
+      "installed": true,
+      "version": "2.11.0+cu128"
+    },
+    "onnx": {
+      "installed": true,
+      "version": "1.21.0"
+    },
+    "onnxruntime": {
+      "installed": true,
+      "version": "1.23.2"
+    },
+    "onnxscript": {
+      "installed": true,
+      "version": "0.7.0"
+    },
+    "openvino": {
+      "installed": true,
+      "version": "2026.1.0"
+    }
+  },
+  "blocked_reasons": [],
+  "proof_note": "Export readiness only proves dependency and file availability. It does not prove runtime accuracy, OpenVINO parity, TensorRT compatibility, or Jetson latency."
+}

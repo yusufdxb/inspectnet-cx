@@ -1,0 +1,148 @@
+{
+  "status": "fixture_smoke_completed",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "dataset_root": "reports/fixture_smoke_classical/datasets",
+  "model_dir": "reports/fixture_smoke_classical/model",
+  "dataset_check": {
+    "dataset_root": "reports/fixture_smoke_classical/datasets",
+    "status": "blocked",
+    "datasets": {
+      "mvtec_ad": {
+        "path": "reports/fixture_smoke_classical/datasets/mvtec_ad",
+        "exists": true,
+        "image_count": 4,
+        "has_train_dir": false,
+        "has_test_dir": false,
+        "has_ground_truth_dir": false,
+        "ready_categories": [
+          "bottle"
+        ],
+        "ready_category_count": 1,
+        "anomalib_data": "MVTecAD",
+        "example_category": "bottle",
+        "status": "ready_for_local_checks",
+        "next_actions": [
+          "Run dry Anomalib plan: inspectnet-baseline --plan-only --dataset mvtec_ad --method patchcore --category bottle --data-root reports/fixture_smoke_classical/datasets",
+          "Calibrate Phase 0 threshold: inspectnet-calibrate-normal-threshold --dataset mvtec_ad --category bottle --dataset-root reports/fixture_smoke_classical/datasets --model artifacts/inspectnet-cx-phase0"
+        ]
+      },
+      "visa": {
+        "path": "reports/fixture_smoke_classical/datasets/visa",
+        "exists": false,
+        "image_count": 0,
+        "has_train_dir": false,
+        "has_test_dir": false,
+        "has_ground_truth_dir": false,
+        "ready_categories": [],
+        "ready_category_count": 0,
+        "anomalib_data": "Visa",
+        "example_category": "candle",
+        "status": "missing",
+        "next_actions": [
+          "Create reports/fixture_smoke_classical/datasets/visa outside the repository.",
+          "Acquire the dataset from the official source and record license/version/checksum.",
+          "Re-run: inspectnet-dataset-check --root reports/fixture_smoke_classical/datasets"
+        ]
+      },
+      "mvtec_ad2": {
+        "path": "reports/fixture_smoke_classical/datasets/mvtec_ad2",
+        "exists": false,
+        "image_count": 0,
+        "has_train_dir": false,
+        "has_test_dir": false,
+        "has_ground_truth_dir": false,
+        "ready_categories": [],
+        "ready_category_count": 0,
+        "anomalib_data": "MVTecAD2",
+        "example_category": "sheet_metal",
+        "status": "missing",
+        "next_actions": [
+          "Create reports/fixture_smoke_classical/datasets/mvtec_ad2 outside the repository.",
+          "Acquire the dataset from the official source and record license/version/checksum.",
+          "Re-run: inspectnet-dataset-check --root reports/fixture_smoke_classical/datasets"
+        ]
+      },
+      "mvtec_loco": {
+        "path": "reports/fixture_smoke_classical/datasets/mvtec_loco",
+        "exists": false,
+        "image_count": 0,
+        "has_train_dir": false,
+        "has_test_dir": false,
+        "has_ground_truth_dir": false,
+        "ready_categories": [],
+        "ready_category_count": 0,
+        "anomalib_data": "MVTecLOCO",
+        "example_category": "breakfast_box",
+        "status": "missing",
+        "next_actions": [
+          "Create reports/fixture_smoke_classical/datasets/mvtec_loco outside the repository.",
+          "Acquire the dataset from the official source and record license/version/checksum.",
+          "Re-run: inspectnet-dataset-check --root reports/fixture_smoke_classical/datasets"
+        ]
+      }
+    },
+    "note": "Structure checks are conservative and do not validate official dataset integrity, licenses, checksums, or train/test label semantics.",
+    "evaluation_examples": [
+      "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_ad --category bottle --data-root reports/fixture_smoke_classical/datasets",
+      "inspectnet-baseline --plan-only --method patchcore --dataset visa --category candle --data-root reports/fixture_smoke_classical/datasets",
+      "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_ad2 --category sheet_metal --data-root reports/fixture_smoke_classical/datasets",
+      "inspectnet-baseline --plan-only --method patchcore --dataset mvtec_loco --category breakfast_box --data-root reports/fixture_smoke_classical/datasets"
+    ]
+  },
+  "calibration": {
+    "status": "calibrated_phase0_threshold",
+    "dataset": "mvtec_ad",
+    "category": "bottle",
+    "dataset_root": "reports/fixture_smoke_classical/datasets",
+    "model_dir": "reports/fixture_smoke_classical/model",
+    "normal_image_count": 2,
+    "quantile": 0.5,
+    "threshold": 0.5000202059745789,
+    "score_min": 0.5000104308128357,
+    "score_median": 0.5000104308128357,
+    "score_max": 0.500029981136322,
+    "threshold_source": "normal_only_local_split",
+    "proof_note": "This calibrates a threshold from normal images only. It does not prove anomaly detection quality, F1, AUROC, or production readiness."
+  },
+  "evaluation": {
+    "sample_count": 2,
+    "normal_count": 1,
+    "anomaly_count": 1,
+    "true_positives": 0,
+    "false_positives": 1,
+    "fixture_accuracy": 0.0
+  },
+  "classical_baseline": {
+    "report_path": "reports/fixture_smoke_classical/classical_patchdiff_fixture.json",
+    "status": "classical_baseline_completed",
+    "image_auroc": 1.0,
+    "image_f1": 1.0,
+    "pixel_auroc": "TBD",
+    "pixel_f1": 0.0,
+    "proof_note": "This is a normal-only classical pixel-difference baseline. It is real numeric local evidence for this dataset layout, but it is not Anomalib/PatchCore evidence and must not be compared as a state-of-the-art anomaly detector."
+  },
+  "predictions": [
+    {
+      "path": "reports/fixture_smoke_classical/datasets/mvtec_ad/bottle/test/good/000.png",
+      "label": "normal",
+      "image_score": 0.5000207424163818,
+      "threshold": 0.5000202059745789,
+      "predicted_anomaly": true
+    },
+    {
+      "path": "reports/fixture_smoke_classical/datasets/mvtec_ad/bottle/test/scratch/000.png",
+      "label": "anomaly",
+      "image_score": 0.5000119805335999,
+      "threshold": 0.5000202059745789,
+      "predicted_anomaly": false
+    }
+  ],
+  "result_validation": {
+    "status": "passed",
+    "input_dir": "reports/fixture_smoke_classical",
+    "failures": {},
+    "proof_note": "Validates that non-benchmark fixture proof reports are not misread as benchmark result JSON."
+  },
+  "proof_note": "This exercises dataset loading, normal-only calibration, inference, and threshold application on a tiny synthetic fixture. It is not real anomaly-detection evidence."
+}

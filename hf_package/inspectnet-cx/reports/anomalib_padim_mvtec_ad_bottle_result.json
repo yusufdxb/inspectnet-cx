@@ -1,0 +1,36 @@
+{
+  "method": "anomalib_padim",
+  "baseline_kind": "anomalib",
+  "baseline_version": "anomalib-2.4.1",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "dataset_root": "~/datasets",
+  "category_root": "~/datasets/mvtec_ad/bottle",
+  "device": "cpu",
+  "anomalib_model": "padim",
+  "train_normal_count": 209,
+  "test_sample_count": 83,
+  "test_normal_count": 20,
+  "test_anomaly_count": 63,
+  "image_auroc": 0.9960317611694336,
+  "image_f1": 0.9756097793579102,
+  "pixel_auroc": 0.9793554544448853,
+  "au_pro": "TBD",
+  "pixel_f1": 0.6807529926300049,
+  "latency_ms_per_image": "TBD",
+  "peak_vram_mb": 0.0,
+  "model_size_mb": "TBD",
+  "fit_elapsed_s": 9.816681997000046,
+  "test_elapsed_s": 5.824089595999908,
+  "metrics": [
+    {
+      "image_AUROC": 0.9960317611694336,
+      "image_F1Score": 0.9756097793579102,
+      "pixel_AUROC": 0.9793554544448853,
+      "pixel_F1Score": 0.6807529926300049
+    }
+  ],
+  "status": "completed_anomalib_baseline",
+  "blocked_reasons": [],
+  "proof_note": "Real Anomalib fit/test on local data. Metrics are valid only for this exact dataset path, category, package stack, and device; latency/model-size/deployment claims require separate runtime evidence."
+}
