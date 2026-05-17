@@ -1,25 +1,43 @@
 # Latency Baseline
 
+Primary deployment target: mewtwo (AMD Ryzen 9 9900X 12-Core Processor + NVIDIA GeForce RTX 5070, x86_64 Linux).
+
+## CUDA Baseline (mewtwo, 2026-05-17)
+
+| image size | median ms/img | p95 ms/img |
+| ---------- | ------------: | ---------: |
+| 256 x 256  |         0.275 |      0.391 |
+| 512 x 512  |         0.474 |      0.622 |
+
+Device: NVIDIA GeForce RTX 5070 (CUDA, RTX 5070).
+
 ## CPU Baseline (mewtwo, 2026-05-17)
 
-- Median latency per image: 0.9335 ms
-- p95 latency per image: 1.1002 ms
-- Mean latency per image: 0.9193 ms
+| image size | median ms/img | p95 ms/img |
+| ---------- | ------------: | ---------: |
+| 256 x 256  |         0.685 |      0.894 |
+| 512 x 512  |         2.956 |      3.217 |
 
-### Hardware Fingerprint
+Device: AMD Ryzen 9 9900X 12-Core Processor (CPU only).
+
+## Hardware Fingerprint
 
 - CPU: AMD Ryzen 9 9900X 12-Core Processor
 - GPU: NVIDIA GeForce RTX 5070
-- Jetson: false
 - Platform: Linux-6.8.0-111-generic-x86_64-with-glibc2.35
+- Jetson: false (x86_64 workstation, not Jetson)
 
-### Test Configuration
+## Measurement Method
 
-- Image size: 256 x 256
-- Batch size: 1
-- Warmup runs: 5
-- Measurement runs: 20
+Per-iteration timing (perf_counter before and after model forward pass with CUDA sync on GPU
+runs). Sorted timings for median and p95 calculation. Warmup: 10 runs. Measurement runs: 50.
 
-### Measurement Method
+## Future Hardware (Unmeasured)
 
-Per-iteration timing (perf_counter before and after model forward pass with device sync). Sorted timings for median and p95 calculation. Ready for Jetson Orin NX validation later.
+Jetson Orin NX 16GB is the planned edge deployment target. No latency measurement has been
+taken on Jetson hardware yet. When a Jetson session is available, run:
+
+```bash
+inspectnet-latency --device auto --image-size 512 --target-hardware jetson-orin-nx-16gb \
+  --require-jetson --output reports/latency_jetson.json
+```

@@ -7,7 +7,7 @@ This file records what the local machine can and cannot prove.
 - The Phase 0 package imports and passes the CPU test suite.
 - The Phase 0 model runs inference on synthetic tensors.
 - The local latency harness runs at 512 px on the available CUDA GPU.
-- The proof-readiness harness detects missing dependencies, datasets, and Jetson hardware.
+- The proof-readiness harness detects missing dependencies, datasets, and missing workstation-class hardware (CUDA GPU or AVX2 CPU).
 - The tiny fixture smoke command can create local MVTec-style images, calibrate a Phase 0
   threshold, run inference, embed the dataset-check output, and validate the generated proof
   report. This is command wiring evidence, not benchmark evidence.
@@ -61,28 +61,33 @@ This file records what the local machine can and cannot prove.
 - `hf_package/inspectnet-cx/` contains an honest Hugging Face package draft with model-card
   text, report copies, prediction examples, dependency pins, and a dataset license note.
 
+## Proven on mewtwo (x86_64, AMD Ryzen 9 9900X + NVIDIA RTX 5070)
+
+- Workstation latency at 512 px: CUDA median 0.474 ms/img (p95 0.622 ms); CPU median 2.956 ms/img (p95 3.217 ms).
+- Workstation latency at 256 px: CUDA median 0.275 ms/img (p95 0.391 ms); CPU median 0.685 ms/img (p95 0.894 ms).
+- Hardware string: "AMD Ryzen 9 9900X 12-Core Processor | NVIDIA GeForce RTX 5070".
+
 ## Not Proven Locally
 
 - Cross-category or cross-dataset anomaly detection quality.
 - Normal-only calibration quality for production thresholds.
 - Full benchmark metrics on all of MVTec AD, VisA, AD2, or LOCO.
 - State-of-the-art or Anomalib-equivalent baseline quality from the classical CPU baselines.
-- Jetson Orin NX 16GB latency.
 - Clean ONNX/OpenVINO parity for a trained model.
 - Checkpoint-to-export parity for trained PaDiM.
 - TensorRT compatibility.
 - Factory deployment readiness.
+- Jetson Orin NX 16GB latency (future hardware, untested).
 
 ## Current Blockers
 
 - Only the MVTec AD `bottle` category is present under `~/datasets`; VisA, AD2, LOCO, and the
   rest of MVTec AD are still missing.
-- This machine is x86_64 with an NVIDIA GeForce RTX GPU, not Jetson Orin NX 16GB.
+- mewtwo (x86_64, AMD Ryzen 9 9900X + RTX 5070) IS the primary deployment target. Jetson Orin NX 16GB is listed as future hardware.
 - Trained PaDiM ONNX/OpenVINO export artifacts exist, but parity is not clean enough for
   deployment claims.
 - No trained native InspectNet-CX model has been exported.
-- The proof-readiness reports remain `blocked` because benchmark dataset coverage and target
-  hardware latency are incomplete.
+- The proof-readiness reports remain `blocked` because benchmark dataset coverage is incomplete.
 
 ## Readiness Estimate
 

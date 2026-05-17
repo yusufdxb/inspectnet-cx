@@ -81,8 +81,8 @@ def benchmark_latency(
         },
         "hardware": hardware_info,
         "hardware_note": (
-            "This is not Jetson proof unless run on Jetson Orin NX 16GB with "
-            "--target-hardware jetson-orin-nx-16gb --require-jetson."
+            "Workstation latency measurement on the current host; opt in to --require-jetson "
+            "if you specifically need Jetson Orin NX hardware gating."
         ),
     }
 

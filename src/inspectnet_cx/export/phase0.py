@@ -81,7 +81,7 @@ def check_export_readiness(
         "blocked_reasons": blockers,
         "proof_note": (
             "Export readiness only proves dependency and file availability. It does not prove "
-            "runtime accuracy, OpenVINO parity, TensorRT compatibility, or Jetson latency."
+            "runtime accuracy, OpenVINO parity, TensorRT compatibility, or workstation latency."
         ),
     }
 
@@ -138,7 +138,7 @@ def export_phase0_onnx(
         "verified_with_onnxruntime": False,
         "proof_note": (
             "This is an export of the Phase 0 placeholder model, not a trained production "
-            "detector and not Jetson deployment proof."
+            "detector and not a deployment-ready runtime artifact."
         ),
     }
     if verify:

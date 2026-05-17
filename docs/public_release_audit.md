@@ -81,14 +81,14 @@ MVTec AD PaDiM baseline evidence across bottle, cable, capsule, and leather
 categories, reusable checkpoint inference examples, and early export-path
 diagnostics.
 
-It is not production factory-inspection software, not a fully validated edge model, not Jetson validated, and not a trained native InspectNet-CX detector checkpoint.
+It is not production factory-inspection software, not a fully validated edge model, and not a trained native InspectNet-CX detector checkpoint. The model IS validated on mewtwo (AMD Ryzen 9 9900X + NVIDIA RTX 5070): CUDA median 0.474 ms/img (p95 0.622 ms) and CPU median 2.956 ms/img (p95 3.217 ms) at 512 px. Jetson Orin NX 16GB is untested.
 
 ## Known Limitations
 
 - MVTec AD data is not bundled.
 - The native InspectNet-CX model is a Phase 0 scaffold, not the trained detector behind PaDiM metrics.
 - Trained PaDiM ONNX/OpenVINO artifacts load and reach FP32 parity (max abs error 1.79e-6, 1 boundary mask pixel out of 5.44M) on the MVTec AD bottle test split when OpenVINO is compiled with `INFERENCE_PRECISION_HINT=f32`. See `docs/openvino_parity_resolution.md`. With the BF16 default on AVX-512-BF16 CPUs, anomaly_map drifts up to about 2.3e-2 vs the ORT FP32 reference. No target-hardware (Jetson, TensorRT) parity claim is made.
-- No TensorRT validation, Jetson latency, operator workflow, monitoring, or production threshold validation exists.
+- No TensorRT validation, operator workflow, monitoring, or production threshold validation exists. Jetson Orin NX 16GB is untested.
 
 ## Post-Publication Verification
 
@@ -112,4 +112,4 @@ It is not production factory-inspection software, not a fully validated edge mod
 - Publish compact HF package after authentication is available.
 - Add trained native InspectNet-CX checkpoint only after training and held-out validation.
 - Validate export parity before any OpenVINO deployment claim.
-- Measure target-hardware latency before any edge or Jetson claim.
+- Measure Jetson Orin NX 16GB latency before any Jetson edge claim.

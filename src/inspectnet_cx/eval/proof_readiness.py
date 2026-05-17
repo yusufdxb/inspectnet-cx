@@ -97,7 +97,6 @@ def build_readiness_report(dataset_root: Path | None = None) -> dict[str, Any]:
     blocked_reasons = _blocked_reasons(
         packages=packages,
         dataset_summary=dataset_summary,
-        is_jetson=_is_jetson_orin_nx(),
     )
 
     return {
@@ -128,8 +127,8 @@ def build_readiness_report(dataset_root: Path | None = None) -> dict[str, Any]:
             "inspectnet-dataset-check --root ~/datasets --output reports/dataset_check.json",
             "inspectnet-export --check-only --format onnx",
             (
-                "inspectnet-latency --target-hardware jetson-orin-nx-16gb "
-                "--require-jetson --device auto --image-size 512"
+                "inspectnet-latency --device auto --image-size 512"
+                " --output reports/latency_mewtwo.json"
             ),
         ],
         "proof_requirements": {
@@ -142,7 +141,10 @@ def build_readiness_report(dataset_root: Path | None = None) -> dict[str, Any]:
                 "requires normal validation split and threshold-dependent metrics"
             ),
             "benchmark_metrics": "requires MVTec AD, VisA, AD2, and LOCO data",
-            "jetson_latency": "requires execution on Jetson Orin NX 16GB",
+            "workstation_latency": (
+                "measured on mewtwo (AMD Ryzen 9 9900X + RTX 5070); "
+                "use --require-jetson opt-in if Jetson Orin NX gating is also needed"
+            ),
             "deployability": (
                 "requires trained model, export parity, target-runtime latency, monitoring, "
                 "operator runbook, and failure-mode validation"
@@ -176,7 +178,7 @@ def _dataset_paths(dataset_root: Path | None) -> dict[str, Path]:
 def _all_ready(dataset_paths: dict[str, Path]) -> bool:
     packages_ready = all(_package_status(name)["installed"] for name in REQUIRED_PACKAGES)
     datasets_ready = all(path.exists() for path in dataset_paths.values())
-    return packages_ready and datasets_ready and _is_jetson_orin_nx()
+    return packages_ready and datasets_ready and _is_workstation_class()
 
 
 def _package_status(name: str) -> dict[str, Any]:
@@ -208,7 +210,6 @@ def _dependency_readiness(name: str, status: dict[str, Any]) -> dict[str, Any]:
 def _blocked_reasons(
     packages: dict[str, dict[str, Any]],
     dataset_summary: dict[str, Any],
-    is_jetson: bool,
 ) -> list[str]:
     reasons = []
     for package in ("anomalib", "torchvision", "timm"):
@@ -219,9 +220,27 @@ def _blocked_reasons(
             reasons.append(f"missing ONNX export/check dependency: {package}")
     if dataset_summary["status"] != "ready":
         reasons.append("one or more benchmark datasets are missing or structurally unverified")
-    if not is_jetson:
-        reasons.append("Jetson Orin NX 16GB latency has not been measured on target hardware")
+    if not _is_workstation_class():
+        reasons.append(
+            "no CUDA device detected and CPU does not report AVX2; "
+            "workstation-class hardware (CUDA GPU or AVX2 CPU) is required for deployment proofs"
+        )
     return reasons
+
+
+def _is_workstation_class() -> bool:
+    """Return True if the host has CUDA available or an AVX2-capable CPU."""
+    if torch.cuda.is_available():
+        return True
+    cpuinfo_path = Path("/proc/cpuinfo")
+    if cpuinfo_path.exists():
+        try:
+            text = cpuinfo_path.read_text()
+            if "avx2" in text.lower():
+                return True
+        except Exception:  # broad catch is intentional: /proc/cpuinfo read may fail on any OS
+            pass
+    return False
 
 
 def _is_jetson_orin_nx() -> bool:

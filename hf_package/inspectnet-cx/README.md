@@ -134,8 +134,8 @@ PYTHONPATH=src python3 scripts/check_hf_package.py
 
 ## Unverified Claims
 
-- No Jetson Orin NX latency has been measured.
 - No TensorRT path has been validated.
+- Jetson Orin NX 16GB is untested; it is listed as future hardware.
 - No production thresholding or operator workflow has been validated.
 - No cross-category MVTec AD, VisA, AD2, or LOCO results are included.
 - No trained native InspectNet-CX model checkpoint exists yet.

@@ -24,7 +24,7 @@ tests, and repeatable local proof checks.
 - Moved heavy dependencies into optional extras so the core scaffold is easier to install.
 - Added a command to create a local Phase 0 model directory for inference testing.
 - Added proof-readiness checks that expose missing datasets, missing dependencies, and
-  non-Jetson hardware instead of hiding them.
+  missing workstation-class hardware (CUDA or AVX2) instead of hiding them.
 - Ignored generated local reports so machine-specific artifacts do not masquerade as
   benchmark evidence.
 - Added dataset readiness checks, benchmark result schema validation, CI package build,
@@ -36,8 +36,8 @@ tests, and repeatable local proof checks.
 - No trained InspectNet-CX checkpoint.
 - No dataset cards or benchmark tables.
 - Phase 0 ONNX export mechanics exist for the placeholder model, but trained-model export
-  parity, OpenVINO/TensorRT parity, and Jetson deployment remain unproven.
-- No Jetson hardware validation.
+  parity and OpenVINO/TensorRT parity remain unproven.
+- Workstation (mewtwo, x86_64, RTX 5070) latency is measured. Jetson Orin NX 16GB is listed as future hardware; no Jetson validation has been run.
 
 These gaps prevent a real 10 / 10 score. They require data, experiments, and hardware,
 not more scaffolding.

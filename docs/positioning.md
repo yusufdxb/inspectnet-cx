@@ -19,4 +19,5 @@ deployment-ready model contracts, not novelty claims around a backbone.
 
 1. Competitive on AD2 and LOCO, not just MVTec AD.
 2. Threshold stability under normal-only calibration.
-3. Less than 30 ms per image on Jetson Orin NX 16GB at 512 px.
+3. Measured latency on mewtwo (AMD Ryzen 9 9900X + NVIDIA RTX 5070): CUDA median 0.474 ms/img (p95 0.622 ms) at 512 px; CPU median 2.956 ms/img (p95 3.217 ms) at 512 px.
+4. Future hardware: Jetson Orin NX 16GB (untested; target for a future lab session).

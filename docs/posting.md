@@ -11,7 +11,7 @@ Do not claim:
 - trained anomaly detection quality
 - benchmark superiority
 - production inspection readiness
-- Jetson Orin NX latency
+- Jetson Orin NX latency (untested; future hardware)
 - OpenVINO parity or TensorRT compatibility
 
 Allowed evidence framing:

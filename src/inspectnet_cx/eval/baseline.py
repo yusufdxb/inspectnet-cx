@@ -179,7 +179,7 @@ def build_anomalib_padim_result(args: argparse.Namespace) -> dict[str, Any]:
         "proof_note": (
             "Real Anomalib PaDiM fit/test on the local MVTec AD category. Metrics are local "
             "benchmark evidence for this exact dataset, model configuration, and environment. "
-            "They do not prove Jetson latency or factory deployment readiness."
+            "They do not prove workstation deployment readiness beyond the measured numbers."
         ),
     }
 

@@ -82,4 +82,5 @@ calibration quality unless paired with held-out labeled evaluation.
   and commit hash.
 - AD2 and LOCO results must be separated from saturated MVTec AD results.
 - ONNX/OpenVINO export claims require an export report and numerical parity check.
-- Jetson latency claims require `--require-jetson` output produced on Jetson Orin NX 16GB.
+- Workstation latency claims must be produced on mewtwo (AMD Ryzen 9 9900X + RTX 5070) or an equivalent x86_64 host with CUDA; cite device, image size, and the output JSON.
+- Jetson Orin NX 16GB latency claims require `--require-jetson` output produced on that hardware (future hardware; not yet measured).

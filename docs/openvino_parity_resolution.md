@@ -124,5 +124,5 @@ The new flag is recorded in both report payloads as `inference_precision_hint`. 
 ## What this resolution does NOT prove
 
 - It does not prove checkpoint-to-export parity (PyTorch -> ONNX). That is a separate check.
-- It does not prove target-hardware (Jetson, TensorRT) latency or accuracy.
+- It does not prove future hardware (Jetson Orin NX 16GB, TensorRT) latency or accuracy; those are untested.
 - It does not modify the exported ONNX or OpenVINO graph; only the OpenVINO runtime precision hint changes.

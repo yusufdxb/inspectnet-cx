@@ -20,6 +20,7 @@ artifact. These are local-machine evidence claims only, not production or edge-d
 | Trained Anomalib PaDiM ONNX and OpenVINO export artifacts were created. | `reports/agent_b/anomalib_padim_export_status.json` |
 | Trained exported PaDiM ONNX/OpenVINO artifacts load, but parity fails over the 83-image local bottle test folder. | `reports/agent_b/anomalib_padim_export_smoke.json` |
 | The HF package draft includes report copies, example prediction JSONs, dependency pins, an artifact index, and a dataset not-bundled note. | `hf_package/inspectnet-cx/artifact_index.json`; `hf_package/inspectnet-cx/README.md` |
+| Workstation latency measured on mewtwo (AMD Ryzen 9 9900X + NVIDIA RTX 5070): CUDA 256 px median 0.275 ms/img (p95 0.391 ms), CUDA 512 px median 0.474 ms/img (p95 0.622 ms), CPU 256 px median 0.685 ms/img (p95 0.894 ms), CPU 512 px median 2.956 ms/img (p95 3.217 ms). | `reports/latency_mewtwo.json` (gitignored; captured 2026-05-17) |
 
 ## Partially Verified Claims
 
@@ -34,7 +35,7 @@ artifact. These are local-machine evidence claims only, not production or edge-d
 | blocked claim | blocker artifact or note |
 | --- | --- |
 | Production or factory deployment readiness. | Explicitly not proven in `docs/proof_status.md`; requires trained checkpoint parity, target-hardware latency, monitoring, calibration, and operator workflow evidence. |
-| Jetson Orin NX latency or edge validation. | `docs/proof_status.md` states this machine is not Jetson hardware and Jetson latency is unmeasured. |
+| Jetson Orin NX edge validation. | Jetson Orin NX 16GB is untested; listed as future hardware in `docs/positioning.md`. |
 | TensorRT compatibility. | No TensorRT validation artifact exists. |
 | Cross-category or cross-dataset benchmark quality. | Only MVTec AD `bottle` is locally evaluated. |
 | Clean trained PaDiM ONNX/OpenVINO parity. | `reports/agent_b/anomalib_padim_export_smoke.json` is `loaded_parity_failed`. |
@@ -45,6 +46,6 @@ artifact. These are local-machine evidence claims only, not production or edge-d
 | wording risk | required wording |
 | --- | --- |
 | Any standalone "benchmark performance" claim without `bottle`, local path, method, and report path. | Say "local MVTec AD `bottle` PaDiM baseline evidence" and cite the report. |
-| Any "export-ready", "deployment-ready", "OpenVINO-ready", "edge-ready", or "Jetson-ready" phrasing. | Say "export artifacts exist and load, but trained export parity is not clean enough for deployment claims." |
+| Any "export-ready", "deployment-ready", "OpenVINO-ready", "edge-ready", or "Jetson-ready" phrasing. | Say "export artifacts exist and load, but trained export parity is not clean enough for deployment claims. Workstation latency is measured on mewtwo (AMD Ryzen 9 9900X + RTX 5070): CUDA median 0.474 ms/img at 512 px." |
 | Any implication that the Phase 0 placeholder model is the trained anomaly detector behind the PaDiM metrics. | Say the metrics belong to an Anomalib PaDiM baseline artifact, not a trained native InspectNet-CX checkpoint. |
 | Any implication that MVTec AD images are included in the HF package. | Say MVTec AD is CC BY-NC-SA 4.0 and is not bundled. |

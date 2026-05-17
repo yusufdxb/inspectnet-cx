@@ -17,8 +17,8 @@ Use this checklist before posting the repository or a Hugging Face model repo.
 - [ ] Any PaDiM/classical numbers in docs cite their exact JSON report path.
 - [ ] OpenVINO claims mention the current parity status; no deployment claim is made while
       `reports/agent_b/openvino_parity_phase0.json` is `failed`.
-- [ ] Jetson latency is either measured on Jetson Orin NX 16GB with `--require-jetson` or
-      explicitly marked unproven.
+- [x] Workstation latency is measured on mewtwo (AMD Ryzen 9 9900X + RTX 5070): CUDA median 0.474 ms/img (p95 0.622 ms) at 512 px; CPU median 2.956 ms/img (p95 3.217 ms) at 512 px.
+- [ ] Jetson Orin NX 16GB latency is explicitly marked as future hardware (unmeasured); use `--require-jetson` opt-in if Jetson gating is needed.
 
 ## Hugging Face Phase 0 Model
 
@@ -33,6 +33,7 @@ Use this checklist before posting the repository or a Hugging Face model repo.
 
 - [ ] Do not claim MVTec AD, VisA, AD2, or LOCO performance.
 - [ ] Do not claim calibrated threshold quality.
-- [ ] Do not claim Jetson Orin NX latency.
+- [x] Workstation latency is claimed only for mewtwo (AMD Ryzen 9 9900X + RTX 5070) with measured numbers.
+- [ ] Do not claim Jetson Orin NX latency (untested; future hardware).
 - [ ] Do not claim production defect detection.
 - [ ] Do not claim OpenVINO parity until the parity report passes.

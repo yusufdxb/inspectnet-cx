@@ -28,7 +28,7 @@ REQUIRED_README_PHRASES = (
     "not a fully validated edge model",
     "MVTec AD is CC BY-NC-SA 4.0 and is not bundled here",
     "parity is not clean enough for deployment claims",
-    "No Jetson Orin NX latency has been measured",
+    "No TensorRT path has been validated",
     "No trained native InspectNet-CX model checkpoint exists yet",
     "Use Python 3.10 for reproduction",
     "CUDA is not required for the published PaDiM evidence",

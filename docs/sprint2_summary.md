@@ -41,7 +41,7 @@ Commits pushed: 4 (this repo) + 2 cross-referenced in PreFailureNet
 - Extended `src/inspectnet_cx/eval/latency.py` and CLI `inspectnet-latency`.
 - Measures input load, preprocess, forward, threshold decision, total; reports mean/median/p95.
 - Hardware fingerprint via `/proc/cpuinfo`, `nvidia-smi`, `/etc/nv_tegra_release`; sets `jetson: true` when applicable.
-- CPU baseline on mewtwo: median 0.93 ms / image @ 256x256 batch 1 on `AMD Ryzen 9 9900X 12-Core Processor | NVIDIA GeForce RTX 5070 | jetson:false`.
+- Workstation baseline on mewtwo (AMD Ryzen 9 9900X + RTX 5070): CUDA 256px median 0.275 ms/img (p95 0.391), CUDA 512px median 0.474 ms/img (p95 0.622); CPU 256px median 0.685 ms/img (p95 0.894), CPU 512px median 2.956 ms/img (p95 3.217).
 - New flags: `--n-runs --image-size --batch-size --warmup --device --target-hardware --require-jetson --output`.
 - pytest: `54 passed`. ruff: `All checks passed!`.
 
@@ -51,5 +51,5 @@ Commits pushed: 4 (this repo) + 2 cross-referenced in PreFailureNet
 
 ## Open items (not blockers)
 - Phase 1 model is a scaffold; no production training run.
-- OpenVINO parity validated on CPU only; Jetson / TensorRT path still owed.
+- OpenVINO parity validated on CPU only; TensorRT path still owed. Jetson Orin NX 16GB is listed as future hardware.
 - Cable AUROC 0.872 is the weakest of the four verified categories; recommend documenting category-specific operating points rather than a single global threshold.
