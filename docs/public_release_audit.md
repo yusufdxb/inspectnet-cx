@@ -65,7 +65,7 @@ It is not production factory-inspection software, not a fully validated edge mod
 
 - MVTec AD data is not bundled.
 - The native InspectNet-CX model is a Phase 0 scaffold, not the trained detector behind PaDiM metrics.
-- Trained PaDiM ONNX/OpenVINO artifacts load, but parity is not clean enough for deployment claims.
+- Trained PaDiM ONNX/OpenVINO artifacts load and reach FP32 parity (max abs error 1.79e-6, 1 boundary mask pixel out of 5.44M) on the MVTec AD bottle test split when OpenVINO is compiled with `INFERENCE_PRECISION_HINT=f32`. See `docs/openvino_parity_resolution.md`. With the BF16 default on AVX-512-BF16 CPUs, anomaly_map drifts up to about 2.3e-2 vs the ORT FP32 reference. No target-hardware (Jetson, TensorRT) parity claim is made.
 - No TensorRT validation, Jetson latency, operator workflow, monitoring, or production threshold validation exists.
 
 ## Post-Publication Verification

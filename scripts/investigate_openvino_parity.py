@@ -16,6 +16,16 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--openvino", type=Path, required=True)
     parser.add_argument("--image-size", type=int, default=224)
     parser.add_argument(
+        "--inference-precision",
+        choices=("f32", "bf16", "default"),
+        default="f32",
+        help=(
+            "OpenVINO CPU INFERENCE_PRECISION_HINT. Defaults to f32 for parity-strict "
+            "comparison; use 'default' to inherit the CPU plugin default (bfloat16 on "
+            "AVX-512-BF16 hosts)."
+        ),
+    )
+    parser.add_argument(
         "--output", type=Path, default=Path("reports/agent_b/openvino_parity_investigation.json")
     )
     return parser.parse_args(argv)
@@ -23,14 +33,22 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def main(argv: list[str] | None = None) -> None:
     args = parse_args(argv)
-    report = investigate_parity(args.onnx, args.openvino, image_size=args.image_size)
+    report = investigate_parity(
+        args.onnx,
+        args.openvino,
+        image_size=args.image_size,
+        inference_precision=args.inference_precision,
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
 
 
 def investigate_parity(
-    onnx_path: Path, openvino_path: Path, image_size: int = 224
+    onnx_path: Path,
+    openvino_path: Path,
+    image_size: int = 224,
+    inference_precision: str = "f32",
 ) -> dict[str, Any]:
     import onnxruntime as ort  # type: ignore[import-not-found]
     import openvino as ov  # type: ignore[import-not-found]
@@ -39,7 +57,10 @@ def investigate_parity(
     openvino_path = openvino_path.expanduser()
     session = ort.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
     core = ov.Core()
-    compiled = core.compile_model(str(openvino_path), "CPU")
+    ov_config: dict[str, str] = {}
+    if inference_precision in ("f32", "bf16"):
+        ov_config["INFERENCE_PRECISION_HINT"] = inference_precision
+    compiled = core.compile_model(str(openvino_path), "CPU", ov_config)
     ov_input = compiled.input(0)
     output_names = [_openvino_output_name(out) for out in compiled.outputs]
 
@@ -75,6 +96,7 @@ def investigate_parity(
         "openvino_path": str(openvino_path),
         "provider": "CPU",
         "image_size": image_size,
+        "inference_precision_hint": inference_precision,
         "cases": case_reports,
         "summary": {
             "continuous_pass_1e_4": continuous_pass_1e_4,

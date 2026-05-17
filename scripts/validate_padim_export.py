@@ -20,6 +20,16 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--input", type=Path, required=True)
     parser.add_argument("--image-size", type=int, default=256)
     parser.add_argument(
+        "--inference-precision",
+        choices=("f32", "bf16", "default"),
+        default="f32",
+        help=(
+            "OpenVINO CPU INFERENCE_PRECISION_HINT. Defaults to f32 for parity-strict "
+            "validation. Use 'default' to inherit the CPU plugin default (bfloat16 on "
+            "AVX-512-BF16 hosts), which trades parity for speed."
+        ),
+    )
+    parser.add_argument(
         "--output", type=Path, default=Path("reports/agent_b/anomalib_padim_export_smoke.json")
     )
     return parser.parse_args(argv)
@@ -27,14 +37,24 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def main(argv: list[str] | None = None) -> None:
     args = parse_args(argv)
-    report = validate_export(args.onnx, args.openvino, args.input, args.image_size)
+    report = validate_export(
+        args.onnx,
+        args.openvino,
+        args.input,
+        args.image_size,
+        inference_precision=args.inference_precision,
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
 
 
 def validate_export(
-    onnx_path: Path, openvino_path: Path, input_path: Path, image_size: int
+    onnx_path: Path,
+    openvino_path: Path,
+    input_path: Path,
+    image_size: int,
+    inference_precision: str = "f32",
 ) -> dict[str, Any]:
     import onnxruntime as ort  # type: ignore[import-not-found]
     import openvino as ov  # type: ignore[import-not-found]
@@ -46,7 +66,10 @@ def validate_export(
 
     session = ort.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
     core = ov.Core()
-    compiled = core.compile_model(str(openvino_path), "CPU")
+    ov_config: dict[str, str] = {}
+    if inference_precision in ("f32", "bf16"):
+        ov_config["INFERENCE_PRECISION_HINT"] = inference_precision
+    compiled = core.compile_model(str(openvino_path), "CPU", ov_config)
     ov_input = compiled.input(0)
     ov_output_names = [_openvino_output_name(out) for out in compiled.outputs]
 
@@ -65,15 +88,25 @@ def validate_export(
     max_mean_abs_error = max(item["max_mean_abs_error"] for item in cases)
     max_rel_error = max(item["max_rel_error"] for item in cases)
     boolean_outputs_match = all(item["boolean_outputs_match"] for item in cases)
+    total_pred_mask_pixel_flips = sum(item.get("pred_mask_pixel_flips", 0) for item in cases)
+    total_pred_mask_pixels = sum(item.get("pred_mask_pixel_count", 0) for item in cases)
+    pred_mask_flip_fraction = (
+        total_pred_mask_pixel_flips / total_pred_mask_pixels if total_pred_mask_pixels else 0.0
+    )
+    if max_abs_error <= 1e-4 and boolean_outputs_match:
+        status = "passed"
+    elif max_abs_error <= 1e-4 and pred_mask_flip_fraction <= 1e-4:
+        status = "passed_mask_boundary_unstable"
+    else:
+        status = "loaded_parity_failed"
     return {
-        "status": "passed"
-        if max_abs_error <= 1e-4 and boolean_outputs_match
-        else "loaded_parity_failed",
+        "status": status,
         "onnx_path": str(onnx_path),
         "openvino_path": str(openvino_path),
         "provider": "CPU",
         "image_size": image_size,
         "input_count": len(image_paths),
+        "inference_precision_hint": inference_precision,
         "onnx_inputs": [(item.name, item.shape, item.type) for item in session.get_inputs()],
         "onnx_outputs": [(item.name, item.shape, item.type) for item in session.get_outputs()],
         "openvino_outputs": [
@@ -90,6 +123,9 @@ def validate_export(
             "max_mean_abs_error": max_mean_abs_error,
             "max_rel_error": max_rel_error,
             "boolean_outputs_match": boolean_outputs_match,
+            "pred_mask_pixel_flips": total_pred_mask_pixel_flips,
+            "pred_mask_pixel_count": total_pred_mask_pixels,
+            "pred_mask_flip_fraction": pred_mask_flip_fraction,
         },
         "proof_note": (
             "This checks whether exported trained Anomalib PaDiM ONNX/OpenVINO artifacts load "
@@ -131,18 +167,27 @@ def _compare_case(
     max_abs = 0.0
     max_mean = 0.0
     max_rel = 0.0
+    pred_mask_pixel_flips = 0
+    pred_mask_pixel_count = 0
     for name, onnx_value, ov_value in zip(names, onnx_outputs, ov_outputs, strict=True):
         if onnx_value.dtype == bool or ov_value.dtype == bool:
-            matches = bool(np.array_equal(onnx_value.astype(bool), ov_value.astype(bool)))
+            onnx_bool = onnx_value.astype(bool)
+            ov_bool = ov_value.astype(bool)
+            matches = bool(np.array_equal(onnx_bool, ov_bool))
             bool_match = bool_match and matches
-            output_reports.append(
-                {
-                    "name": name,
-                    "type": "boolean",
-                    "matches": matches,
-                    "shape": list(onnx_value.shape),
-                }
-            )
+            entry: dict[str, Any] = {
+                "name": name,
+                "type": "boolean",
+                "matches": matches,
+                "shape": list(onnx_value.shape),
+            }
+            if name == "pred_mask":
+                flips = int((onnx_bool != ov_bool).sum())
+                pred_mask_pixel_flips = flips
+                pred_mask_pixel_count = int(onnx_bool.size)
+                entry["pixel_flips"] = flips
+                entry["pixel_count"] = pred_mask_pixel_count
+            output_reports.append(entry)
             continue
         diff = np.abs(onnx_value.astype(np.float32) - ov_value.astype(np.float32))
         rel = diff / np.maximum(np.abs(onnx_value.astype(np.float32)), 1.0e-8)
@@ -166,6 +211,8 @@ def _compare_case(
         "max_abs_error": max_abs,
         "max_mean_abs_error": max_mean,
         "max_rel_error": max_rel,
+        "pred_mask_pixel_flips": pred_mask_pixel_flips,
+        "pred_mask_pixel_count": pred_mask_pixel_count,
     }
 
 

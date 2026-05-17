@@ -4,6 +4,7 @@
   "openvino_path": "artifacts/agent_b/inspectnet-cx-phase0-rerun/openvino/model.xml",
   "provider": "CPU",
   "image_size": 224,
+  "inference_precision_hint": "f32",
   "cases": [
     {
       "case": "zeros",
@@ -72,18 +73,18 @@
       "outputs": [
         {
           "name": "image_score",
-          "max_abs_error": 4.649162292480469e-05,
-          "mean_abs_error": 4.649162292480469e-05,
-          "max_rel_error": 9.297460201196373e-05,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
           "shape": [
             1
           ]
         },
         {
           "name": "anomaly_heatmap",
-          "max_abs_error": 4.649162292480469e-05,
-          "mean_abs_error": 1.1873733456013724e-05,
-          "max_rel_error": 9.297460201196373e-05,
+          "max_abs_error": 1.1920928955078125e-07,
+          "mean_abs_error": 2.190508663346691e-09,
+          "max_rel_error": 2.3840868834668072e-07,
           "shape": [
             1,
             1,
@@ -93,9 +94,9 @@
         },
         {
           "name": "binary_mask",
-          "max_abs_error": 1.0,
-          "mean_abs_error": 0.022381218150258064,
-          "max_rel_error": 100000000.0,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
           "shape": [
             1,
             1,
@@ -114,38 +115,38 @@
         },
         {
           "name": "confidence",
-          "max_abs_error": 1.1622905731201172e-05,
-          "mean_abs_error": 1.1622905731201172e-05,
-          "max_rel_error": 2.324527122254949e-05,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
           "shape": [
             1
           ]
         }
       ],
-      "continuous_max_abs_error": 4.649162292480469e-05,
-      "continuous_mean_abs_error": 4.649162292480469e-05,
-      "continuous_max_rel_error": 9.297460201196373e-05,
-      "binary_mask_mismatch_count": 1123,
-      "binary_mask_ambiguous_mismatch_count": 1123,
-      "binary_mask_match_ratio": 0.9776187818877551
+      "continuous_max_abs_error": 1.1920928955078125e-07,
+      "continuous_mean_abs_error": 2.190508663346691e-09,
+      "continuous_max_rel_error": 2.3840868834668072e-07,
+      "binary_mask_mismatch_count": 0,
+      "binary_mask_ambiguous_mismatch_count": 0,
+      "binary_mask_match_ratio": 1.0
     },
     {
       "case": "constant_half",
       "outputs": [
         {
           "name": "image_score",
-          "max_abs_error": 2.2530555725097656e-05,
-          "mean_abs_error": 2.2530555725097656e-05,
-          "max_rel_error": 4.5059081458020955e-05,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
           "shape": [
             1
           ]
         },
         {
           "name": "anomaly_heatmap",
-          "max_abs_error": 2.2530555725097656e-05,
-          "mean_abs_error": 5.3665557970816735e-06,
-          "max_rel_error": 4.5059081458020955e-05,
+          "max_abs_error": 1.1920928955078125e-07,
+          "mean_abs_error": 3.1295526170538324e-09,
+          "max_rel_error": 2.384169874858344e-07,
           "shape": [
             1,
             1,
@@ -156,8 +157,8 @@
         {
           "name": "binary_mask",
           "max_abs_error": 1.0,
-          "mean_abs_error": 0.022421076893806458,
-          "max_rel_error": 100000000.0,
+          "mean_abs_error": 1.992984653043095e-05,
+          "max_rel_error": 1.0,
           "shape": [
             1,
             1,
@@ -176,38 +177,38 @@
         },
         {
           "name": "confidence",
-          "max_abs_error": 5.602836608886719e-06,
-          "mean_abs_error": 5.602836608886719e-06,
-          "max_rel_error": 1.1205547707504593e-05,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
           "shape": [
             1
           ]
         }
       ],
-      "continuous_max_abs_error": 2.2530555725097656e-05,
-      "continuous_mean_abs_error": 2.2530555725097656e-05,
-      "continuous_max_rel_error": 4.5059081458020955e-05,
-      "binary_mask_mismatch_count": 1125,
-      "binary_mask_ambiguous_mismatch_count": 1125,
-      "binary_mask_match_ratio": 0.9775789221938775
+      "continuous_max_abs_error": 1.1920928955078125e-07,
+      "continuous_mean_abs_error": 3.1295526170538324e-09,
+      "continuous_max_rel_error": 2.384169874858344e-07,
+      "binary_mask_mismatch_count": 1,
+      "binary_mask_ambiguous_mismatch_count": 1,
+      "binary_mask_match_ratio": 0.9999800701530612
     },
     {
       "case": "seed0_uniform",
       "outputs": [
         {
           "name": "image_score",
-          "max_abs_error": 3.5703182220458984e-05,
-          "mean_abs_error": 3.5703182220458984e-05,
-          "max_rel_error": 7.140126399463043e-05,
+          "max_abs_error": 5.960464477539063e-08,
+          "mean_abs_error": 5.960464477539063e-08,
+          "max_rel_error": 1.1920077724880684e-07,
           "shape": [
             1
           ]
         },
         {
           "name": "anomaly_heatmap",
-          "max_abs_error": 3.5703182220458984e-05,
-          "mean_abs_error": 6.647570899076527e-06,
-          "max_rel_error": 7.140126399463043e-05,
+          "max_abs_error": 1.1920928955078125e-07,
+          "mean_abs_error": 2.3720810204963527e-08,
+          "max_rel_error": 2.3841852225814364e-07,
           "shape": [
             1,
             1,
@@ -218,7 +219,7 @@
         {
           "name": "binary_mask",
           "max_abs_error": 1.0,
-          "mean_abs_error": 0.14730149507522583,
+          "mean_abs_error": 0.000717474496923387,
           "max_rel_error": 100000000.0,
           "shape": [
             1,
@@ -238,20 +239,20 @@
         },
         {
           "name": "confidence",
-          "max_abs_error": 8.940696716308594e-06,
-          "mean_abs_error": 8.940696716308594e-06,
-          "max_rel_error": 1.7881073290482163e-05,
+          "max_abs_error": 0.0,
+          "mean_abs_error": 0.0,
+          "max_rel_error": 0.0,
           "shape": [
             1
           ]
         }
       ],
-      "continuous_max_abs_error": 3.5703182220458984e-05,
-      "continuous_mean_abs_error": 3.5703182220458984e-05,
-      "continuous_max_rel_error": 7.140126399463043e-05,
-      "binary_mask_mismatch_count": 7391,
-      "binary_mask_ambiguous_mismatch_count": 7391,
-      "binary_mask_match_ratio": 0.8526985012755102
+      "continuous_max_abs_error": 1.1920928955078125e-07,
+      "continuous_mean_abs_error": 5.960464477539063e-08,
+      "continuous_max_rel_error": 2.3841852225814364e-07,
+      "binary_mask_mismatch_count": 36,
+      "binary_mask_ambiguous_mismatch_count": 36,
+      "binary_mask_match_ratio": 0.9992825255102041
     }
   ],
   "summary": {
@@ -259,9 +260,9 @@
     "continuous_pass_1e_3": true,
     "exact_binary_mask_parity_passed": false,
     "boundary_only_mask_mismatch": true,
-    "max_continuous_abs_error": 4.649162292480469e-05,
-    "max_continuous_mean_abs_error": 4.649162292480469e-05,
-    "max_continuous_rel_error": 9.297460201196373e-05
+    "max_continuous_abs_error": 1.1920928955078125e-07,
+    "max_continuous_mean_abs_error": 5.960464477539063e-08,
+    "max_continuous_rel_error": 2.3841852225814364e-07
   },
   "interpretation": "Phase 0 OpenVINO differences are evaluated against ONNX Runtime. Binary mask differences are treated separately because the placeholder heatmap can lie close to the hard threshold.",
   "proof_note": "This investigates the Phase 0 placeholder export only. It does not validate a trained PaDiM or InspectNet-CX anomaly model export."
