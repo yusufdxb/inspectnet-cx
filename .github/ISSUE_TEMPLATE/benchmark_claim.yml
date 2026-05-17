@@ -1,0 +1,38 @@
+name: Benchmark Claim
+description: Submit benchmark evidence for review.
+title: "[Benchmark]: "
+labels: ["benchmark"]
+body:
+  - type: dropdown
+    id: dataset
+    attributes:
+      label: Dataset
+      options:
+        - MVTec AD
+        - VisA
+        - MVTec AD2
+        - MVTec LOCO AD
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: protocol
+    attributes:
+      label: Protocol
+      description: Splits, category list, preprocessing, thresholds, and hardware.
+    validations:
+      required: true
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Metrics
+      description: Include image AUROC, pixel AUROC, AU-PRO, F1, latency, VRAM, and model size.
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Commands
+      description: Exact commands needed to reproduce the result.
+    validations:
+      required: true

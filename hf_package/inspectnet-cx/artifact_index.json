@@ -1,0 +1,81 @@
+{
+    "package": "inspectnet-cx",
+    "status": "hf_ready_scaffold_with_real_mvtec_bottle_evidence",
+    "dataset_files_bundled": false,
+    "dataset_note": "MVTec AD bottle is CC BY-NC-SA 4.0 and is not bundled in this package.",
+  "claims_ledger": "claims_ledger.md",
+  "visual_assets": [
+    "assets/release_visual.svg"
+  ],
+  "benchmark_reports": [
+        {
+            "path": "reports/anomalib_padim_mvtec_ad_bottle_result.json",
+            "claim": "Real Anomalib PaDiM MVTec AD bottle fit/test metrics.",
+            "metrics": {
+                "image_auroc": 0.9960317611694336,
+                "image_f1": 0.9756097793579102,
+                "pixel_auroc": 0.9793554544448853,
+                "pixel_f1": 0.6807529926300049
+            }
+        },
+        {
+            "path": "reports/classical_patchdiff_rerun_mvtec_ad_bottle_result.json",
+            "claim": "CPU classical patch-difference baseline on the same local MVTec AD bottle split.",
+            "metrics": {
+                "image_auroc": 0.915079365079365,
+                "image_f1": 0.7692307692307693,
+                "pixel_auroc": 0.8764983959395012,
+                "pixel_f1": 0.4749988465974625
+            }
+        }
+    ],
+  "prediction_examples": [
+    "examples/prediction_padim_good_000.json",
+    "examples/prediction_padim_broken_large_000.json",
+    "examples/prediction_classical_good_000.json",
+    "examples/prediction_classical_broken_large_000.json"
+  ],
+    "export_reports": [
+        {
+            "path": "reports/anomalib_padim_export_status.json",
+      "claim": "Trained Anomalib PaDiM checkpoint prediction and ONNX/OpenVINO export attempts."
+    },
+    {
+      "path": "reports/anomalib_padim_export_smoke.json",
+      "claim": "Trained exported PaDiM ONNX/OpenVINO artifacts load but parity is not clean."
+    },
+        {
+            "path": "reports/openvino_parity_investigation.json",
+            "claim": "Phase 0 placeholder OpenVINO parity drift characterization."
+        }
+    ],
+    "dataset_reports": [
+        {
+            "path": "reports/dataset_provenance_mvtec_ad_bottle.json",
+            "claim": "Dataset source, checksum, license, local path, and split counts."
+        }
+    ],
+  "dependency_file": "requirements-agent_b_verified.txt",
+  "source_install_file": "requirements.txt",
+    "reproduction_commands": [
+        "python3 -m pip install -e '.[all]'",
+        "python3 scripts/check_datasets.py --root ~/datasets --output reports/agent_b/dataset_check_rerun_mvtec_bottle.json",
+        "PYTHONPATH=src python3 scripts/run_anomalib_baseline.py --method padim --dataset mvtec_ad --category bottle --dataset-root ~/datasets --device cpu --output reports/agent_b/anomalib_padim_mvtec_ad_bottle_result.json --work-dir artifacts/agent_b/anomalib",
+        "PYTHONPATH=src python3 scripts/run_classical_baseline.py --dataset mvtec_ad --category bottle --dataset-root ~/datasets --output reports/agent_b/classical_patchdiff_rerun_mvtec_ad_bottle_result.json",
+        "PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input ~/datasets/mvtec_ad/bottle/test/good/000.png --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/agent_b/prediction_padim_good_000.json",
+        "PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input ~/datasets/mvtec_ad/bottle/test/broken_large/000.png --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/agent_b/prediction_padim_broken_large_000.json",
+        "PYTHONPATH=src python3 scripts/investigate_anomalib_export.py --checkpoint artifacts/agent_b/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/agent_b/anomalib_padim_export_status.json",
+        "PYTHONPATH=src python3 scripts/validate_padim_export.py --onnx artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx --openvino artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml --input ~/datasets/mvtec_ad/bottle/test --output reports/agent_b/anomalib_padim_export_smoke.json",
+        "PYTHONPATH=src python3 scripts/investigate_openvino_parity.py --onnx artifacts/agent_b/inspectnet-cx-phase0-rerun/model.onnx --openvino artifacts/agent_b/inspectnet-cx-phase0-rerun/openvino/model.xml --output reports/agent_b/openvino_parity_investigation.json",
+        "PYTHONPATH=src pytest -q",
+        "ruff check src tests scripts",
+        "PYTHONPATH=src python3 scripts/validate_results.py --input reports/agent_b",
+        "PYTHONPATH=src python3 scripts/check_hf_package.py"
+    ],
+    "primary_limitations": [
+        "No Jetson measurement.",
+        "No trained native InspectNet-CX checkpoint.",
+    "Trained PaDiM export parity is not clean.",
+    "Evidence covers MVTec AD bottle only."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "status": "completed_predictions",
+  "backend": "classical_patchdiff",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "dataset_root": "/home/yusuf/datasets",
+  "category_root": "/home/yusuf/datasets/mvtec_ad/bottle",
+  "input_count": 1,
+  "train_normal_count": 209,
+  "threshold_info": {
+    "threshold": 4.922685813903809,
+    "threshold_quantile": 0.995,
+    "threshold_source": "normal training image score quantile"
+  },
+  "latency_ms_per_image": 34.417001996189356,
+  "predictions": [
+    {
+      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/000.png",
+      "expected_label": "normal",
+      "image_score": 3.1474151611328125,
+      "predicted_label": "normal",
+      "predicted_anomaly": false,
+      "mask_path": "reports/agent_b/prediction_classical_good_000_masks/000_mask.png",
+      "mask_semantics": "classical_patchdiff heatmap >= normal-score threshold"
+    }
+  ],
+  "proof_note": "Prediction path for a dependency-light classical sanity baseline. This is real inference on local images, but it is not the primary Anomalib PaDiM benchmark."
+}

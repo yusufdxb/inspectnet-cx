@@ -1,0 +1,47 @@
+{
+  "method": "padim",
+  "baseline_kind": "anomalib",
+  "baseline_version": "anomalib-padim-v1",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "device": "cpu",
+  "dataset_path": "/home/yusuf/datasets/mvtec_ad",
+  "category_path": "/home/yusuf/datasets/mvtec_ad/bottle",
+  "anomalib_model": "Padim",
+  "anomalib_data": "MVTecAD",
+  "backbone": "resnet18",
+  "pre_trained": true,
+  "layers": [
+    "layer1",
+    "layer2",
+    "layer3"
+  ],
+  "train_image_count": 209,
+  "test_image_count": 83,
+  "normal_test_count": 20,
+  "anomaly_test_count": 63,
+  "image_auroc": 0.9984127283096313,
+  "image_f1": 0.9841269850730896,
+  "pixel_auroc": 0.9785765409469604,
+  "pixel_f1": 0.6746558547019958,
+  "au_pro": "TBD",
+  "latency_ms_per_image": "TBD",
+  "peak_vram_mb": 0.0,
+  "model_size_mb": "TBD",
+  "status": "completed_anomalib_padim",
+  "blocked_reasons": [],
+  "elapsed_s": 18.18325551500004,
+  "metrics": [
+    {
+      "image_AUROC": 0.9984127283096313,
+      "image_F1Score": 0.9841269850730896,
+      "pixel_AUROC": 0.9785765409469604,
+      "pixel_F1Score": 0.6746558547019958
+    }
+  ],
+  "run_root": "reports/agent_b/padim_rerun",
+  "checkpoints": [
+    "reports/agent_b/padim_rerun/Padim/MVTecAD/bottle/v0/weights/lightning/model.ckpt"
+  ],
+  "proof_note": "Real Anomalib PaDiM fit/test on the local MVTec AD category. Metrics are local benchmark evidence for this exact dataset, model configuration, and environment. They do not prove Jetson latency or factory deployment readiness."
+}

@@ -1,0 +1,58 @@
+{
+  "method": "classical-range",
+  "baseline_kind": "classical_cpu_image",
+  "baseline_version": "classical-range-v1",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "device": "cpu",
+  "dataset_path": "reports/fixture_smoke_phase3/datasets/mvtec_ad",
+  "category_path": "reports/fixture_smoke_phase3/datasets/mvtec_ad/bottle",
+  "image_size": 16,
+  "feature_count": 74,
+  "train_image_count": 2,
+  "test_image_count": 2,
+  "normal_test_count": 1,
+  "anomaly_test_count": 1,
+  "threshold_source": "normal_train_quantile",
+  "threshold_floor": 0.0001,
+  "threshold_quantile": 0.995,
+  "threshold": 0.0001,
+  "train_score_min": 0.0,
+  "train_score_median": 0.0,
+  "train_score_max": 0.0,
+  "image_auroc": 1.0,
+  "image_f1": 1.0,
+  "accuracy": 1.0,
+  "pixel_auroc": "TBD",
+  "au_pro": "TBD",
+  "pixel_f1": "TBD",
+  "latency_ms_per_image": 0.17159199995830932,
+  "peak_vram_mb": 0.0,
+  "model_size_mb": 0.0,
+  "status": "completed_classical_cpu_baseline",
+  "blocked_reasons": [],
+  "metrics_scope": "image_level_only",
+  "confusion": {
+    "true_positives": 1,
+    "false_positives": 0,
+    "true_negatives": 1,
+    "false_negatives": 0
+  },
+  "predictions": [
+    {
+      "path": "reports/fixture_smoke_phase3/datasets/mvtec_ad/bottle/test/good/000.png",
+      "label": "normal",
+      "target": 0,
+      "image_score": 6.9288985287130345e-06,
+      "predicted_anomaly": false
+    },
+    {
+      "path": "reports/fixture_smoke_phase3/datasets/mvtec_ad/bottle/test/scratch/000.png",
+      "label": "anomaly",
+      "target": 1,
+      "image_score": 25.344127655029297,
+      "predicted_anomaly": true
+    }
+  ],
+  "proof_note": "CPU-only normal-range baseline over simple image features. Metrics are local image-level evidence for this exact dataset path only; pixel metrics, trained model quality, hardware latency, and factory readiness are not proven."
+}

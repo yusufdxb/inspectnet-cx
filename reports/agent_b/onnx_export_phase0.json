@@ -1,0 +1,30 @@
+{
+  "status": "exported_phase0_onnx",
+  "format": "onnx",
+  "path": "artifacts/agent_b/inspectnet-cx-phase0/model.onnx",
+  "image_size": 224,
+  "opset": 18,
+  "verified_with_onnxruntime": true,
+  "proof_note": "This is an export of the Phase 0 placeholder model, not a trained production detector and not Jetson deployment proof.",
+  "onnxruntime_check": {
+    "status": "passed",
+    "max_abs_diffs": [
+      0.0,
+      1.1920928955078125e-07,
+      1.0,
+      0.0,
+      5.960464477539063e-08
+    ],
+    "output_names": [
+      "image_score",
+      "anomaly_heatmap",
+      "binary_mask",
+      "threshold",
+      "confidence"
+    ],
+    "binary_mask_mismatch_count": 14,
+    "binary_mask_ambiguous_mismatch_count": 14,
+    "binary_mask_match_ratio": 0.9997209821428571,
+    "tolerance": 0.0001
+  }
+}

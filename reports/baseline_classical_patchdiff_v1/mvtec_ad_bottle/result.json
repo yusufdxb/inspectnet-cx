@@ -1,0 +1,41 @@
+{
+  "method": "classical_patchdiff",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "dataset_root": "reports/fixture_smoke_phase3/datasets",
+  "category_root": "reports/fixture_smoke_phase3/datasets/mvtec_ad/bottle",
+  "train_normal_count": 2,
+  "test_sample_count": 2,
+  "test_normal_count": 1,
+  "test_anomaly_count": 1,
+  "threshold": 1.0,
+  "threshold_quantile": 0.5,
+  "image_auroc": 1.0,
+  "pixel_auroc": "TBD",
+  "au_pro": "TBD",
+  "pixel_f1": "TBD",
+  "image_f1": 1.0,
+  "latency_ms_per_image": 0.14083100001016646,
+  "peak_vram_mb": 0.0,
+  "model_size_mb": 0.006144,
+  "status": "classical_baseline_completed",
+  "samples": [
+    {
+      "path": "reports/fixture_smoke_phase3/datasets/mvtec_ad/bottle/test/good/000.png",
+      "defect_type": "good",
+      "label": "normal",
+      "image_score": 0.0476190485060215,
+      "predicted_anomaly": false,
+      "mask_available": true
+    },
+    {
+      "path": "reports/fixture_smoke_phase3/datasets/mvtec_ad/bottle/test/scratch/000.png",
+      "defect_type": "scratch",
+      "label": "anomaly",
+      "image_score": 5.142858028411865,
+      "predicted_anomaly": true,
+      "mask_available": false
+    }
+  ],
+  "proof_note": "This is a normal-only classical pixel-difference baseline. It is real numeric local evidence for this dataset layout, but it is not Anomalib/PatchCore evidence and must not be compared as a state-of-the-art anomaly detector."
+}
