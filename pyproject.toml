@@ -37,6 +37,7 @@ inspectnet-predict = "inspectnet_cx.prediction_cli:main"
 inspectnet-proof-readiness = "inspectnet_cx.eval.proof_readiness:main"
 inspectnet-space = "inspectnet_cx.space.app:main"
 inspectnet-validate-results = "inspectnet_cx.eval.validate_results:main"
+inspectnet-train-phase1 = "inspectnet_cx.training.phase1:main"
 
 [project.optional-dependencies]
 baseline = [
