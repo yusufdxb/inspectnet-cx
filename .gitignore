@@ -12,3 +12,10 @@ artifacts/
 reports/*.json
 reports/*.md
 !reports/README.md
+
+# Training artifacts: anomalib / lightning checkpoints, scratch run trees.
+# These are reproducible from the documented training commands and exceed
+# GitHub's 100 MB file size limit.
+reports/**/*.ckpt
+reports/agent_b/
+reports/tmp_padim_probe2/
