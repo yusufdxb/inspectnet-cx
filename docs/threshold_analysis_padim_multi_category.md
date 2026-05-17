@@ -29,6 +29,32 @@ The summary below is the canonical reference.
 | capsule  |       132 |   109 |    23 | 0.8807 |     0.5215 |     0.9266 |     0.1739 |    0.9439 |     0.5000 |     0.9725 |     0.3478 |    0.9507 |
 | leather  |       124 |    92 |    32 | 0.9925 |     0.5097 |     0.9674 |     0.0000 |    0.9834 |     0.5000 |     0.9783 |     0.0313 |    0.9836 |
 
+## Bootstrap 95% Confidence Intervals (Sprint 3)
+
+Percentile bootstrap with stratified resampling (preserves per-bootstrap class
+balance), n=1000 resamples, seed=0. Produced by
+`scripts/bootstrap_auroc.py` from the same cached score files.
+
+| category | AUROC point | AUROC CI low | AUROC CI high | AUROC median | AUROC std | Youden-F1 CI       | F1-max-F1 CI       |
+| -------- | ----------: | -----------: | ------------: | -----------: | --------: | :----------------- | :----------------- |
+| bottle   |      0.9976 |       0.9905 |        1.0000 |       0.9984 |    0.0031 | [0.9587, 1.0000]   | [0.9767, 1.0000]   |
+| cable    |      0.8720 |       0.8156 |        0.9264 |       0.8749 |    0.0288 | [0.7133, 0.9072]   | [0.8177, 0.9082]   |
+| capsule  |      0.8807 |       0.7786 |        0.9713 |       0.8855 |    0.0499 | [0.9135, 0.9770]   | [0.9375, 0.9813]   |
+| leather  |      0.9925 |       0.9769 |        1.0000 |       0.9932 |    0.0064 | [0.9663, 1.0000]   | [0.9721, 1.0000]   |
+
+Headline rigor read:
+
+- **Cable AUROC CI width is 0.111** (0.8156 to 0.9264). The point estimate
+  0.872 hides a substantial uncertainty band; the lower bound 0.816 is still
+  well above chance but not deployment-strong.
+- **Capsule AUROC CI is even wider at 0.193** (0.7786 to 0.9713). With only
+  23 normal test images, a single sample swing moves AUROC by enough to
+  cross the 0.80 line. Capsule's lower bound 0.779 is below 0.80, so a
+  CI-aware reading of capsule says PaDiM is **not** demonstrably above 0.80
+  AUROC on this split.
+- **Bottle and leather** have CIs whose lower bound is above 0.97, so the
+  high point estimates are robust to resampling noise.
+
 ## Key Observations
 
 - Leather and bottle are strong fits for this PaDiM variant (AUROC 0.99+). Both
