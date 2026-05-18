@@ -55,6 +55,16 @@ Headline rigor read:
 - **Bottle and leather** have CIs whose lower bound is above 0.97, so the
   high point estimates are robust to resampling noise.
 
+## Categories Not Yet Verified (Sprint 3 SKIPPED)
+
+The Sprint 3 plan called for adding pill, screw, tile, and wood. These four
+categories are **not** present under `~/datasets/mvtec_ad/` (only bottle,
+cable, capsule, leather are downloaded). The anomalib bundled download URL
+`https://www.mydrive.ch/shares/38536/.../mvtec_anomaly_detection.tar.xz`
+returned HTTP 404 on 2026-05-17. No alternative anomalib-aware download
+path was attempted within the 90 min budget. Coverage remains 4/15 of
+MVTec AD until a mirror is obtained.
+
 ## Key Observations
 
 - Leather and bottle are strong fits for this PaDiM variant (AUROC 0.99+). Both
