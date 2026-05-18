@@ -74,6 +74,78 @@ Key finding: operating-point thresholds are category-specific and must not be
 reused across categories. Leather and bottle are strong fits for this PaDiM
 variant; cable and capsule are harder (AUROC 0.87-0.88).
 
+## Sprint 3 Rigor (2026-05-17)
+
+Sprint 3 turned Sprint 2's per-category point estimates into CI-aware
+evidence, replaced the degenerate Phase 1 BCE-against-zero stub with an
+honest learned baseline, and quantified PaDiM's category-specificity
+under the anomalib post-processor.
+
+### Proven
+
+- **Bootstrap 95% CIs on PaDiM AUROC, Youden-F1, F1-max-F1** for all four
+  cached categories (n=1000 stratified percentile bootstrap, seed=0).
+  See `docs/threshold_analysis_padim_multi_category.md`.
+  Headlines:
+  - bottle AUROC 0.9976 [0.9905, 1.0000]
+  - cable AUROC 0.8720 [0.8156, 0.9264] (widest informative CI)
+  - capsule AUROC 0.8807 [0.7786, 0.9713] (CI lower bound below 0.80)
+  - leather AUROC 0.9925 [0.9769, 1.0000]
+- **Honest Phase 1 native baseline trained on RTX 5070.** Small
+  reconstruction autoencoder (855,619 params, 0.188 ms/img CUDA at
+  128 px), 30 epochs Adam lr=1e-3, 80/20 train/val split on MVTec AD
+  `bottle` and `cable` train/good. Per-image score = mean squared
+  reconstruction error.
+- **Head-to-head native vs PaDiM** (same bootstrap methodology, see
+  `docs/native_vs_padim_bottle.md`):
+  - bottle: PaDiM 0.998 [0.991, 1.000] vs ReconAE 0.824 [0.730, 0.910]
+  - cable:  PaDiM 0.872 [0.816, 0.926] vs ReconAE 0.697 [0.602, 0.781]
+  - Native CIs do not overlap PaDiM CIs on either category; native
+    bottle CI lower bound 0.730 is below the 0.85 acceptance line.
+    Documented as a **negative result**; the scaffold did not become
+    production.
+- **PaDiM cross-category transfer matrix** (4x4 over bottle/cable/
+  capsule/leather; pill substituted by capsule due to local data
+  availability). See `docs/padim_cross_category_transfer.md`.
+  Headline: mean off-diagonal AUROC drop is **0.431 +- 0.014**
+  (95% bootstrap CI [0.403, 0.458], n=1000). Many cross-cells land
+  at exactly 0.500 due to the anomalib `OneClassPostProcessor`
+  saturating; worst cells (`bottle -> capsule` 0.458,
+  `leather -> capsule` 0.482) score below chance. PaDiM is
+  empirically category-specific under this configuration.
+
+### Skipped, with reasons recorded
+
+- **Extending PaDiM to pill/screw/tile/wood (Deliverable B).** Only
+  bottle/cable/capsule/leather are present under `~/datasets/mvtec_ad/`.
+  The anomalib bundled download URL returned HTTP 404 on 2026-05-17. No
+  alternative mirror was attempted within the budget. Coverage stays at
+  4/15 of MVTec AD. Recorded in
+  `docs/threshold_analysis_padim_multi_category.md`.
+- **TensorRT FP32 vs ORT FP32 parity on RTX 5070 (Deliverable E).**
+  TensorRT, polygraphy, and `trtexec` are all absent from mewtwo; the
+  Sprint 3 hard constraint forbids new system installs. Documented in
+  `docs/tensorrt_parity_rtx5070.md`.
+
+### Residual gaps (still scaffold)
+
+- 11 of 15 MVTec AD categories untested.
+- VisA, AD2, LOCO untested.
+- Native InspectNet-CX detector remains **below PaDiM** on both tested
+  categories; no production claim.
+- No TensorRT parity. No Jetson Orin NX 16GB latency.
+- The released `InspectNetCXForAnomalyDetection` model surface in the
+  v0.1.0 HF tag is intentionally untouched; the reconstruction AE
+  lives in `inspectnet_cx.training.phase1_recon` and is not part of
+  the public model card. Promoting it requires its own release cycle.
+
+### Verification (this sprint, trailing lines)
+
+- `PYTHONPATH=src python3 -m pytest -q`: 61 passed, 1 warning.
+- `ruff check src tests scripts`: All checks passed.
+- `PYTHONPATH=src python3 scripts/check_hf_package.py`: HF package
+  check passed.
+
 ## Public Positioning
 
 InspectNet-CX is a reproducible industrial anomaly-inspection scaffold with real
