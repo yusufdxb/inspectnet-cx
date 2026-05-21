@@ -159,6 +159,13 @@ def train_recon(
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Seed the global RNG so weight initialization and DataLoader shuffling are
+    # reproducible. Without this, only the train/val split generator below was
+    # seeded, so two runs with the same --seed produced different trained
+    # weights, which breaks the head-to-head-vs-PaDiM comparison.
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+
     image_paths = _collect_pngs(Path(train_data_dir))
     if len(image_paths) < 4:
         raise ValueError(

@@ -55,8 +55,8 @@ def benchmark_latency(
             timings.append(elapsed_ms)
 
     timings_sorted = sorted(timings)
-    median_ms = timings_sorted[len(timings) // 2]
-    p95_ms = timings_sorted[int(len(timings) * 0.95)] if len(timings) > 1 else median_ms
+    median_ms = _percentile(timings_sorted, 50.0)
+    p95_ms = _percentile(timings_sorted, 95.0)
     mean_ms = sum(timings) / len(timings)
 
     return {
@@ -92,7 +92,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--n-runs",
         type=int,
-        default=50,
+        default=None,
         help="Number of timing runs for latency measurement (default: 50).",
     )
     parser.add_argument(
@@ -100,7 +100,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--batch-size", type=int, default=1, help="Batch size (default: 1).")
     parser.add_argument("--warmup", type=int, default=10, help="Warmup runs (default: 10).")
-    parser.add_argument("--iterations", type=int, default=50, help="(Deprecated: use --n-runs).")
+    parser.add_argument(
+        "--iterations",
+        type=int,
+        default=None,
+        help="(Deprecated alias for --n-runs.)",
+    )
     parser.add_argument(
         "--device",
         default="cpu",
@@ -119,7 +124,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def main(argv: list[str] | None = None) -> None:
     args = parse_args(argv)
-    iterations = args.n_runs if args.n_runs != 50 else args.iterations
+    if args.n_runs is not None and args.iterations is not None and args.n_runs != args.iterations:
+        msg = "--n-runs and --iterations conflict; pass only one (they are aliases)."
+        raise SystemExit(msg)
+    iterations = args.n_runs if args.n_runs is not None else args.iterations
+    if iterations is None:
+        iterations = 50
     result = benchmark_latency(
         image_size=args.image_size,
         batch_size=args.batch_size,
@@ -132,6 +142,27 @@ def main(argv: list[str] | None = None) -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
+
+
+def _percentile(sorted_values: list[float], percentile: float) -> float:
+    """Linear-interpolation percentile on an already-sorted list.
+
+    Matches numpy's default ('linear') percentile method so that the median
+    of an even-length sample is the mean of the two central values rather than
+    the upper-middle element.
+    """
+    if not sorted_values:
+        msg = "cannot take a percentile of an empty sample"
+        raise ValueError(msg)
+    if len(sorted_values) == 1:
+        return sorted_values[0]
+    rank = (percentile / 100.0) * (len(sorted_values) - 1)
+    lower_index = int(rank)
+    upper_index = min(lower_index + 1, len(sorted_values) - 1)
+    fraction = rank - lower_index
+    return sorted_values[lower_index] + fraction * (
+        sorted_values[upper_index] - sorted_values[lower_index]
+    )
 
 
 def _resolve_device(device: str) -> torch.device:

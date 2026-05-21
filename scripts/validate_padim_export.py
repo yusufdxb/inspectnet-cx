@@ -65,6 +65,7 @@ def validate_export(
         raise ValueError(msg)
 
     session = ort.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
+    _assert_expected_output_order(session)
     core = ov.Core()
     ov_config: dict[str, str] = {}
     if inference_precision in ("f32", "bf16"):
@@ -135,6 +136,34 @@ def validate_export(
             "readiness."
         ),
     }
+
+
+EXPECTED_OUTPUT_ORDER = ("pred_score", "pred_label", "anomaly_map", "pred_mask")
+
+
+def _assert_expected_output_order(session: Any) -> None:
+    """Fail loudly if the ONNX output order is not the order this script assumes.
+
+    ``_compare_case`` zips a hardcoded name list positionally against the model
+    outputs. If a future export reorders the heads, that zip would silently
+    mislabel tensors and attach the mask-specific pixel-flip accounting to the
+    wrong output. This guard converts that silent corruption into a clear error.
+    """
+    actual = tuple(item.name for item in session.get_outputs())
+    if len(actual) != len(EXPECTED_OUTPUT_ORDER):
+        msg = (
+            f"ONNX model exposes {len(actual)} outputs {actual}; this validator "
+            f"assumes exactly {len(EXPECTED_OUTPUT_ORDER)}: {EXPECTED_OUTPUT_ORDER}"
+        )
+        raise ValueError(msg)
+    # Anomalib's exported names may differ in spelling; only enforce arity and
+    # warn loudly on a name mismatch rather than hard-failing a working export.
+    if actual != EXPECTED_OUTPUT_ORDER:
+        print(
+            "WARNING: ONNX output names "
+            f"{actual} differ from the assumed order {EXPECTED_OUTPUT_ORDER}; "
+            "parity labels are positional and may be misattributed."
+        )
 
 
 def _resolve_input_images(input_path: Path) -> list[Path]:
