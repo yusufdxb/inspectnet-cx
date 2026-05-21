@@ -1,0 +1,105 @@
+{
+  "schema": "inspectnet_cx.threshold_analysis.v1",
+  "n_samples": 83,
+  "n_positive": 63,
+  "n_negative": 20,
+  "score_min": 0.3810867667198181,
+  "score_max": 1.0,
+  "auroc": 0.9976190476190476,
+  "youden": {
+    "threshold": 0.5502047538757324,
+    "tpr": 0.9523809523809523,
+    "fpr": 0.0,
+    "precision": 1.0,
+    "recall": 0.9523809523809523,
+    "f1": 0.975609756097561,
+    "tp": 60,
+    "fp": 0,
+    "tn": 20,
+    "fn": 3
+  },
+  "f1_max": {
+    "threshold": 0.5,
+    "tpr": 1.0,
+    "fpr": 0.05,
+    "precision": 0.984375,
+    "recall": 1.0,
+    "f1": 0.9921259842519685,
+    "tp": 63,
+    "fp": 1,
+    "tn": 19,
+    "fn": 0
+  },
+  "target_fpr": {
+    "fpr<= 0.01": {
+      "threshold": 0.5502047538757324,
+      "tpr": 0.9523809523809523,
+      "fpr": 0.0,
+      "precision": 1.0,
+      "recall": 0.9523809523809523,
+      "f1": 0.975609756097561,
+      "tp": 60,
+      "fp": 0,
+      "tn": 20,
+      "fn": 3
+    },
+    "fpr<= 0.05": {
+      "threshold": 0.5,
+      "tpr": 1.0,
+      "fpr": 0.05,
+      "precision": 0.984375,
+      "recall": 1.0,
+      "f1": 0.9921259842519685,
+      "tp": 63,
+      "fp": 1,
+      "tn": 19,
+      "fn": 0
+    },
+    "fpr<= 0.10": {
+      "threshold": 0.5,
+      "tpr": 1.0,
+      "fpr": 0.05,
+      "precision": 0.984375,
+      "recall": 1.0,
+      "f1": 0.9921259842519685,
+      "tp": 63,
+      "fp": 1,
+      "tn": 19,
+      "fn": 0
+    }
+  },
+  "roc_curve": [
+    {
+      "fpr": 0.0,
+      "tpr": 0.0,
+      "threshold": Infinity
+    },
+    {
+      "fpr": 0.0,
+      "tpr": 0.07936507936507936,
+      "threshold": 1.0
+    },
+    {
+      "fpr": 0.0,
+      "tpr": 0.9523809523809523,
+      "threshold": 0.5502047538757324
+    },
+    {
+      "fpr": 0.05,
+      "tpr": 0.9523809523809523,
+      "threshold": 0.5371711254119873
+    },
+    {
+      "fpr": 0.05,
+      "tpr": 1.0,
+      "threshold": 0.5
+    },
+    {
+      "fpr": 1.0,
+      "tpr": 1.0,
+      "threshold": 0.3810867667198181
+    }
+  ],
+  "proof_note": "Operating points are derived from labeled held-out scores only. They do not establish production thresholds; deployment thresholds require a separate calibration set, prior class balance, and the operator's tolerated false-positive rate.",
+  "source_score_file": "reports/scores_padim_bottle.json"
+}

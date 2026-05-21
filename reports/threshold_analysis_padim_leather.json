@@ -1,0 +1,125 @@
+{
+  "schema": "inspectnet_cx.threshold_analysis.v1",
+  "n_samples": 124,
+  "n_positive": 92,
+  "n_negative": 32,
+  "score_min": 0.4182880222797394,
+  "score_max": 1.0,
+  "auroc": 0.9925271739130433,
+  "youden": {
+    "threshold": 0.5097329616546631,
+    "tpr": 0.967391304347826,
+    "fpr": 0.0,
+    "precision": 1.0,
+    "recall": 0.967391304347826,
+    "f1": 0.9834254143646408,
+    "tp": 89,
+    "fp": 0,
+    "tn": 32,
+    "fn": 3
+  },
+  "f1_max": {
+    "threshold": 0.5,
+    "tpr": 0.9782608695652174,
+    "fpr": 0.03125,
+    "precision": 0.989010989010989,
+    "recall": 0.9782608695652174,
+    "f1": 0.9836065573770493,
+    "tp": 90,
+    "fp": 1,
+    "tn": 31,
+    "fn": 2
+  },
+  "target_fpr": {
+    "fpr<= 0.01": {
+      "threshold": 0.5097329616546631,
+      "tpr": 0.967391304347826,
+      "fpr": 0.0,
+      "precision": 1.0,
+      "recall": 0.967391304347826,
+      "f1": 0.9834254143646408,
+      "tp": 89,
+      "fp": 0,
+      "tn": 32,
+      "fn": 3
+    },
+    "fpr<= 0.05": {
+      "threshold": 0.5,
+      "tpr": 0.9782608695652174,
+      "fpr": 0.03125,
+      "precision": 0.989010989010989,
+      "recall": 0.9782608695652174,
+      "f1": 0.9836065573770493,
+      "tp": 90,
+      "fp": 1,
+      "tn": 31,
+      "fn": 2
+    },
+    "fpr<= 0.10": {
+      "threshold": 0.4855402410030365,
+      "tpr": 0.9891304347826086,
+      "fpr": 0.09375,
+      "precision": 0.9680851063829787,
+      "recall": 0.9891304347826086,
+      "f1": 0.9784946236559139,
+      "tp": 91,
+      "fp": 3,
+      "tn": 29,
+      "fn": 1
+    }
+  },
+  "roc_curve": [
+    {
+      "fpr": 0.0,
+      "tpr": 0.0,
+      "threshold": Infinity
+    },
+    {
+      "fpr": 0.0,
+      "tpr": 0.20652173913043478,
+      "threshold": 1.0
+    },
+    {
+      "fpr": 0.0,
+      "tpr": 0.967391304347826,
+      "threshold": 0.5097329616546631
+    },
+    {
+      "fpr": 0.03125,
+      "tpr": 0.967391304347826,
+      "threshold": 0.5061596632003784
+    },
+    {
+      "fpr": 0.03125,
+      "tpr": 0.9782608695652174,
+      "threshold": 0.5
+    },
+    {
+      "fpr": 0.09375,
+      "tpr": 0.9782608695652174,
+      "threshold": 0.48657745122909546
+    },
+    {
+      "fpr": 0.09375,
+      "tpr": 0.9891304347826086,
+      "threshold": 0.4855402410030365
+    },
+    {
+      "fpr": 0.5625,
+      "tpr": 0.9891304347826086,
+      "threshold": 0.4428974986076355
+    },
+    {
+      "fpr": 0.5625,
+      "tpr": 1.0,
+      "threshold": 0.4423653483390808
+    },
+    {
+      "fpr": 1.0,
+      "tpr": 1.0,
+      "threshold": 0.4182880222797394
+    }
+  ],
+  "proof_note": "Operating points are derived from labeled held-out scores only. They do not establish production thresholds; deployment thresholds require a separate calibration set, prior class balance, and the operator's tolerated false-positive rate.",
+  "source_score_file": "reports/scores_padim_leather.json"
+}

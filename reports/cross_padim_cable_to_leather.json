@@ -1,0 +1,629 @@
+{
+  "schema": "inspectnet_cx.scores.v1",
+  "dataset": "mvtec_ad",
+  "category": "leather",
+  "train_category": "cable",
+  "method": "anomalib_padim_cross_category",
+  "items": [
+    {
+      "path": "test/color/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/012.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/013.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/014.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/015.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/016.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/017.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/color/018.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/012.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/013.png",
+      "label": 1,
+      "score": 0.9917137622833252
+    },
+    {
+      "path": "test/cut/014.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/015.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/016.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/017.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut/018.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/006.png",
+      "label": 1,
+      "score": 0.9950544834136963
+    },
+    {
+      "path": "test/fold/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/012.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/013.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/014.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/015.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/fold/016.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/012.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/013.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/014.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/015.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/016.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/017.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/glue/018.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/000.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/001.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/002.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/003.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/004.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/005.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/006.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/007.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/008.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/009.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/010.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/011.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/012.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/013.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/014.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/015.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/016.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/017.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/018.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/019.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/020.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/021.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/022.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/023.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/024.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/025.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/026.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/027.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/028.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/029.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/030.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/031.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/012.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/013.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/014.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/015.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/016.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke/017.png",
+      "label": 1,
+      "score": 1.0
+    }
+  ]
+}

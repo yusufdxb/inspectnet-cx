@@ -1,0 +1,38 @@
+{
+  "schema": "inspectnet_cx.bootstrap_auroc.v1",
+  "source_score_file": "reports/scores_phase1_recon_bottle.json",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "method": "phase1_recon_ae",
+  "n_samples": 83,
+  "n_positive": 63,
+  "n_negative": 20,
+  "n_bootstrap": 1000,
+  "seed": 0,
+  "metrics": {
+    "auroc": {
+      "point": 0.8238095238095238,
+      "ci_low": 0.7301388888888889,
+      "ci_high": 0.9095238095238094,
+      "median": 0.8238095238095239,
+      "std": 0.0459979071840626,
+      "n_valid": 1000
+    },
+    "youden_f1": {
+      "point": 0.7962962962962964,
+      "ci_low": 0.6595744680851063,
+      "ci_high": 0.8965517241379309,
+      "median": 0.8,
+      "std": 0.0627624382784954,
+      "n_valid": 1000
+    },
+    "f1_max_f1": {
+      "point": 0.8873239436619719,
+      "ci_low": 0.8695502248875562,
+      "ci_high": 0.9197080291970803,
+      "median": 0.8920863309352517,
+      "std": 0.012982411649003978,
+      "n_valid": 1000
+    }
+  }
+}

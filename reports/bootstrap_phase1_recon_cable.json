@@ -1,0 +1,38 @@
+{
+  "schema": "inspectnet_cx.bootstrap_auroc.v1",
+  "source_score_file": "reports/scores_phase1_recon_cable.json",
+  "dataset": "mvtec_ad",
+  "category": "cable",
+  "method": "phase1_recon_ae",
+  "n_samples": 150,
+  "n_positive": 92,
+  "n_negative": 58,
+  "n_bootstrap": 1000,
+  "seed": 0,
+  "metrics": {
+    "auroc": {
+      "point": 0.6965892053973015,
+      "ci_low": 0.601944340329835,
+      "ci_high": 0.7811235007496251,
+      "median": 0.698931784107946,
+      "std": 0.04503815847915269,
+      "n_valid": 1000
+    },
+    "youden_f1": {
+      "point": 0.7374301675977654,
+      "ci_low": 0.5079365079365079,
+      "ci_high": 0.8087431693989071,
+      "median": 0.7173140954495005,
+      "std": 0.08738440884482719,
+      "n_valid": 1000
+    },
+    "f1_max_f1": {
+      "point": 0.7606837606837609,
+      "ci_low": 0.7603305785123966,
+      "ci_high": 0.8108183183183183,
+      "median": 0.7679324894514769,
+      "std": 0.014445617788585097,
+      "n_valid": 1000
+    }
+  }
+}

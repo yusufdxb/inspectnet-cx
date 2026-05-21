@@ -1,0 +1,38 @@
+{
+  "schema": "inspectnet_cx.bootstrap_auroc.v1",
+  "source_score_file": "reports/scores_padim_cable.json",
+  "dataset": "mvtec_ad",
+  "category": "cable",
+  "method": "anomalib_padim",
+  "n_samples": 150,
+  "n_positive": 92,
+  "n_negative": 58,
+  "n_bootstrap": 1000,
+  "seed": 0,
+  "metrics": {
+    "auroc": {
+      "point": 0.8720014992503747,
+      "ci_low": 0.8155828335832084,
+      "ci_high": 0.9263540104947526,
+      "median": 0.8749062968515742,
+      "std": 0.02875612153202337,
+      "n_valid": 1000
+    },
+    "youden_f1": {
+      "point": 0.8601036269430051,
+      "ci_low": 0.7132867132867133,
+      "ci_high": 0.9072387851769295,
+      "median": 0.8488234298290165,
+      "std": 0.05401943661581274,
+      "n_valid": 1000
+    },
+    "f1_max_f1": {
+      "point": 0.8601036269430051,
+      "ci_low": 0.8177339901477833,
+      "ci_high": 0.9081632653061225,
+      "median": 0.8641996389715567,
+      "std": 0.023174066732736063,
+      "n_valid": 1000
+    }
+  }
+}

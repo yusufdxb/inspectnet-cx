@@ -1,0 +1,38 @@
+{
+  "schema": "inspectnet_cx.bootstrap_auroc.v1",
+  "source_score_file": "reports/scores_padim_bottle.json",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "method": "anomalib_padim",
+  "n_samples": 83,
+  "n_positive": 63,
+  "n_negative": 20,
+  "n_bootstrap": 1000,
+  "seed": 0,
+  "metrics": {
+    "auroc": {
+      "point": 0.9976190476190476,
+      "ci_low": 0.9904761904761904,
+      "ci_high": 1.0,
+      "median": 0.9984126984126984,
+      "std": 0.0030552169689972574,
+      "n_valid": 1000
+    },
+    "youden_f1": {
+      "point": 0.975609756097561,
+      "ci_low": 0.9586776859504132,
+      "ci_high": 1.0,
+      "median": 0.9921259842519685,
+      "std": 0.012508026372111323,
+      "n_valid": 1000
+    },
+    "f1_max_f1": {
+      "point": 0.9921259842519685,
+      "ci_low": 0.9767441860465117,
+      "ci_high": 1.0,
+      "median": 0.9921259842519685,
+      "std": 0.007023148608568776,
+      "n_valid": 1000
+    }
+  }
+}

@@ -1,0 +1,668 @@
+{
+  "schema": "inspectnet_cx.scores.v1",
+  "dataset": "mvtec_ad",
+  "category": "capsule",
+  "method": "anomalib_padim",
+  "items": [
+    {
+      "path": "test/crack/000.png",
+      "label": 1,
+      "score": 0.7445915341377258
+    },
+    {
+      "path": "test/crack/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/crack/002.png",
+      "label": 1,
+      "score": 0.781798779964447
+    },
+    {
+      "path": "test/crack/003.png",
+      "label": 1,
+      "score": 0.702682614326477
+    },
+    {
+      "path": "test/crack/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/crack/005.png",
+      "label": 1,
+      "score": 0.5632551908493042
+    },
+    {
+      "path": "test/crack/006.png",
+      "label": 1,
+      "score": 0.6978936791419983
+    },
+    {
+      "path": "test/crack/007.png",
+      "label": 1,
+      "score": 0.8719887733459473
+    },
+    {
+      "path": "test/crack/008.png",
+      "label": 1,
+      "score": 0.5152322053909302
+    },
+    {
+      "path": "test/crack/009.png",
+      "label": 1,
+      "score": 0.6801477074623108
+    },
+    {
+      "path": "test/crack/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/crack/011.png",
+      "label": 1,
+      "score": 0.7220258712768555
+    },
+    {
+      "path": "test/crack/012.png",
+      "label": 1,
+      "score": 0.7852698564529419
+    },
+    {
+      "path": "test/crack/013.png",
+      "label": 1,
+      "score": 0.6120546460151672
+    },
+    {
+      "path": "test/crack/014.png",
+      "label": 1,
+      "score": 0.8012562990188599
+    },
+    {
+      "path": "test/crack/015.png",
+      "label": 1,
+      "score": 0.9413449764251709
+    },
+    {
+      "path": "test/crack/016.png",
+      "label": 1,
+      "score": 0.578091561794281
+    },
+    {
+      "path": "test/crack/017.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/crack/018.png",
+      "label": 1,
+      "score": 0.7613717317581177
+    },
+    {
+      "path": "test/crack/019.png",
+      "label": 1,
+      "score": 0.5488499999046326
+    },
+    {
+      "path": "test/crack/020.png",
+      "label": 1,
+      "score": 0.6035137176513672
+    },
+    {
+      "path": "test/crack/021.png",
+      "label": 1,
+      "score": 0.5942399501800537
+    },
+    {
+      "path": "test/crack/022.png",
+      "label": 1,
+      "score": 0.594408392906189
+    },
+    {
+      "path": "test/faulty_imprint/000.png",
+      "label": 1,
+      "score": 0.5487677454948425
+    },
+    {
+      "path": "test/faulty_imprint/001.png",
+      "label": 1,
+      "score": 0.5250057578086853
+    },
+    {
+      "path": "test/faulty_imprint/002.png",
+      "label": 1,
+      "score": 0.6003860235214233
+    },
+    {
+      "path": "test/faulty_imprint/003.png",
+      "label": 1,
+      "score": 0.5093655586242676
+    },
+    {
+      "path": "test/faulty_imprint/004.png",
+      "label": 1,
+      "score": 0.6446700692176819
+    },
+    {
+      "path": "test/faulty_imprint/005.png",
+      "label": 1,
+      "score": 0.6520112752914429
+    },
+    {
+      "path": "test/faulty_imprint/006.png",
+      "label": 1,
+      "score": 0.4600333273410797
+    },
+    {
+      "path": "test/faulty_imprint/007.png",
+      "label": 1,
+      "score": 0.5
+    },
+    {
+      "path": "test/faulty_imprint/008.png",
+      "label": 1,
+      "score": 0.5244044661521912
+    },
+    {
+      "path": "test/faulty_imprint/009.png",
+      "label": 1,
+      "score": 0.5171546936035156
+    },
+    {
+      "path": "test/faulty_imprint/010.png",
+      "label": 1,
+      "score": 0.5586846470832825
+    },
+    {
+      "path": "test/faulty_imprint/011.png",
+      "label": 1,
+      "score": 0.6019697189331055
+    },
+    {
+      "path": "test/faulty_imprint/012.png",
+      "label": 1,
+      "score": 0.5686628818511963
+    },
+    {
+      "path": "test/faulty_imprint/013.png",
+      "label": 1,
+      "score": 0.5464398264884949
+    },
+    {
+      "path": "test/faulty_imprint/014.png",
+      "label": 1,
+      "score": 0.5480931401252747
+    },
+    {
+      "path": "test/faulty_imprint/015.png",
+      "label": 1,
+      "score": 0.5956000685691833
+    },
+    {
+      "path": "test/faulty_imprint/016.png",
+      "label": 1,
+      "score": 0.5674239993095398
+    },
+    {
+      "path": "test/faulty_imprint/017.png",
+      "label": 1,
+      "score": 0.5231298804283142
+    },
+    {
+      "path": "test/faulty_imprint/018.png",
+      "label": 1,
+      "score": 0.5607186555862427
+    },
+    {
+      "path": "test/faulty_imprint/019.png",
+      "label": 1,
+      "score": 0.5674353837966919
+    },
+    {
+      "path": "test/faulty_imprint/020.png",
+      "label": 1,
+      "score": 0.5794682502746582
+    },
+    {
+      "path": "test/faulty_imprint/021.png",
+      "label": 1,
+      "score": 0.6184314489364624
+    },
+    {
+      "path": "test/good/000.png",
+      "label": 0,
+      "score": 0.47058674693107605
+    },
+    {
+      "path": "test/good/001.png",
+      "label": 0,
+      "score": 0.3982316851615906
+    },
+    {
+      "path": "test/good/002.png",
+      "label": 0,
+      "score": 0.5101597309112549
+    },
+    {
+      "path": "test/good/003.png",
+      "label": 0,
+      "score": 0.44230425357818604
+    },
+    {
+      "path": "test/good/004.png",
+      "label": 0,
+      "score": 0.46560150384902954
+    },
+    {
+      "path": "test/good/005.png",
+      "label": 0,
+      "score": 0.40456622838974
+    },
+    {
+      "path": "test/good/006.png",
+      "label": 0,
+      "score": 0.8255454897880554
+    },
+    {
+      "path": "test/good/007.png",
+      "label": 0,
+      "score": 0.4944680631160736
+    },
+    {
+      "path": "test/good/008.png",
+      "label": 0,
+      "score": 0.5004604458808899
+    },
+    {
+      "path": "test/good/009.png",
+      "label": 0,
+      "score": 0.4918598234653473
+    },
+    {
+      "path": "test/good/010.png",
+      "label": 0,
+      "score": 0.6061328053474426
+    },
+    {
+      "path": "test/good/011.png",
+      "label": 0,
+      "score": 0.51896071434021
+    },
+    {
+      "path": "test/good/012.png",
+      "label": 0,
+      "score": 0.427923321723938
+    },
+    {
+      "path": "test/good/013.png",
+      "label": 0,
+      "score": 0.4929123818874359
+    },
+    {
+      "path": "test/good/014.png",
+      "label": 0,
+      "score": 0.5570579171180725
+    },
+    {
+      "path": "test/good/015.png",
+      "label": 0,
+      "score": 0.44422492384910583
+    },
+    {
+      "path": "test/good/016.png",
+      "label": 0,
+      "score": 0.4314239025115967
+    },
+    {
+      "path": "test/good/017.png",
+      "label": 0,
+      "score": 0.4388531446456909
+    },
+    {
+      "path": "test/good/018.png",
+      "label": 0,
+      "score": 0.4369119107723236
+    },
+    {
+      "path": "test/good/019.png",
+      "label": 0,
+      "score": 0.5086373686790466
+    },
+    {
+      "path": "test/good/020.png",
+      "label": 0,
+      "score": 0.4370996356010437
+    },
+    {
+      "path": "test/good/021.png",
+      "label": 0,
+      "score": 0.845798134803772
+    },
+    {
+      "path": "test/good/022.png",
+      "label": 0,
+      "score": 0.41739940643310547
+    },
+    {
+      "path": "test/poke/000.png",
+      "label": 1,
+      "score": 0.8824734687805176
+    },
+    {
+      "path": "test/poke/001.png",
+      "label": 1,
+      "score": 0.6608165502548218
+    },
+    {
+      "path": "test/poke/002.png",
+      "label": 1,
+      "score": 0.7019892334938049
+    },
+    {
+      "path": "test/poke/003.png",
+      "label": 1,
+      "score": 0.6427841782569885
+    },
+    {
+      "path": "test/poke/004.png",
+      "label": 1,
+      "score": 0.5663821697235107
+    },
+    {
+      "path": "test/poke/005.png",
+      "label": 1,
+      "score": 0.5472983121871948
+    },
+    {
+      "path": "test/poke/006.png",
+      "label": 1,
+      "score": 0.5000632405281067
+    },
+    {
+      "path": "test/poke/007.png",
+      "label": 1,
+      "score": 0.6621348857879639
+    },
+    {
+      "path": "test/poke/008.png",
+      "label": 1,
+      "score": 0.7651914358139038
+    },
+    {
+      "path": "test/poke/009.png",
+      "label": 1,
+      "score": 0.6563077569007874
+    },
+    {
+      "path": "test/poke/010.png",
+      "label": 1,
+      "score": 0.5562953352928162
+    },
+    {
+      "path": "test/poke/011.png",
+      "label": 1,
+      "score": 0.6232988834381104
+    },
+    {
+      "path": "test/poke/012.png",
+      "label": 1,
+      "score": 0.5399249792098999
+    },
+    {
+      "path": "test/poke/013.png",
+      "label": 1,
+      "score": 0.7357288599014282
+    },
+    {
+      "path": "test/poke/014.png",
+      "label": 1,
+      "score": 0.7265576124191284
+    },
+    {
+      "path": "test/poke/015.png",
+      "label": 1,
+      "score": 0.5215206146240234
+    },
+    {
+      "path": "test/poke/016.png",
+      "label": 1,
+      "score": 0.7474967241287231
+    },
+    {
+      "path": "test/poke/017.png",
+      "label": 1,
+      "score": 0.5884207487106323
+    },
+    {
+      "path": "test/poke/018.png",
+      "label": 1,
+      "score": 0.5298852920532227
+    },
+    {
+      "path": "test/poke/019.png",
+      "label": 1,
+      "score": 0.5335741639137268
+    },
+    {
+      "path": "test/poke/020.png",
+      "label": 1,
+      "score": 0.4728192090988159
+    },
+    {
+      "path": "test/scratch/000.png",
+      "label": 1,
+      "score": 0.6014057993888855
+    },
+    {
+      "path": "test/scratch/001.png",
+      "label": 1,
+      "score": 0.5499118566513062
+    },
+    {
+      "path": "test/scratch/002.png",
+      "label": 1,
+      "score": 0.7409903407096863
+    },
+    {
+      "path": "test/scratch/003.png",
+      "label": 1,
+      "score": 0.7467830181121826
+    },
+    {
+      "path": "test/scratch/004.png",
+      "label": 1,
+      "score": 0.7255013585090637
+    },
+    {
+      "path": "test/scratch/005.png",
+      "label": 1,
+      "score": 0.586329460144043
+    },
+    {
+      "path": "test/scratch/006.png",
+      "label": 1,
+      "score": 0.5703616142272949
+    },
+    {
+      "path": "test/scratch/007.png",
+      "label": 1,
+      "score": 0.6498121023178101
+    },
+    {
+      "path": "test/scratch/008.png",
+      "label": 1,
+      "score": 0.6654217839241028
+    },
+    {
+      "path": "test/scratch/009.png",
+      "label": 1,
+      "score": 0.4921347498893738
+    },
+    {
+      "path": "test/scratch/010.png",
+      "label": 1,
+      "score": 0.5367350578308105
+    },
+    {
+      "path": "test/scratch/011.png",
+      "label": 1,
+      "score": 0.5589163303375244
+    },
+    {
+      "path": "test/scratch/012.png",
+      "label": 1,
+      "score": 0.5442132949829102
+    },
+    {
+      "path": "test/scratch/013.png",
+      "label": 1,
+      "score": 0.5581883788108826
+    },
+    {
+      "path": "test/scratch/014.png",
+      "label": 1,
+      "score": 0.5744184255599976
+    },
+    {
+      "path": "test/scratch/015.png",
+      "label": 1,
+      "score": 0.5537567138671875
+    },
+    {
+      "path": "test/scratch/016.png",
+      "label": 1,
+      "score": 0.6227785348892212
+    },
+    {
+      "path": "test/scratch/017.png",
+      "label": 1,
+      "score": 0.6292279958724976
+    },
+    {
+      "path": "test/scratch/018.png",
+      "label": 1,
+      "score": 0.604840874671936
+    },
+    {
+      "path": "test/scratch/019.png",
+      "label": 1,
+      "score": 0.5789246559143066
+    },
+    {
+      "path": "test/scratch/020.png",
+      "label": 1,
+      "score": 0.581230640411377
+    },
+    {
+      "path": "test/scratch/021.png",
+      "label": 1,
+      "score": 0.5604233741760254
+    },
+    {
+      "path": "test/scratch/022.png",
+      "label": 1,
+      "score": 0.5331590175628662
+    },
+    {
+      "path": "test/squeeze/000.png",
+      "label": 1,
+      "score": 0.8403281569480896
+    },
+    {
+      "path": "test/squeeze/001.png",
+      "label": 1,
+      "score": 0.9329138994216919
+    },
+    {
+      "path": "test/squeeze/002.png",
+      "label": 1,
+      "score": 0.6827836036682129
+    },
+    {
+      "path": "test/squeeze/003.png",
+      "label": 1,
+      "score": 0.8385909199714661
+    },
+    {
+      "path": "test/squeeze/004.png",
+      "label": 1,
+      "score": 0.8605283498764038
+    },
+    {
+      "path": "test/squeeze/005.png",
+      "label": 1,
+      "score": 0.6818718910217285
+    },
+    {
+      "path": "test/squeeze/006.png",
+      "label": 1,
+      "score": 0.884351372718811
+    },
+    {
+      "path": "test/squeeze/007.png",
+      "label": 1,
+      "score": 0.8112897872924805
+    },
+    {
+      "path": "test/squeeze/008.png",
+      "label": 1,
+      "score": 0.6348931789398193
+    },
+    {
+      "path": "test/squeeze/009.png",
+      "label": 1,
+      "score": 0.7783806324005127
+    },
+    {
+      "path": "test/squeeze/010.png",
+      "label": 1,
+      "score": 0.964717447757721
+    },
+    {
+      "path": "test/squeeze/011.png",
+      "label": 1,
+      "score": 0.8385608196258545
+    },
+    {
+      "path": "test/squeeze/012.png",
+      "label": 1,
+      "score": 0.6532033681869507
+    },
+    {
+      "path": "test/squeeze/013.png",
+      "label": 1,
+      "score": 0.7855501174926758
+    },
+    {
+      "path": "test/squeeze/014.png",
+      "label": 1,
+      "score": 0.880774736404419
+    },
+    {
+      "path": "test/squeeze/015.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/squeeze/016.png",
+      "label": 1,
+      "score": 0.7818212509155273
+    },
+    {
+      "path": "test/squeeze/017.png",
+      "label": 1,
+      "score": 0.9222551584243774
+    },
+    {
+      "path": "test/squeeze/018.png",
+      "label": 1,
+      "score": 0.6815579533576965
+    },
+    {
+      "path": "test/squeeze/019.png",
+      "label": 1,
+      "score": 0.7103261351585388
+    }
+  ]
+}

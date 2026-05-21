@@ -1,0 +1,759 @@
+{
+  "schema": "inspectnet_cx.scores.v1",
+  "dataset": "mvtec_ad",
+  "category": "cable",
+  "train_category": "capsule",
+  "method": "anomalib_padim_cross_category",
+  "items": [
+    {
+      "path": "test/bent_wire/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/012.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cable_swap/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/012.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_inner_insulation/013.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/cut_outer_insulation/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/000.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/001.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/002.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/003.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/004.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/005.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/006.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/007.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/008.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/009.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/010.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/011.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/012.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/013.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/014.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/015.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/016.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/017.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/018.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/019.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/020.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/021.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/022.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/023.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/024.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/025.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/026.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/027.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/028.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/029.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/030.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/031.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/032.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/033.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/034.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/035.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/036.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/037.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/038.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/039.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/040.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/041.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/042.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/043.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/044.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/045.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/046.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/047.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/048.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/049.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/050.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/051.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/052.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/053.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/054.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/055.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/056.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/057.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/010.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_wire/009.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/002.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/008.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/poke_insulation/009.png",
+      "label": 1,
+      "score": 1.0
+    }
+  ]
+}

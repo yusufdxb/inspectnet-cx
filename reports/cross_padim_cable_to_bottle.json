@@ -1,0 +1,424 @@
+{
+  "schema": "inspectnet_cx.scores.v1",
+  "dataset": "mvtec_ad",
+  "category": "bottle",
+  "train_category": "cable",
+  "method": "anomalib_padim_cross_category",
+  "items": [
+    {
+      "path": "test/broken_large/000.png",
+      "label": 1,
+      "score": 0.867969274520874
+    },
+    {
+      "path": "test/broken_large/001.png",
+      "label": 1,
+      "score": 0.8849713802337646
+    },
+    {
+      "path": "test/broken_large/002.png",
+      "label": 1,
+      "score": 0.8833214044570923
+    },
+    {
+      "path": "test/broken_large/003.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/broken_large/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/broken_large/005.png",
+      "label": 1,
+      "score": 0.763023853302002
+    },
+    {
+      "path": "test/broken_large/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/broken_large/007.png",
+      "label": 1,
+      "score": 0.8306459188461304
+    },
+    {
+      "path": "test/broken_large/008.png",
+      "label": 1,
+      "score": 0.9052252769470215
+    },
+    {
+      "path": "test/broken_large/009.png",
+      "label": 1,
+      "score": 0.8768823146820068
+    },
+    {
+      "path": "test/broken_large/010.png",
+      "label": 1,
+      "score": 0.8211835026741028
+    },
+    {
+      "path": "test/broken_large/011.png",
+      "label": 1,
+      "score": 0.8117400407791138
+    },
+    {
+      "path": "test/broken_large/012.png",
+      "label": 1,
+      "score": 0.8390871286392212
+    },
+    {
+      "path": "test/broken_large/013.png",
+      "label": 1,
+      "score": 0.8115169405937195
+    },
+    {
+      "path": "test/broken_large/014.png",
+      "label": 1,
+      "score": 0.9610499143600464
+    },
+    {
+      "path": "test/broken_large/015.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/broken_large/016.png",
+      "label": 1,
+      "score": 0.7914547920227051
+    },
+    {
+      "path": "test/broken_large/017.png",
+      "label": 1,
+      "score": 0.8605645895004272
+    },
+    {
+      "path": "test/broken_large/018.png",
+      "label": 1,
+      "score": 0.8979617357254028
+    },
+    {
+      "path": "test/broken_large/019.png",
+      "label": 1,
+      "score": 0.9503543972969055
+    },
+    {
+      "path": "test/broken_small/000.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/broken_small/001.png",
+      "label": 1,
+      "score": 0.805642306804657
+    },
+    {
+      "path": "test/broken_small/002.png",
+      "label": 1,
+      "score": 0.9961298704147339
+    },
+    {
+      "path": "test/broken_small/003.png",
+      "label": 1,
+      "score": 0.9319769144058228
+    },
+    {
+      "path": "test/broken_small/004.png",
+      "label": 1,
+      "score": 0.9068953394889832
+    },
+    {
+      "path": "test/broken_small/005.png",
+      "label": 1,
+      "score": 0.96515291929245
+    },
+    {
+      "path": "test/broken_small/006.png",
+      "label": 1,
+      "score": 0.8280853629112244
+    },
+    {
+      "path": "test/broken_small/007.png",
+      "label": 1,
+      "score": 0.7562536001205444
+    },
+    {
+      "path": "test/broken_small/008.png",
+      "label": 1,
+      "score": 0.8335009813308716
+    },
+    {
+      "path": "test/broken_small/009.png",
+      "label": 1,
+      "score": 0.9557199478149414
+    },
+    {
+      "path": "test/broken_small/010.png",
+      "label": 1,
+      "score": 0.9067956805229187
+    },
+    {
+      "path": "test/broken_small/011.png",
+      "label": 1,
+      "score": 0.856913685798645
+    },
+    {
+      "path": "test/broken_small/012.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/broken_small/013.png",
+      "label": 1,
+      "score": 0.9806704521179199
+    },
+    {
+      "path": "test/broken_small/014.png",
+      "label": 1,
+      "score": 0.9162873029708862
+    },
+    {
+      "path": "test/broken_small/015.png",
+      "label": 1,
+      "score": 0.9315955638885498
+    },
+    {
+      "path": "test/broken_small/016.png",
+      "label": 1,
+      "score": 0.8900099992752075
+    },
+    {
+      "path": "test/broken_small/017.png",
+      "label": 1,
+      "score": 0.8280938863754272
+    },
+    {
+      "path": "test/broken_small/018.png",
+      "label": 1,
+      "score": 0.9080023765563965
+    },
+    {
+      "path": "test/broken_small/019.png",
+      "label": 1,
+      "score": 0.8932863473892212
+    },
+    {
+      "path": "test/broken_small/020.png",
+      "label": 1,
+      "score": 0.7933187484741211
+    },
+    {
+      "path": "test/broken_small/021.png",
+      "label": 1,
+      "score": 0.9264131188392639
+    },
+    {
+      "path": "test/contamination/000.png",
+      "label": 1,
+      "score": 0.9458936452865601
+    },
+    {
+      "path": "test/contamination/001.png",
+      "label": 1,
+      "score": 0.7808220386505127
+    },
+    {
+      "path": "test/contamination/002.png",
+      "label": 1,
+      "score": 0.9984543323516846
+    },
+    {
+      "path": "test/contamination/003.png",
+      "label": 1,
+      "score": 0.9047004580497742
+    },
+    {
+      "path": "test/contamination/004.png",
+      "label": 1,
+      "score": 0.8386523723602295
+    },
+    {
+      "path": "test/contamination/005.png",
+      "label": 1,
+      "score": 0.9597055912017822
+    },
+    {
+      "path": "test/contamination/006.png",
+      "label": 1,
+      "score": 0.91032475233078
+    },
+    {
+      "path": "test/contamination/007.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/contamination/008.png",
+      "label": 1,
+      "score": 0.8931866884231567
+    },
+    {
+      "path": "test/contamination/009.png",
+      "label": 1,
+      "score": 0.7938196659088135
+    },
+    {
+      "path": "test/contamination/010.png",
+      "label": 1,
+      "score": 0.9071993827819824
+    },
+    {
+      "path": "test/contamination/011.png",
+      "label": 1,
+      "score": 0.901698112487793
+    },
+    {
+      "path": "test/contamination/012.png",
+      "label": 1,
+      "score": 0.8898741006851196
+    },
+    {
+      "path": "test/contamination/013.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/contamination/014.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/contamination/015.png",
+      "label": 1,
+      "score": 0.900713324546814
+    },
+    {
+      "path": "test/contamination/016.png",
+      "label": 1,
+      "score": 0.9440295696258545
+    },
+    {
+      "path": "test/contamination/017.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/contamination/018.png",
+      "label": 1,
+      "score": 0.8139809370040894
+    },
+    {
+      "path": "test/contamination/019.png",
+      "label": 1,
+      "score": 0.7954328656196594
+    },
+    {
+      "path": "test/contamination/020.png",
+      "label": 1,
+      "score": 0.9272423386573792
+    },
+    {
+      "path": "test/good/000.png",
+      "label": 0,
+      "score": 0.9349969625473022
+    },
+    {
+      "path": "test/good/001.png",
+      "label": 0,
+      "score": 0.8329304456710815
+    },
+    {
+      "path": "test/good/002.png",
+      "label": 0,
+      "score": 0.9242674708366394
+    },
+    {
+      "path": "test/good/003.png",
+      "label": 0,
+      "score": 0.8321889638900757
+    },
+    {
+      "path": "test/good/004.png",
+      "label": 0,
+      "score": 0.9805331230163574
+    },
+    {
+      "path": "test/good/005.png",
+      "label": 0,
+      "score": 0.8185347318649292
+    },
+    {
+      "path": "test/good/006.png",
+      "label": 0,
+      "score": 1.0
+    },
+    {
+      "path": "test/good/007.png",
+      "label": 0,
+      "score": 0.9076229333877563
+    },
+    {
+      "path": "test/good/008.png",
+      "label": 0,
+      "score": 0.8247674107551575
+    },
+    {
+      "path": "test/good/009.png",
+      "label": 0,
+      "score": 0.8543697595596313
+    },
+    {
+      "path": "test/good/010.png",
+      "label": 0,
+      "score": 0.8338863849639893
+    },
+    {
+      "path": "test/good/011.png",
+      "label": 0,
+      "score": 0.9341394305229187
+    },
+    {
+      "path": "test/good/012.png",
+      "label": 0,
+      "score": 0.897915244102478
+    },
+    {
+      "path": "test/good/013.png",
+      "label": 0,
+      "score": 0.9554876685142517
+    },
+    {
+      "path": "test/good/014.png",
+      "label": 0,
+      "score": 0.8103392124176025
+    },
+    {
+      "path": "test/good/015.png",
+      "label": 0,
+      "score": 0.9341748952865601
+    },
+    {
+      "path": "test/good/016.png",
+      "label": 0,
+      "score": 0.859511137008667
+    },
+    {
+      "path": "test/good/017.png",
+      "label": 0,
+      "score": 0.8510212898254395
+    },
+    {
+      "path": "test/good/018.png",
+      "label": 0,
+      "score": 0.9391626119613647
+    },
+    {
+      "path": "test/good/019.png",
+      "label": 0,
+      "score": 0.8492407202720642
+    }
+  ]
+}

@@ -1,0 +1,758 @@
+{
+  "schema": "inspectnet_cx.scores.v1",
+  "dataset": "mvtec_ad",
+  "category": "cable",
+  "method": "anomalib_padim",
+  "items": [
+    {
+      "path": "test/bent_wire/000.png",
+      "label": 1,
+      "score": 0.6768466830253601
+    },
+    {
+      "path": "test/bent_wire/001.png",
+      "label": 1,
+      "score": 0.8818930387496948
+    },
+    {
+      "path": "test/bent_wire/002.png",
+      "label": 1,
+      "score": 0.729409396648407
+    },
+    {
+      "path": "test/bent_wire/003.png",
+      "label": 1,
+      "score": 0.8736104965209961
+    },
+    {
+      "path": "test/bent_wire/004.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/006.png",
+      "label": 1,
+      "score": 0.965377926826477
+    },
+    {
+      "path": "test/bent_wire/007.png",
+      "label": 1,
+      "score": 0.7782492637634277
+    },
+    {
+      "path": "test/bent_wire/008.png",
+      "label": 1,
+      "score": 0.730080783367157
+    },
+    {
+      "path": "test/bent_wire/009.png",
+      "label": 1,
+      "score": 0.8615726232528687
+    },
+    {
+      "path": "test/bent_wire/010.png",
+      "label": 1,
+      "score": 0.995680570602417
+    },
+    {
+      "path": "test/bent_wire/011.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/bent_wire/012.png",
+      "label": 1,
+      "score": 0.8046916723251343
+    },
+    {
+      "path": "test/cable_swap/000.png",
+      "label": 1,
+      "score": 0.6776024103164673
+    },
+    {
+      "path": "test/cable_swap/001.png",
+      "label": 1,
+      "score": 0.5000704526901245
+    },
+    {
+      "path": "test/cable_swap/002.png",
+      "label": 1,
+      "score": 0.6582299470901489
+    },
+    {
+      "path": "test/cable_swap/003.png",
+      "label": 1,
+      "score": 0.5195315480232239
+    },
+    {
+      "path": "test/cable_swap/004.png",
+      "label": 1,
+      "score": 0.510858952999115
+    },
+    {
+      "path": "test/cable_swap/005.png",
+      "label": 1,
+      "score": 0.5613000392913818
+    },
+    {
+      "path": "test/cable_swap/006.png",
+      "label": 1,
+      "score": 0.5609284043312073
+    },
+    {
+      "path": "test/cable_swap/007.png",
+      "label": 1,
+      "score": 0.44129040837287903
+    },
+    {
+      "path": "test/cable_swap/008.png",
+      "label": 1,
+      "score": 0.5541800260543823
+    },
+    {
+      "path": "test/cable_swap/009.png",
+      "label": 1,
+      "score": 0.5758652687072754
+    },
+    {
+      "path": "test/cable_swap/010.png",
+      "label": 1,
+      "score": 0.6602669954299927
+    },
+    {
+      "path": "test/cable_swap/011.png",
+      "label": 1,
+      "score": 0.5072676539421082
+    },
+    {
+      "path": "test/combined/000.png",
+      "label": 1,
+      "score": 0.8007984757423401
+    },
+    {
+      "path": "test/combined/001.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/combined/002.png",
+      "label": 1,
+      "score": 0.7365776896476746
+    },
+    {
+      "path": "test/combined/003.png",
+      "label": 1,
+      "score": 0.5965673327445984
+    },
+    {
+      "path": "test/combined/004.png",
+      "label": 1,
+      "score": 0.6644476056098938
+    },
+    {
+      "path": "test/combined/005.png",
+      "label": 1,
+      "score": 0.5313007831573486
+    },
+    {
+      "path": "test/combined/006.png",
+      "label": 1,
+      "score": 0.6351337432861328
+    },
+    {
+      "path": "test/combined/007.png",
+      "label": 1,
+      "score": 0.7700700163841248
+    },
+    {
+      "path": "test/combined/008.png",
+      "label": 1,
+      "score": 0.9576516151428223
+    },
+    {
+      "path": "test/combined/009.png",
+      "label": 1,
+      "score": 0.6934084296226501
+    },
+    {
+      "path": "test/combined/010.png",
+      "label": 1,
+      "score": 0.773645281791687
+    },
+    {
+      "path": "test/cut_inner_insulation/000.png",
+      "label": 1,
+      "score": 0.5386837124824524
+    },
+    {
+      "path": "test/cut_inner_insulation/001.png",
+      "label": 1,
+      "score": 0.7114260196685791
+    },
+    {
+      "path": "test/cut_inner_insulation/002.png",
+      "label": 1,
+      "score": 0.44182029366493225
+    },
+    {
+      "path": "test/cut_inner_insulation/003.png",
+      "label": 1,
+      "score": 0.8701947927474976
+    },
+    {
+      "path": "test/cut_inner_insulation/004.png",
+      "label": 1,
+      "score": 0.7720061540603638
+    },
+    {
+      "path": "test/cut_inner_insulation/005.png",
+      "label": 1,
+      "score": 0.5202566385269165
+    },
+    {
+      "path": "test/cut_inner_insulation/006.png",
+      "label": 1,
+      "score": 0.7433434724807739
+    },
+    {
+      "path": "test/cut_inner_insulation/007.png",
+      "label": 1,
+      "score": 0.5177300572395325
+    },
+    {
+      "path": "test/cut_inner_insulation/008.png",
+      "label": 1,
+      "score": 0.6365922689437866
+    },
+    {
+      "path": "test/cut_inner_insulation/009.png",
+      "label": 1,
+      "score": 0.5534140467643738
+    },
+    {
+      "path": "test/cut_inner_insulation/010.png",
+      "label": 1,
+      "score": 0.6374045014381409
+    },
+    {
+      "path": "test/cut_inner_insulation/011.png",
+      "label": 1,
+      "score": 0.8536763191223145
+    },
+    {
+      "path": "test/cut_inner_insulation/012.png",
+      "label": 1,
+      "score": 0.593192994594574
+    },
+    {
+      "path": "test/cut_inner_insulation/013.png",
+      "label": 1,
+      "score": 0.7620851993560791
+    },
+    {
+      "path": "test/cut_outer_insulation/000.png",
+      "label": 1,
+      "score": 0.6996351480484009
+    },
+    {
+      "path": "test/cut_outer_insulation/001.png",
+      "label": 1,
+      "score": 0.6573702096939087
+    },
+    {
+      "path": "test/cut_outer_insulation/002.png",
+      "label": 1,
+      "score": 0.689494252204895
+    },
+    {
+      "path": "test/cut_outer_insulation/003.png",
+      "label": 1,
+      "score": 0.5191269516944885
+    },
+    {
+      "path": "test/cut_outer_insulation/004.png",
+      "label": 1,
+      "score": 0.6131318211555481
+    },
+    {
+      "path": "test/cut_outer_insulation/005.png",
+      "label": 1,
+      "score": 0.6422106027603149
+    },
+    {
+      "path": "test/cut_outer_insulation/006.png",
+      "label": 1,
+      "score": 0.6350540518760681
+    },
+    {
+      "path": "test/cut_outer_insulation/007.png",
+      "label": 1,
+      "score": 0.6504701375961304
+    },
+    {
+      "path": "test/cut_outer_insulation/008.png",
+      "label": 1,
+      "score": 0.7624544501304626
+    },
+    {
+      "path": "test/cut_outer_insulation/009.png",
+      "label": 1,
+      "score": 0.6214300394058228
+    },
+    {
+      "path": "test/good/000.png",
+      "label": 0,
+      "score": 0.474027156829834
+    },
+    {
+      "path": "test/good/001.png",
+      "label": 0,
+      "score": 0.4302467703819275
+    },
+    {
+      "path": "test/good/002.png",
+      "label": 0,
+      "score": 0.444973349571228
+    },
+    {
+      "path": "test/good/003.png",
+      "label": 0,
+      "score": 0.4254111647605896
+    },
+    {
+      "path": "test/good/004.png",
+      "label": 0,
+      "score": 0.4921748638153076
+    },
+    {
+      "path": "test/good/005.png",
+      "label": 0,
+      "score": 0.4657212793827057
+    },
+    {
+      "path": "test/good/006.png",
+      "label": 0,
+      "score": 0.39785125851631165
+    },
+    {
+      "path": "test/good/007.png",
+      "label": 0,
+      "score": 0.6228195428848267
+    },
+    {
+      "path": "test/good/008.png",
+      "label": 0,
+      "score": 0.6161888241767883
+    },
+    {
+      "path": "test/good/009.png",
+      "label": 0,
+      "score": 0.41112443804740906
+    },
+    {
+      "path": "test/good/010.png",
+      "label": 0,
+      "score": 0.42319896817207336
+    },
+    {
+      "path": "test/good/011.png",
+      "label": 0,
+      "score": 0.5593253970146179
+    },
+    {
+      "path": "test/good/012.png",
+      "label": 0,
+      "score": 0.49130457639694214
+    },
+    {
+      "path": "test/good/013.png",
+      "label": 0,
+      "score": 0.5654512047767639
+    },
+    {
+      "path": "test/good/014.png",
+      "label": 0,
+      "score": 0.47208601236343384
+    },
+    {
+      "path": "test/good/015.png",
+      "label": 0,
+      "score": 0.4147096872329712
+    },
+    {
+      "path": "test/good/016.png",
+      "label": 0,
+      "score": 0.4838100075721741
+    },
+    {
+      "path": "test/good/017.png",
+      "label": 0,
+      "score": 0.4042757451534271
+    },
+    {
+      "path": "test/good/018.png",
+      "label": 0,
+      "score": 0.4074222445487976
+    },
+    {
+      "path": "test/good/019.png",
+      "label": 0,
+      "score": 0.53125
+    },
+    {
+      "path": "test/good/020.png",
+      "label": 0,
+      "score": 0.44840723276138306
+    },
+    {
+      "path": "test/good/021.png",
+      "label": 0,
+      "score": 0.4021194577217102
+    },
+    {
+      "path": "test/good/022.png",
+      "label": 0,
+      "score": 0.6961023211479187
+    },
+    {
+      "path": "test/good/023.png",
+      "label": 0,
+      "score": 0.413838654756546
+    },
+    {
+      "path": "test/good/024.png",
+      "label": 0,
+      "score": 0.5651230216026306
+    },
+    {
+      "path": "test/good/025.png",
+      "label": 0,
+      "score": 0.4374818503856659
+    },
+    {
+      "path": "test/good/026.png",
+      "label": 0,
+      "score": 0.4635618329048157
+    },
+    {
+      "path": "test/good/027.png",
+      "label": 0,
+      "score": 0.4894397258758545
+    },
+    {
+      "path": "test/good/028.png",
+      "label": 0,
+      "score": 0.4090738594532013
+    },
+    {
+      "path": "test/good/029.png",
+      "label": 0,
+      "score": 0.4877782166004181
+    },
+    {
+      "path": "test/good/030.png",
+      "label": 0,
+      "score": 0.5588745474815369
+    },
+    {
+      "path": "test/good/031.png",
+      "label": 0,
+      "score": 0.47029614448547363
+    },
+    {
+      "path": "test/good/032.png",
+      "label": 0,
+      "score": 0.4398200809955597
+    },
+    {
+      "path": "test/good/033.png",
+      "label": 0,
+      "score": 0.4679870307445526
+    },
+    {
+      "path": "test/good/034.png",
+      "label": 0,
+      "score": 0.4968316853046417
+    },
+    {
+      "path": "test/good/035.png",
+      "label": 0,
+      "score": 0.48477503657341003
+    },
+    {
+      "path": "test/good/036.png",
+      "label": 0,
+      "score": 0.58282470703125
+    },
+    {
+      "path": "test/good/037.png",
+      "label": 0,
+      "score": 0.4195484519004822
+    },
+    {
+      "path": "test/good/038.png",
+      "label": 0,
+      "score": 0.4551194906234741
+    },
+    {
+      "path": "test/good/039.png",
+      "label": 0,
+      "score": 0.5549298524856567
+    },
+    {
+      "path": "test/good/040.png",
+      "label": 0,
+      "score": 0.5010497570037842
+    },
+    {
+      "path": "test/good/041.png",
+      "label": 0,
+      "score": 0.5980572700500488
+    },
+    {
+      "path": "test/good/042.png",
+      "label": 0,
+      "score": 0.4279226064682007
+    },
+    {
+      "path": "test/good/043.png",
+      "label": 0,
+      "score": 0.5763399600982666
+    },
+    {
+      "path": "test/good/044.png",
+      "label": 0,
+      "score": 0.5344985127449036
+    },
+    {
+      "path": "test/good/045.png",
+      "label": 0,
+      "score": 0.5092071890830994
+    },
+    {
+      "path": "test/good/046.png",
+      "label": 0,
+      "score": 0.4186442494392395
+    },
+    {
+      "path": "test/good/047.png",
+      "label": 0,
+      "score": 0.4706861972808838
+    },
+    {
+      "path": "test/good/048.png",
+      "label": 0,
+      "score": 0.4204002618789673
+    },
+    {
+      "path": "test/good/049.png",
+      "label": 0,
+      "score": 0.5455658435821533
+    },
+    {
+      "path": "test/good/050.png",
+      "label": 0,
+      "score": 0.6055587530136108
+    },
+    {
+      "path": "test/good/051.png",
+      "label": 0,
+      "score": 0.4809280335903168
+    },
+    {
+      "path": "test/good/052.png",
+      "label": 0,
+      "score": 0.4544163942337036
+    },
+    {
+      "path": "test/good/053.png",
+      "label": 0,
+      "score": 0.4341733455657959
+    },
+    {
+      "path": "test/good/054.png",
+      "label": 0,
+      "score": 0.4383222460746765
+    },
+    {
+      "path": "test/good/055.png",
+      "label": 0,
+      "score": 0.4920523166656494
+    },
+    {
+      "path": "test/good/056.png",
+      "label": 0,
+      "score": 0.44367605447769165
+    },
+    {
+      "path": "test/good/057.png",
+      "label": 0,
+      "score": 0.5162795186042786
+    },
+    {
+      "path": "test/missing_cable/000.png",
+      "label": 1,
+      "score": 0.8894731998443604
+    },
+    {
+      "path": "test/missing_cable/001.png",
+      "label": 1,
+      "score": 0.5788078308105469
+    },
+    {
+      "path": "test/missing_cable/002.png",
+      "label": 1,
+      "score": 0.6998895406723022
+    },
+    {
+      "path": "test/missing_cable/003.png",
+      "label": 1,
+      "score": 0.48970866203308105
+    },
+    {
+      "path": "test/missing_cable/004.png",
+      "label": 1,
+      "score": 0.5171269774436951
+    },
+    {
+      "path": "test/missing_cable/005.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/006.png",
+      "label": 1,
+      "score": 1.0
+    },
+    {
+      "path": "test/missing_cable/007.png",
+      "label": 1,
+      "score": 0.6410205960273743
+    },
+    {
+      "path": "test/missing_cable/008.png",
+      "label": 1,
+      "score": 0.7894187569618225
+    },
+    {
+      "path": "test/missing_cable/009.png",
+      "label": 1,
+      "score": 0.8759030103683472
+    },
+    {
+      "path": "test/missing_cable/010.png",
+      "label": 1,
+      "score": 0.5244072675704956
+    },
+    {
+      "path": "test/missing_cable/011.png",
+      "label": 1,
+      "score": 0.5539351105690002
+    },
+    {
+      "path": "test/missing_wire/000.png",
+      "label": 1,
+      "score": 0.44302117824554443
+    },
+    {
+      "path": "test/missing_wire/001.png",
+      "label": 1,
+      "score": 0.4357808530330658
+    },
+    {
+      "path": "test/missing_wire/002.png",
+      "label": 1,
+      "score": 0.670647382736206
+    },
+    {
+      "path": "test/missing_wire/003.png",
+      "label": 1,
+      "score": 0.7883443832397461
+    },
+    {
+      "path": "test/missing_wire/004.png",
+      "label": 1,
+      "score": 0.5044148564338684
+    },
+    {
+      "path": "test/missing_wire/005.png",
+      "label": 1,
+      "score": 0.5
+    },
+    {
+      "path": "test/missing_wire/006.png",
+      "label": 1,
+      "score": 0.4467794895172119
+    },
+    {
+      "path": "test/missing_wire/007.png",
+      "label": 1,
+      "score": 0.5445969104766846
+    },
+    {
+      "path": "test/missing_wire/008.png",
+      "label": 1,
+      "score": 0.4488023519515991
+    },
+    {
+      "path": "test/missing_wire/009.png",
+      "label": 1,
+      "score": 0.48575717210769653
+    },
+    {
+      "path": "test/poke_insulation/000.png",
+      "label": 1,
+      "score": 0.5002411007881165
+    },
+    {
+      "path": "test/poke_insulation/001.png",
+      "label": 1,
+      "score": 0.7510308027267456
+    },
+    {
+      "path": "test/poke_insulation/002.png",
+      "label": 1,
+      "score": 0.5841403007507324
+    },
+    {
+      "path": "test/poke_insulation/003.png",
+      "label": 1,
+      "score": 0.5659044981002808
+    },
+    {
+      "path": "test/poke_insulation/004.png",
+      "label": 1,
+      "score": 0.4213111996650696
+    },
+    {
+      "path": "test/poke_insulation/005.png",
+      "label": 1,
+      "score": 0.5754813551902771
+    },
+    {
+      "path": "test/poke_insulation/006.png",
+      "label": 1,
+      "score": 0.5988737940788269
+    },
+    {
+      "path": "test/poke_insulation/007.png",
+      "label": 1,
+      "score": 0.6855850219726562
+    },
+    {
+      "path": "test/poke_insulation/008.png",
+      "label": 1,
+      "score": 0.6219637393951416
+    },
+    {
+      "path": "test/poke_insulation/009.png",
+      "label": 1,
+      "score": 0.8237920999526978
+    }
+  ]
+}

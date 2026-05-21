@@ -1,0 +1,38 @@
+{
+  "schema": "inspectnet_cx.bootstrap_auroc.v1",
+  "source_score_file": "reports/scores_padim_leather.json",
+  "dataset": "mvtec_ad",
+  "category": "leather",
+  "method": "anomalib_padim",
+  "n_samples": 124,
+  "n_positive": 92,
+  "n_negative": 32,
+  "n_bootstrap": 1000,
+  "seed": 0,
+  "metrics": {
+    "auroc": {
+      "point": 0.9925271739130433,
+      "ci_low": 0.9769021739130435,
+      "ci_high": 1.0,
+      "median": 0.9932065217391304,
+      "std": 0.006427514395822916,
+      "n_valid": 1000
+    },
+    "youden_f1": {
+      "point": 0.9834254143646408,
+      "ci_low": 0.9662921348314606,
+      "ci_high": 1.0,
+      "median": 0.989010989010989,
+      "std": 0.008837469957900775,
+      "n_valid": 1000
+    },
+    "f1_max_f1": {
+      "point": 0.9836065573770493,
+      "ci_low": 0.9720670391061452,
+      "ci_high": 1.0,
+      "median": 0.989010989010989,
+      "std": 0.0076913781719478175,
+      "n_valid": 1000
+    }
+  }
+}
