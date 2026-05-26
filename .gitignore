@@ -19,3 +19,6 @@ reports/*.md
 reports/**/*.ckpt
 reports/agent_b/
 reports/tmp_padim_probe2/
+
+# Canonical HF model-card clone lives here but is its own git repo.
+huggingface/inspectnet-cx/
