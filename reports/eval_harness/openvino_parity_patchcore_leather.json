@@ -1,0 +1,66 @@
+{
+  "schema": "inspectnet_cx.openvino_parity_patchcore.v1",
+  "category": "leather",
+  "checkpoint": "artifacts/patchcore_leather/Patchcore/MVTecAD/leather/v0/weights/lightning/model.ckpt",
+  "checkpoint_sha256": "5cf7c7a793ad441a9c6cd92ee27517c674df35720c1873e61ef7aab5ebc2bd29",
+  "image_count": 20,
+  "image_size": 256,
+  "inference_precision_hint": "f32",
+  "device": "CPU",
+  "library_versions": {
+    "python": "3.10.12",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35",
+    "onnxruntime": "1.23.2",
+    "openvino": "2026.1.0-21367-63e31528c62-releases/2026/1",
+    "anomalib": "2.4.1",
+    "torch": "2.11.0+cu128"
+  },
+  "git_commit": "e8b13f0163d67d14f3e3803fab58a834b002d5ea",
+  "timestamp_utc": "2026-05-26T05:27:07.327557+00:00",
+  "onnx_path": "/tmp/patchcore_export_leather_ai2452vv/onnx/weights/onnx/model.onnx",
+  "openvino_path": "/tmp/patchcore_export_leather_ai2452vv/openvino/weights/openvino/model.xml",
+  "comparison": {
+    "per_output": {
+      "pred_score": {
+        "max_abs_error": 7.298588752746582e-05,
+        "mean_abs_error": 4.3779611587524416e-06,
+        "max_rel_error": 0.00023112464987207204
+      },
+      "pred_label": {
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "max_rel_error": 0.0
+      },
+      "anomaly_map": {
+        "max_abs_error": 4.32133674621582e-06,
+        "mean_abs_error": 6.938633305253461e-07,
+        "max_rel_error": 0.0014192002126947045
+      },
+      "pred_mask": {
+        "max_abs_error": 0.0,
+        "mean_abs_error": 0.0,
+        "max_rel_error": 0.0
+      }
+    },
+    "pred_label_flips": 0,
+    "pred_label_total": 20,
+    "pred_mask_pixel_flips": 0,
+    "pred_mask_pixel_total": 1310720,
+    "pred_mask_pixel_flip_fraction": 0.0,
+    "onnx_output_names": [
+      "pred_score",
+      "pred_label",
+      "anomaly_map",
+      "pred_mask"
+    ]
+  },
+  "summary": {
+    "max_abs_error_any_output": 7.298588752746582e-05,
+    "pred_label_flips": 0,
+    "pred_label_total": 20,
+    "pred_mask_pixel_flips": 0,
+    "pred_mask_pixel_total": 1310720,
+    "pred_mask_pixel_flip_fraction": 0.0
+  },
+  "status": "parity_clean"
+}

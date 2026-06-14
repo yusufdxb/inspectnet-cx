@@ -1,0 +1,47 @@
+{
+  "schema": "inspectnet_cx.eval_harness.v1",
+  "category": "leather",
+  "method": "patchcore",
+  "dataset": "mvtec_ad",
+  "split": "mvtec_ad_default_train_test",
+  "split_hash": "4c730802f339675b402c86c8079e1b7b57b07c0b00e6f4de45db073ebb52ad5c",
+  "checkpoint": "/home/yusuf/Projects/inspectnet-cx/artifacts/patchcore_leather_seed2/Patchcore/MVTecAD/leather/v0/weights/lightning/model.ckpt",
+  "checkpoint_hash": "268b1d0819ef50353a0ed874dc84ce2f38d5fe1686978ed284f881c5532fbc0e",
+  "image_auroc": 1.0,
+  "pixel_auroc": 0.9921353973945378,
+  "aupro": 0.9748720526695251,
+  "aupro_fpr_limit": 0.3,
+  "threshold": 0.26283863246440886,
+  "threshold_selection": {
+    "rule": "quantile",
+    "quantile": 0.995,
+    "split": "train",
+    "n_train_scores": 245
+  },
+  "n_test_images": 124,
+  "n_test_anomaly": 92,
+  "n_test_normal": 32,
+  "library_versions": {
+    "python": "3.10.12",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35",
+    "numpy": "2.2.6",
+    "sklearn": "1.7.2",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "anomalib": "2.4.1"
+  },
+  "git_commit": "e8b13f0163d67d14f3e3803fab58a834b002d5ea",
+  "timestamp_utc": "2026-05-26T05:20:32.067330+00:00",
+  "device": "cuda",
+  "coreset_sampling_ratio": 0.01,
+  "train_sidecar": {
+    "backbone": "wide_resnet50_2",
+    "layers": [
+      "layer2",
+      "layer3"
+    ],
+    "coreset_sampling_ratio": 0.01,
+    "checkpoint_sha256": "268b1d0819ef50353a0ed874dc84ce2f38d5fe1686978ed284f881c5532fbc0e",
+    "git_commit": "e8b13f0163d67d14f3e3803fab58a834b002d5ea"
+  }
+}

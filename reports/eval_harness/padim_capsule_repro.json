@@ -1,0 +1,36 @@
+{
+  "schema": "inspectnet_cx.eval_harness.v1",
+  "category": "capsule",
+  "method": "padim",
+  "dataset": "mvtec_ad",
+  "split": "mvtec_ad_default_train_test",
+  "split_hash": "a35a4767af802024bcbbdb6ef56b1c9074be26490b39d0345378c8b842d69ee6",
+  "checkpoint": "/home/yusuf/Projects/inspectnet-cx/artifacts/anomalib_scoring_capsule/Padim/MVTecAD/capsule/v0/weights/lightning/model.ckpt",
+  "checkpoint_hash": "0fcba06e0c2550a4e37e06727d5e376f64387901f1b13c504649060d2d798607",
+  "image_auroc": 0.8807339449541285,
+  "pixel_auroc": 0.9849188179370411,
+  "aupro": 0.914944589138031,
+  "aupro_fpr_limit": 0.3,
+  "threshold": 0.40798546075820924,
+  "threshold_selection": {
+    "rule": "quantile",
+    "quantile": 0.995,
+    "split": "train",
+    "n_train_scores": 219
+  },
+  "n_test_images": 132,
+  "n_test_anomaly": 109,
+  "n_test_normal": 23,
+  "library_versions": {
+    "python": "3.10.12",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35",
+    "numpy": "2.2.6",
+    "sklearn": "1.7.2",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "anomalib": "2.4.1"
+  },
+  "git_commit": "e8b13f0163d67d14f3e3803fab58a834b002d5ea",
+  "timestamp_utc": "2026-05-26T04:51:44.276536+00:00",
+  "device": "cpu"
+}

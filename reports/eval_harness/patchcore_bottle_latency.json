@@ -1,0 +1,46 @@
+{
+  "schema": "inspectnet_cx.bench_latency.v1",
+  "category": "bottle",
+  "checkpoint": "/home/yusuf/Projects/inspectnet-cx/artifacts/patchcore_bottle/Patchcore/MVTecAD/bottle/v0/weights/lightning/model.ckpt",
+  "dataset_root": "/home/yusuf/datasets/mvtec_ad",
+  "hardware": {
+    "cpu": "AMD Ryzen 9 9900X 12-Core Processor",
+    "gpu": "NVIDIA GeForce RTX 5070, 570.211.01, 12227 MiB",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35"
+  },
+  "library_versions": {
+    "python": "3.10.12",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35",
+    "numpy": "2.2.6",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "anomalib": "2.4.1"
+  },
+  "timestamp_utc": "2026-05-26T05:05:45.170181+00:00",
+  "per_device": {
+    "cpu": {
+      "device": "cpu",
+      "n_images": 50,
+      "n_warmup": 10,
+      "image_size": 256,
+      "batch_size": 1,
+      "min_ms": 28.318168000168953,
+      "median_ms": 30.15510099999119,
+      "p95_ms": 31.568882550072885,
+      "mean_ms": 30.1779899399844,
+      "std_ms": 1.0117806649427663
+    },
+    "cuda": {
+      "device": "cuda",
+      "n_images": 50,
+      "n_warmup": 10,
+      "image_size": 256,
+      "batch_size": 1,
+      "min_ms": 5.143589999988762,
+      "median_ms": 5.201645000170174,
+      "p95_ms": 6.4145484999698965,
+      "mean_ms": 5.50754846003656,
+      "std_ms": 0.4728880034145876
+    }
+  }
+}

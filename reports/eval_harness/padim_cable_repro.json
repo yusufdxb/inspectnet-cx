@@ -1,0 +1,36 @@
+{
+  "schema": "inspectnet_cx.eval_harness.v1",
+  "category": "cable",
+  "method": "padim",
+  "dataset": "mvtec_ad",
+  "split": "mvtec_ad_default_train_test",
+  "split_hash": "d7bbd5d916acd9c8660eaacc6d653c7bdc4ab9fc8765f48563cccc5717df8150",
+  "checkpoint": "/home/yusuf/Projects/inspectnet-cx/artifacts/anomalib_scoring_cable/Padim/MVTecAD/cable/v1/weights/lightning/model.ckpt",
+  "checkpoint_hash": "2db928d24905691b677fa90c132a36050030dd3dc0abcd0d514d3772ea972c0f",
+  "image_auroc": 0.8720014992503747,
+  "pixel_auroc": 0.955104514240921,
+  "aupro": 0.8519249558448792,
+  "aupro_fpr_limit": 0.3,
+  "threshold": 0.3756111641228199,
+  "threshold_selection": {
+    "rule": "quantile",
+    "quantile": 0.995,
+    "split": "train",
+    "n_train_scores": 224
+  },
+  "n_test_images": 150,
+  "n_test_anomaly": 92,
+  "n_test_normal": 58,
+  "library_versions": {
+    "python": "3.10.12",
+    "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35",
+    "numpy": "2.2.6",
+    "sklearn": "1.7.2",
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "anomalib": "2.4.1"
+  },
+  "git_commit": "e8b13f0163d67d14f3e3803fab58a834b002d5ea",
+  "timestamp_utc": "2026-05-26T04:51:02.394695+00:00",
+  "device": "cpu"
+}
