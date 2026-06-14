@@ -2,116 +2,69 @@
 language: en
 license: apache-2.0
 library_name: transformers
-pipeline_tag: image-feature-extraction
+pipeline_tag: image-classification
 tags:
   - anomaly-detection
   - industrial-inspection
   - computer-vision
+  - mvtec-ad
+  - padim
+  - patchcore
   - pytorch
-  - transformers
-  - phase-0
 ---
 
-# InspectNet-CX Phase 0
+# InspectNet-CX
 
-InspectNet-CX Phase 0 is a Hugging Face-style scaffold for industrial visual anomaly
-detection. It defines a model contract for image score, anomaly heatmap, binary mask,
-threshold, confidence, and defect-region outputs.
+InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships two
+verified classical baselines (PaDiM and PatchCore), a cross-category transfer study, and an
+ONNX/OpenVINO export-parity investigation with a root-caused fix. The packaged `InspectNetCX`
+model class is a Hugging Face-style API scaffold (placeholder CNN); it is not a trained
+detector. The numbers below are PaDiM and PatchCore run through this repo's harness.
 
-This is not a trained native InspectNet-CX anomaly detection checkpoint. It is a public
-scaffold for the API, packaging, proof-readiness checks, baseline reproduction, and honest
-deployment-path investigation.
+## Verified Results
 
-Current repository evidence includes a real Anomalib PaDiM CPU fit/test on local MVTec AD
-`bottle`. The checkpoint is reusable through Anomalib and has been exported to ONNX/OpenVINO,
-but it is an Anomalib baseline artifact, not a native InspectNet-CX checkpoint.
+Image-level AUROC, matched train/test, four MVTec AD categories:
 
-The public metric table should use the preserved verified PaDiM report:
-`reports/agent_b/anomalib_padim_mvtec_ad_bottle_result.json` (`image_auroc=0.9960`,
-`image_f1=0.9756`, `pixel_auroc=0.9794`, `pixel_f1=0.6808`). A separate rerun exists at
-`reports/agent_b/padim_rerun_mvtec_ad_bottle_result.json` (`image_auroc=0.9984`,
-`image_f1=0.9841`, `pixel_auroc=0.9786`, `pixel_f1=0.6747`). The CPU classical
-patch-difference baseline report is `reports/agent_b/classical_patchdiff_rerun_mvtec_ad_bottle_result.json`.
-These reports are baseline evidence for the exact local dataset path and environment, not
-evidence that this Phase 0 checkpoint is a trained detector.
+| category | PaDiM (ResNet-18) | PatchCore |
+| -------- | ----------------: | --------: |
+| bottle   | 0.998 | 1.000 |
+| cable    | 0.872 | 0.991 |
+| capsule  | 0.881 | 0.994 |
+| leather  | 0.993 | 1.000 |
+
+Cross-category transfer: a PaDiM bank fit on one category and scored on another drops AUROC by
+0.431 (95% bootstrap CI [0.403, 0.458]); off-diagonal cells collapse to ~0.50. PaDiM is
+category-specific.
+
+ONNX/OpenVINO parity: the ORT-vs-OpenVINO gap on the exported PaDiM model is OpenVINO's CPU
+plugin defaulting to BF16 on AVX-512-BF16 hosts. Forcing FP32 drops `pred_score` max-abs error
+from 7.9e-4 to 3.0e-8.
 
 ## Intended Use
 
-- Prototype the InspectNet-CX Python API.
-- Verify save and load behavior with `save_pretrained` and `from_pretrained`.
-- Test downstream integration code before real training exists.
-- Run local latency and proof-readiness checks.
+- Reproduce MVTec AD anomaly-detection baselines (PaDiM, PatchCore) from a clean harness.
+- Study cross-category transfer and export parity.
+- Prototype against the InspectNet-CX Python API (`save_pretrained` / `from_pretrained`).
 
 ## Out of Scope
 
-- Production inspection.
-- Safety-critical reject decisions.
-- Benchmark claims on MVTec AD, VisA, AD2, or LOCO.
-- Jetson latency claims unless measured on Jetson Orin NX 16GB.
-
-## Example
-
-```python
-from inspectnet_cx import InspectNetCXForAnomalyDetection, InspectNetCXProcessor
-
-processor = InspectNetCXProcessor.from_pretrained("yusufdxb/inspectnet-cx-phase0")
-model = InspectNetCXForAnomalyDetection.from_pretrained("yusufdxb/inspectnet-cx-phase0")
-
-inputs = processor(images=image, return_tensors="pt")
-outputs = model(**inputs)
-```
+- Production or safety-critical inspection.
+- Benchmark claims beyond the four verified MVTec AD categories.
+- Jetson / TensorRT latency claims (unmeasured).
 
 ## Limitations
 
-- The Phase 0 model uses a tiny placeholder CNN.
-- `support_images` are accepted by the processor but not used by the model yet.
-- Calibration utilities are present, but calibration quality is not proven.
-- Generated masks and regions are placeholder outputs, not defect-quality evidence.
-- ONNX/OpenVINO exports exist for the Phase 0 placeholder and for the trained Anomalib PaDiM
-  baseline, but trained export parity is not clean.
-- OpenVINO parity for the Phase 0 placeholder is numerically close for continuous outputs, but
-  thresholded binary masks can differ.
-- MVTec AD evidence is currently limited to the `bottle` category on this local machine.
-- ONNX/OpenVINO export mechanics are verified for the trained Anomalib PaDiM artifact, but
-  `reports/agent_b/anomalib_padim_export_smoke.json` is marked `loaded_parity_failed`.
-- Do not claim OpenVINO deployment readiness until trained checkpoint-to-export parity and
-  target-hardware measurements are clean.
-- Jetson Orin NX latency and TensorRT compatibility are unproven.
+- The `InspectNetCX` model class is a placeholder CNN; masks and regions it emits are not
+  defect-quality evidence.
+- All evidence is on local MVTec AD; the OpenVINO parity fix is verified on CPU only.
+- `support_images` are accepted by the processor but not yet used by the model.
 
-## Proof Boundary
+## License
 
-The repository test suite proves importability, CPU forward pass, save and load roundtrip,
-processor behavior, CLI surfaces, and proof-readiness reporting.
+Code is Apache-2.0. MVTec-derived artifacts (scores, thresholds, result JSONs) inherit MVTec
+AD's CC BY-NC-SA 4.0 non-commercial terms. No MVTec images are redistributed here.
 
-Real local baseline evidence as of 2026-05-13:
+## Reproduction
 
-- Dataset: local `~/datasets/mvtec_ad/bottle`, 209 normal train images, 20 normal test
-  images, 63 anomalous test images.
-- Primary baseline: `reports/agent_b/anomalib_padim_mvtec_ad_bottle_result.json`.
-- Metrics: image AUROC `0.9960`, image F1 `0.9756`, pixel AUROC `0.9794`, pixel F1 `0.6808`.
-
-Prediction demo evidence:
-
-- `reports/agent_b/prediction_padim_good_000.json` loads the Anomalib PaDiM checkpoint and
-  predicts normal for a real MVTec AD bottle good image.
-- `reports/agent_b/prediction_padim_broken_large_000.json` loads the same checkpoint and
-  predicts anomaly for a real MVTec AD bottle defective image.
-
-Export evidence:
-
-- `reports/agent_b/anomalib_padim_export_status.json` records successful trained PaDiM ONNX
-  and OpenVINO artifact creation.
-- `reports/agent_b/anomalib_padim_export_smoke.json` records that those artifacts load, but
-  ONNX/OpenVINO parity fails over the 83-image bottle test folder.
-- `reports/agent_b/openvino_parity_investigation.json` characterizes Phase 0 placeholder
-  OpenVINO drift as mostly threshold-boundary mask instability.
-
-This proves a local anomaly-baseline path, dataset wiring, reusable Anomalib checkpoint
-inference, and a real but not deployment-ready export path. It does not prove a trained native
-InspectNet-CX checkpoint, Jetson latency, factory deployment readiness, or cross-category
-generalization.
-
-Additional local reports under `reports/agent_b/` prove that the optional Anomalib/export stack
-is installed and that MVTec AD `bottle` is locally evaluable. Proof readiness remains blocked
-because VisA, MVTec AD 2, MVTec LOCO, broader MVTec AD categories, and Jetson latency are still
-missing.
+See the repository README and `docs/`: `padim_cross_category_transfer.md`,
+`openvino_parity_resolution.md`, `claims_ledger.md`, `latency_baseline.md`.
