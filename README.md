@@ -2,24 +2,30 @@
 
 ![InspectNet-CX release visual](hf_package/inspectnet-cx/assets/release_visual.svg)
 
-InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships
-two verified classical baselines (PaDiM and PatchCore) across four categories, a cross-category
-transfer study, and an ONNX/OpenVINO export-parity investigation with a root-caused fix. The
-emphasis is reproducibility and honest evidence, not a novel detector.
+InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships a
+natively-trained student-teacher detector, two verified classical baselines (PaDiM and
+PatchCore), a cross-category transfer study, and an ONNX/OpenVINO export-parity investigation
+with a root-caused fix. The emphasis is reproducibility and honest, head-to-head evidence.
 
 ## Headline Results
 
-**Two baselines, four MVTec AD categories** (image-level AUROC, matched train/test, CPU/CUDA):
+**Native detector vs classical baselines, four MVTec AD categories** (image-level AUROC,
+matched train/test):
 
-| category | PaDiM (ResNet-18) | PatchCore |
-| -------- | ----------------: | --------: |
-| bottle   | 0.998 | 1.000 |
-| cable    | 0.872 | 0.991 |
-| capsule  | 0.881 | 0.994 |
-| leather  | 0.993 | 1.000 |
+| category | PaDiM (ResNet-18) | PatchCore | InspectNet-CX (student-teacher, ours) |
+| -------- | ----------------: | --------: | ------------------------------------: |
+| bottle   | 0.998 | 1.000 | 1.000 |
+| cable    | 0.872 | 0.991 | 0.751 |
+| capsule  | 0.881 | 0.994 | 0.888 |
+| leather  | 0.993 | 1.000 | 0.913 |
 
-Numbers are read from `reports/cross_padim_matrix.json` (PaDiM diagonal) and
-`reports/eval_harness/patchcore_*.json` (PatchCore).
+`InspectNet-CX (student-teacher)` is the repo's own from-scratch detector (a frozen
+ImageNet ResNet18 teacher supervises a student on normal images; test-time feature discrepancy
+is the anomaly score). It is trained here, not borrowed: it ties PatchCore on `bottle` and edges
+PaDiM on `capsule`, but honestly trails PatchCore on `cable` and `leather`. PaDiM/PatchCore are
+the strong references it is measured against, not a result the author is taking credit for.
+Numbers are read from `reports/eval_harness/inspectnet_st_*.json` (ours),
+`reports/cross_padim_matrix.json` (PaDiM diagonal), and `reports/eval_harness/patchcore_*.json`.
 
 **PaDiM is category-specific.** Fitting a PaDiM memory bank on one category and scoring another
 drops image AUROC by **0.431 (95% bootstrap CI [0.403, 0.458])**; the 12 off-diagonal cells
@@ -46,8 +52,10 @@ A latency-benchmark harness with hardware fingerprinting (`/proc/cpuinfo`, `nvid
 
 This is a research and reproduction harness, not deployable inspection software. Concretely:
 
-- The named `InspectNetCX` model class is an API scaffold (placeholder CNN), not a trained
-  detector. The verified numbers above are PaDiM and PatchCore, run through this repo's harness.
+- The native student-teacher detector (`src/inspectnet_cx/models/student_teacher.py`) is really
+  trained here, but it trails PatchCore on the harder categories; closing that gap is open work,
+  not a solved claim. The separate Hugging Face-style `InspectNetCX` class
+  (`modeling_inspectnet_cx.py`) is a packaging/API scaffold, not the detector.
 - All evidence is on local MVTec AD; no VisA / MVTec AD 2 / LOCO, no Jetson or TensorRT
   measurement. The OpenVINO parity fix is verified on CPU only.
 - Deployment would still require a trained checkpoint, held-out metrics on the target line,
@@ -81,6 +89,11 @@ The local `bottle` subset used for the verified evidence is ~151 MB (209 normal-
 ## Reproduce
 
 ```bash
+# Train + evaluate the native InspectNet-CX student-teacher detector
+PYTHONPATH=src python3 scripts/train_inspectnet_cx.py \
+  --category bottle --dataset-root ~/datasets/mvtec_ad \
+  --epochs 100 --device cuda --output reports/eval_harness/inspectnet_st_bottle.json
+
 # PaDiM + PatchCore baseline on one category
 PYTHONPATH=src python3 scripts/eval_harness.py \
   --methods padim patchcore --dataset mvtec_ad --category bottle \
@@ -100,7 +113,7 @@ PYTHONPATH=src python3 scripts/validate_padim_export.py \
 ## Validation
 
 ```bash
-pytest -q                       # 77 tests
+pytest -q                       # 79 tests
 ruff check src tests scripts
 python -m build
 ```

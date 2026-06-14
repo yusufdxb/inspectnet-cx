@@ -15,22 +15,27 @@ tags:
 
 # InspectNet-CX
 
-InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships two
-verified classical baselines (PaDiM and PatchCore), a cross-category transfer study, and an
-ONNX/OpenVINO export-parity investigation with a root-caused fix. The packaged `InspectNetCX`
-model class is a Hugging Face-style API scaffold (placeholder CNN); it is not a trained
-detector. The numbers below are PaDiM and PatchCore run through this repo's harness.
+InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships a
+natively-trained student-teacher detector, two verified classical baselines (PaDiM and
+PatchCore), a cross-category transfer study, and an ONNX/OpenVINO export-parity investigation
+with a root-caused fix. The native detector (`src/inspectnet_cx/models/student_teacher.py`) is
+trained here; the separate Hugging Face-style `InspectNetCX` class
+(`modeling_inspectnet_cx.py`) is a packaging/API scaffold.
 
 ## Verified Results
 
 Image-level AUROC, matched train/test, four MVTec AD categories:
 
-| category | PaDiM (ResNet-18) | PatchCore |
-| -------- | ----------------: | --------: |
-| bottle   | 0.998 | 1.000 |
-| cable    | 0.872 | 0.991 |
-| capsule  | 0.881 | 0.994 |
-| leather  | 0.993 | 1.000 |
+| category | PaDiM (ResNet-18) | PatchCore | InspectNet-CX (student-teacher, ours) |
+| -------- | ----------------: | --------: | ------------------------------------: |
+| bottle   | 0.998 | 1.000 | 1.000 |
+| cable    | 0.872 | 0.991 | 0.751 |
+| capsule  | 0.881 | 0.994 | 0.888 |
+| leather  | 0.993 | 1.000 | 0.913 |
+
+The native student-teacher detector ties PatchCore on `bottle` and edges PaDiM on `capsule`, but
+honestly trails PatchCore on `cable` and `leather`. PaDiM/PatchCore are strong references, not
+the author's results.
 
 Cross-category transfer: a PaDiM bank fit on one category and scored on another drops AUROC by
 0.431 (95% bootstrap CI [0.403, 0.458]); off-diagonal cells collapse to ~0.50. PaDiM is
