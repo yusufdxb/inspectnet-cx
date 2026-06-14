@@ -26,6 +26,10 @@ PaDiM on `capsule`, but honestly trails PatchCore on `cable` and `leather`. PaDi
 the strong references it is measured against, not a result the author is taking credit for.
 Numbers are read from `reports/eval_harness/inspectnet_st_*.json` (ours),
 `reports/cross_padim_matrix.json` (PaDiM diagonal), and `reports/eval_harness/patchcore_*.json`.
+Attempts to close the gap to PatchCore (a wider backbone, multi-scale input fusion) and why they
+fail are documented in `docs/native_detector_ablations.md`: a from-scratch wide_resnet50_2
+student collapses to near-chance because its capacity erases the anomaly residual, so the lighter
+ResNet18 student is the right choice and PatchCore stays the reference to beat.
 
 **PaDiM is category-specific.** Fitting a PaDiM memory bank on one category and scoring another
 drops image AUROC by **0.431 (95% bootstrap CI [0.403, 0.458])**; the 12 off-diagonal cells

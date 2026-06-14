@@ -15,26 +15,45 @@ from __future__ import annotations
 import torch
 import torch.nn.functional as F
 from torch import nn
-from torchvision.models import ResNet18_Weights, resnet18
+from torchvision.models import (
+    ResNet18_Weights,
+    Wide_ResNet50_2_Weights,
+    resnet18,
+    wide_resnet50_2,
+)
 from torchvision.models.feature_extraction import create_feature_extractor
 from torchvision.transforms.functional import gaussian_blur
 
 _LAYERS = {"layer1": "l1", "layer2": "l2", "layer3": "l3"}
 
+# (constructor, pretrained-weights enum) per supported backbone. wide_resnet50_2
+# is PatchCore's backbone; resnet18 is the lighter default.
+_BACKBONES = {
+    "resnet18": (resnet18, ResNet18_Weights.DEFAULT),
+    "wide_resnet50_2": (wide_resnet50_2, Wide_ResNet50_2_Weights.DEFAULT),
+}
+
 
 class StudentTeacher(nn.Module):
-    """Frozen pretrained teacher + trainable student; anomaly = feature mismatch."""
+    """Frozen pretrained teacher + trainable student; anomaly = feature mismatch.
 
-    def __init__(self) -> None:
+    Multi-scale by construction: the anomaly map sums the feature discrepancy
+    across the layer1/2/3 pyramid. ``backbone`` selects the feature extractor;
+    ``wide_resnet50_2`` matches PatchCore's backbone for a stronger comparison.
+    """
+
+    def __init__(self, backbone: str = "resnet18") -> None:
         super().__init__()
+        if backbone not in _BACKBONES:
+            raise ValueError(f"unknown backbone {backbone!r}; pick {list(_BACKBONES)}")
+        ctor, weights = _BACKBONES[backbone]
+        self.backbone = backbone
         self.teacher = create_feature_extractor(
-            resnet18(weights=ResNet18_Weights.DEFAULT), return_nodes=_LAYERS
+            ctor(weights=weights), return_nodes=_LAYERS
         ).eval()
         for p in self.teacher.parameters():
             p.requires_grad_(False)
-        self.student = create_feature_extractor(
-            resnet18(weights=None), return_nodes=_LAYERS
-        )
+        self.student = create_feature_extractor(ctor(weights=None), return_nodes=_LAYERS)
 
     def _features(self, net: nn.Module, x: torch.Tensor) -> list[torch.Tensor]:
         # Channel-wise unit-normalize so the loss/score is scale-free per layer.
@@ -65,6 +84,19 @@ class StudentTeacher(nn.Module):
         return amap.squeeze(1)
 
     @torch.no_grad()
-    def image_score(self, x: torch.Tensor) -> torch.Tensor:
-        """Image-level anomaly score (B,): max over the anomaly map."""
-        return self.anomaly_map(x).amax(dim=(1, 2))
+    def image_score(self, x: torch.Tensor, scales: list[int] | None = None) -> torch.Tensor:
+        """Image-level anomaly score (B,): max over the anomaly map.
+
+        With ``scales`` (e.g. [224, 256, 320]) the input is run at each resolution
+        and the maps are fused before scoring, adding multi-resolution context on
+        top of the layer pyramid. ``None`` keeps the single native-resolution path.
+        """
+        if not scales:
+            return self.anomaly_map(x).amax(dim=(1, 2))
+        base_hw = x.shape[-2:]
+        fused = torch.zeros(x.shape[0], *base_hw, device=x.device)
+        for s in scales:
+            xr = F.interpolate(x, size=(s, s), mode="bilinear", align_corners=False)
+            m = self.anomaly_map(xr).unsqueeze(1)
+            fused += F.interpolate(m, size=base_hw, mode="bilinear", align_corners=False).squeeze(1)
+        return fused.amax(dim=(1, 2))

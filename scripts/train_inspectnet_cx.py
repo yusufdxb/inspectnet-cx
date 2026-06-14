@@ -73,6 +73,8 @@ def main() -> int:
     ap.add_argument("--batch-size", type=int, default=16)
     ap.add_argument("--lr", type=float, default=4e-4)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--backbone", default="resnet18", choices=["resnet18", "wide_resnet50_2"])
+    ap.add_argument("--multiscale", action="store_true", help="fuse maps over 224/256/320 at eval")
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
@@ -88,7 +90,7 @@ def main() -> int:
         raise RuntimeError(f"no images found under {cat}")
 
     device = args.device
-    model = StudentTeacher().to(device)
+    model = StudentTeacher(backbone=args.backbone).to(device)
     opt = torch.optim.Adam(model.student.parameters(), lr=args.lr, weight_decay=1e-5)
 
     loader = DataLoader(
@@ -110,9 +112,10 @@ def main() -> int:
     test_loader = DataLoader(
         _Images(test_paths, test_labels), batch_size=args.batch_size, num_workers=4
     )
+    scales = [224, 256, 320] if args.multiscale else None
     scores: list[float] = []
     for x, _ in test_loader:
-        scores.extend(model.image_score(x.to(device)).cpu().tolist())
+        scores.extend(model.image_score(x.to(device), scales=scales).cpu().tolist())
 
     labels = np.array(test_labels, dtype=np.int64)
     auroc = float(roc_auc_score(labels, np.array(scores)))
@@ -122,7 +125,7 @@ def main() -> int:
     result = {
         "schema": "inspectnet_cx.student_teacher.v1",
         "model": "inspectnet_cx_student_teacher",
-        "backbone": "resnet18 (teacher: ImageNet-pretrained, frozen)",
+        "backbone": f"{args.backbone} (teacher: ImageNet-pretrained, frozen)",
         "category": args.category,
         "dataset": "mvtec_ad",
         "image_auroc": auroc,

@@ -1,0 +1,14 @@
+{
+  "schema": "inspectnet_cx.student_teacher.v1",
+  "model": "inspectnet_cx_student_teacher",
+  "backbone": "wide_resnet50_2 (teacher: ImageNet-pretrained, frozen)",
+  "category": "cable",
+  "dataset": "mvtec_ad",
+  "image_auroc": 0.5380434782608696,
+  "epochs": 100,
+  "n_train": 224,
+  "n_test": 150,
+  "n_test_anomaly": 92,
+  "device": "cuda",
+  "seed": 0
+}
