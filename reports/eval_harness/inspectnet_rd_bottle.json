@@ -1,0 +1,14 @@
+{
+  "schema": "inspectnet_cx.student_teacher.v1",
+  "model": "inspectnet_cx_reverse_distill",
+  "backbone": "wide_resnet50_2 (teacher: ImageNet-pretrained, frozen)",
+  "category": "bottle",
+  "dataset": "mvtec_ad",
+  "image_auroc": 1.0,
+  "epochs": 150,
+  "n_train": 209,
+  "n_test": 83,
+  "n_test_anomaly": 63,
+  "device": "cuda",
+  "seed": 0
+}

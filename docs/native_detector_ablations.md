@@ -10,17 +10,31 @@ reference baselines; the rest are variants of the native student-teacher detecto
 | ------- | -----: | ----: | ------: | ------: |
 | PatchCore (reference) | 1.000 | 0.991 | 0.994 | 1.000 |
 | PaDiM (reference)     | 0.998 | 0.872 | 0.881 | 0.993 |
-| **ResNet18, single-scale (shipped)** | 1.000 | 0.751 | 0.888 | 0.913 |
-| ResNet18, multi-scale input (224/256/320) | 1.000 | 0.728 | 0.874 | 0.938 |
-| wide_resnet50_2 backbone | 0.589 | 0.538 | 0.446 | 0.603 |
+| **Reverse distillation (shipped)** | 1.000 | 0.885 | 0.901 | 1.000 |
+| student-teacher, ResNet18 single-scale | 1.000 | 0.751 | 0.888 | 0.913 |
+| student-teacher, multi-scale input (224/256/320) | 1.000 | 0.728 | 0.874 | 0.938 |
+| student-teacher, wide_resnet50_2 backbone | 0.589 | 0.538 | 0.446 | 0.603 |
+
+Evidence: `reports/eval_harness/inspectnet_rd_*.json` (reverse distillation),
+`inspectnet_st_*.json` / `inspectnet_st_ms_*.json` / `inspectnet_st_wide_*.json` (student-teacher
+variants).
 
 ## Findings
 
-**The native student-teacher does not beat PatchCore, and that is the expected result.**
+**Reverse distillation closes most of the gap and is the shipped detector.** A *frozen*
+wide_resnet50_2 teacher feeds a bottleneck; a trainable decoder reconstructs the teacher's
+layer1-3 features, and per-pixel cosine distance is the anomaly score. Because the teacher is
+frozen and the decoder only sees a compressed bottleneck, it cannot trivially copy anomalies,
+the exact failure that sank the wide student-teacher below. Result: ties PatchCore on `bottle`
+and `leather` (both 1.000), beats PaDiM on all four categories, and lifts the worst case from
+0.751 (student-teacher `cable`) to 0.885. It still trails PatchCore on `cable` (0.991) and
+`capsule` (0.994), so it does not beat PatchCore overall.
+
+**The vanilla student-teacher does not beat PatchCore, as expected.**
 PatchCore scores test patches by nearest-neighbour distance to a memory bank of *frozen*
-wide_resnet50_2 features; the student-teacher trains a student to mimic a teacher and scores by
-the residual. On MVTec the trained-residual family (STFPM-style) generally sits a few points
-below memory-bank PatchCore, which is what we see.
+wide_resnet50_2 features; the student-teacher trains a same-direction student and scores by the
+residual. On MVTec the trained-residual family (STFPM-style) sits a few points below memory-bank
+PatchCore, which is what we see.
 
 **Multi-scale input fusion is roughly neutral.** Fusing anomaly maps over input resolutions
 224/256/320 helped `leather` (0.913 -> 0.938) but slightly hurt `cable` and `capsule`. The
@@ -37,6 +51,10 @@ the normal-vs-anomaly gap. The lighter ResNet18 student is the right choice.
 
 ## Conclusion
 
-`ResNet18, single-scale` is the shipped native detector. PatchCore remains the stronger method
-and is the honest reference to beat; closing that gap would require a different paradigm (for
-example reverse distillation or a memory-bank head), not a larger student.
+Reverse distillation is the shipped native detector. The journey confirmed the hypothesis that a
+*paradigm* change, not a bigger student, was needed: scaling student-teacher capacity made it
+worse, while the frozen-teacher / bottleneck / decoder design ties PatchCore on half the
+categories and beats PaDiM everywhere. PatchCore still leads on `cable`/`capsule`; fully matching
+it is open work (a faithful one-class bottleneck, longer training, or a memory-bank head). All
+numbers are single-seed; the large effects (wide collapse, reverse-distillation lift) are far
+beyond plausible seed noise, but a publication-grade claim would report 3 seeds with error bars.

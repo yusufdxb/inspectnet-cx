@@ -3,7 +3,7 @@
 ![InspectNet-CX release visual](hf_package/inspectnet-cx/assets/release_visual.svg)
 
 InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships a
-natively-trained student-teacher detector, two verified classical baselines (PaDiM and
+natively-trained reverse-distillation detector, two verified classical baselines (PaDiM and
 PatchCore), a cross-category transfer study, and an ONNX/OpenVINO export-parity investigation
 with a root-caused fix. The emphasis is reproducibility and honest, head-to-head evidence.
 
@@ -12,24 +12,28 @@ with a root-caused fix. The emphasis is reproducibility and honest, head-to-head
 **Native detector vs classical baselines, four MVTec AD categories** (image-level AUROC,
 matched train/test):
 
-| category | PaDiM (ResNet-18) | PatchCore | InspectNet-CX (student-teacher, ours) |
-| -------- | ----------------: | --------: | ------------------------------------: |
+| category | PaDiM (ResNet-18) | PatchCore | InspectNet-CX (reverse distillation, ours) |
+| -------- | ----------------: | --------: | -----------------------------------------: |
 | bottle   | 0.998 | 1.000 | 1.000 |
-| cable    | 0.872 | 0.991 | 0.751 |
-| capsule  | 0.881 | 0.994 | 0.888 |
-| leather  | 0.993 | 1.000 | 0.913 |
+| cable    | 0.872 | 0.991 | 0.885 |
+| capsule  | 0.881 | 0.994 | 0.901 |
+| leather  | 0.993 | 1.000 | 1.000 |
 
-`InspectNet-CX (student-teacher)` is the repo's own from-scratch detector (a frozen
-ImageNet ResNet18 teacher supervises a student on normal images; test-time feature discrepancy
-is the anomaly score). It is trained here, not borrowed: it ties PatchCore on `bottle` and edges
-PaDiM on `capsule`, but honestly trails PatchCore on `cable` and `leather`. PaDiM/PatchCore are
-the strong references it is measured against, not a result the author is taking credit for.
-Numbers are read from `reports/eval_harness/inspectnet_st_*.json` (ours),
-`reports/cross_padim_matrix.json` (PaDiM diagonal), and `reports/eval_harness/patchcore_*.json`.
-Attempts to close the gap to PatchCore (a wider backbone, multi-scale input fusion) and why they
-fail are documented in `docs/native_detector_ablations.md`: a from-scratch wide_resnet50_2
-student collapses to near-chance because its capacity erases the anomaly residual, so the lighter
-ResNet18 student is the right choice and PatchCore stays the reference to beat.
+`InspectNet-CX (reverse distillation)` is the repo's own from-scratch detector (a frozen
+wide_resnet50_2 teacher; a bottleneck + decoder learn to reconstruct the teacher's multi-scale
+features on normal images; reconstruction failure is the anomaly score). It is trained here, not
+borrowed. Honest standing: it **ties PatchCore on `bottle` and `leather` (both 1.000)** and
+**beats PaDiM on all four categories**, but it does **not** beat PatchCore overall, PatchCore
+still leads on `cable` (0.991 vs 0.885) and `capsule` (0.994 vs 0.901). PaDiM/PatchCore are the
+references, not the author's results. Numbers are read from
+`reports/eval_harness/inspectnet_rd_*.json` (ours), `reports/cross_padim_matrix.json` (PaDiM
+diagonal), and `reports/eval_harness/patchcore_*.json`.
+
+The path here is documented in `docs/native_detector_ablations.md`: a vanilla student-teacher
+trails badly (cable 0.751), a wider student-teacher backbone *collapses* to near-chance (its
+capacity erases the anomaly residual), and reverse distillation, the frozen-teacher /
+bottleneck / decoder paradigm, is what closed most of the gap. Fully matching PatchCore on
+`cable`/`capsule` is open work (a faithful one-class bottleneck and longer training).
 
 **PaDiM is category-specific.** Fitting a PaDiM memory bank on one category and scoring another
 drops image AUROC by **0.431 (95% bootstrap CI [0.403, 0.458])**; the 12 off-diagonal cells
@@ -56,10 +60,11 @@ A latency-benchmark harness with hardware fingerprinting (`/proc/cpuinfo`, `nvid
 
 This is a research and reproduction harness, not deployable inspection software. Concretely:
 
-- The native student-teacher detector (`src/inspectnet_cx/models/student_teacher.py`) is really
-  trained here, but it trails PatchCore on the harder categories; closing that gap is open work,
-  not a solved claim. The separate Hugging Face-style `InspectNetCX` class
-  (`modeling_inspectnet_cx.py`) is a packaging/API scaffold, not the detector.
+- The native reverse-distillation detector (`src/inspectnet_cx/models/reverse_distill.py`) is
+  really trained here and ties PatchCore on two of four categories, but still trails it on
+  `cable`/`capsule`; fully matching PatchCore is open work, not a solved claim. The earlier
+  student-teacher (`student_teacher.py`) is kept for the ablation. The separate Hugging
+  Face-style `InspectNetCX` class (`modeling_inspectnet_cx.py`) is a packaging/API scaffold.
 - All evidence is on local MVTec AD; no VisA / MVTec AD 2 / LOCO, no Jetson or TensorRT
   measurement. The OpenVINO parity fix is verified on CPU only.
 - Deployment would still require a trained checkpoint, held-out metrics on the target line,
@@ -93,7 +98,13 @@ The local `bottle` subset used for the verified evidence is ~151 MB (209 normal-
 ## Reproduce
 
 ```bash
-# Train + evaluate the native InspectNet-CX student-teacher detector
+# Train + evaluate the native InspectNet-CX reverse-distillation detector (shipped)
+PYTHONPATH=src python3 scripts/train_inspectnet_cx.py \
+  --model reverse_distill --category bottle --dataset-root ~/datasets/mvtec_ad \
+  --epochs 150 --batch-size 16 --lr 5e-3 --device cuda \
+  --output reports/eval_harness/inspectnet_rd_bottle.json
+
+# (ablation) the earlier student-teacher detector
 PYTHONPATH=src python3 scripts/train_inspectnet_cx.py \
   --category bottle --dataset-root ~/datasets/mvtec_ad \
   --epochs 100 --device cuda --output reports/eval_harness/inspectnet_st_bottle.json
@@ -117,7 +128,7 @@ PYTHONPATH=src python3 scripts/validate_padim_export.py \
 ## Validation
 
 ```bash
-pytest -q                       # 79 tests
+pytest -q                       # 80 tests
 ruff check src tests scripts
 python -m build
 ```

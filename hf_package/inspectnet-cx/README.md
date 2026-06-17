@@ -16,9 +16,9 @@ tags:
 # InspectNet-CX
 
 InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships a
-natively-trained student-teacher detector, two verified classical baselines (PaDiM and
+natively-trained reverse-distillation detector, two verified classical baselines (PaDiM and
 PatchCore), a cross-category transfer study, and an ONNX/OpenVINO export-parity investigation
-with a root-caused fix. The native detector (`src/inspectnet_cx/models/student_teacher.py`) is
+with a root-caused fix. The native detector (`src/inspectnet_cx/models/reverse_distill.py`) is
 trained here; the separate Hugging Face-style `InspectNetCX` class
 (`modeling_inspectnet_cx.py`) is a packaging/API scaffold.
 
@@ -26,16 +26,18 @@ trained here; the separate Hugging Face-style `InspectNetCX` class
 
 Image-level AUROC, matched train/test, four MVTec AD categories:
 
-| category | PaDiM (ResNet-18) | PatchCore | InspectNet-CX (student-teacher, ours) |
-| -------- | ----------------: | --------: | ------------------------------------: |
+| category | PaDiM (ResNet-18) | PatchCore | InspectNet-CX (reverse distillation, ours) |
+| -------- | ----------------: | --------: | -----------------------------------------: |
 | bottle   | 0.998 | 1.000 | 1.000 |
-| cable    | 0.872 | 0.991 | 0.751 |
-| capsule  | 0.881 | 0.994 | 0.888 |
-| leather  | 0.993 | 1.000 | 0.913 |
+| cable    | 0.872 | 0.991 | 0.885 |
+| capsule  | 0.881 | 0.994 | 0.901 |
+| leather  | 0.993 | 1.000 | 1.000 |
 
-The native student-teacher detector ties PatchCore on `bottle` and edges PaDiM on `capsule`, but
-honestly trails PatchCore on `cable` and `leather`. PaDiM/PatchCore are strong references, not
-the author's results.
+The native reverse-distillation detector ties PatchCore on `bottle` and `leather` and beats PaDiM
+on all four categories, but still trails PatchCore on `cable` and `capsule`; it does not beat
+PatchCore overall. PaDiM/PatchCore are strong references, not the author's results. The earlier
+student-teacher variant and a backbone/multi-scale ablation are in
+`docs/native_detector_ablations.md`.
 
 Cross-category transfer: a PaDiM bank fit on one category and scored on another drops AUROC by
 0.431 (95% bootstrap CI [0.403, 0.458]); off-diagonal cells collapse to ~0.50. PaDiM is

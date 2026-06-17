@@ -25,6 +25,7 @@ from sklearn.metrics import roc_auc_score
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
 
+from inspectnet_cx.models.reverse_distill import ReverseDistill
 from inspectnet_cx.models.student_teacher import StudentTeacher
 
 # ImageNet stats: the teacher is ImageNet-pretrained, so inputs must match.
@@ -73,6 +74,9 @@ def main() -> int:
     ap.add_argument("--batch-size", type=int, default=16)
     ap.add_argument("--lr", type=float, default=4e-4)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument(
+        "--model", default="student_teacher", choices=["student_teacher", "reverse_distill"]
+    )
     ap.add_argument("--backbone", default="resnet18", choices=["resnet18", "wide_resnet50_2"])
     ap.add_argument("--multiscale", action="store_true", help="fuse maps over 224/256/320 at eval")
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
@@ -90,13 +94,19 @@ def main() -> int:
         raise RuntimeError(f"no images found under {cat}")
 
     device = args.device
-    model = StudentTeacher(backbone=args.backbone).to(device)
-    opt = torch.optim.Adam(model.student.parameters(), lr=args.lr, weight_decay=1e-5)
+    if args.model == "reverse_distill":
+        model = ReverseDistill().to(device)
+    else:
+        model = StudentTeacher(backbone=args.backbone).to(device)
+    opt = torch.optim.Adam(
+        [p for p in model.parameters() if p.requires_grad], lr=args.lr, weight_decay=1e-5
+    )
 
     loader = DataLoader(
         _Images(train_paths), batch_size=args.batch_size, shuffle=True, num_workers=4
     )
-    model.student.train()
+    model.train()
+    model.teacher.eval()  # teacher stays frozen + eval (BN running stats)
     for epoch in range(args.epochs):
         total = 0.0
         for x in loader:
@@ -108,7 +118,7 @@ def main() -> int:
             total += loss.item() * x.size(0)
         print(f"epoch {epoch + 1}/{args.epochs}  loss {total / len(train_paths):.6f}", flush=True)
 
-    model.student.eval()
+    model.eval()
     test_loader = DataLoader(
         _Images(test_paths, test_labels), batch_size=args.batch_size, num_workers=4
     )
@@ -124,8 +134,12 @@ def main() -> int:
     out.parent.mkdir(parents=True, exist_ok=True)
     result = {
         "schema": "inspectnet_cx.student_teacher.v1",
-        "model": "inspectnet_cx_student_teacher",
-        "backbone": f"{args.backbone} (teacher: ImageNet-pretrained, frozen)",
+        "model": f"inspectnet_cx_{args.model}",
+        "backbone": (
+            "wide_resnet50_2 (teacher: ImageNet-pretrained, frozen)"
+            if args.model == "reverse_distill"
+            else f"{args.backbone} (teacher: ImageNet-pretrained, frozen)"
+        ),
         "category": args.category,
         "dataset": "mvtec_ad",
         "image_auroc": auroc,
