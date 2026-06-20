@@ -4,7 +4,10 @@ ponytail: one runnable check on random tensors. Asserts the loss is finite and
 trainable, the anomaly map matches the input resolution, and a defaced image
 scores higher than the clean one it was derived from.
 """
+import pytest
 import torch
+
+pytest.importorskip("torchvision")  # baseline-tier dep; native-model test skips without it
 
 from inspectnet_cx.models.student_teacher import StudentTeacher
 

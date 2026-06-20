@@ -4,7 +4,10 @@ ponytail: one runnable check. Loss is finite/trainable, the anomaly map matches 
 input resolution, and a defaced patch scores higher than the clean image after a
 brief fit on the "normal" batch.
 """
+import pytest
 import torch
+
+pytest.importorskip("torchvision")  # baseline-tier dep; native-model test skips without it
 
 from inspectnet_cx.models.reverse_distill import ReverseDistill
 
