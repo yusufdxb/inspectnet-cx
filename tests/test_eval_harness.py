@@ -117,6 +117,7 @@ def test_pixel_auroc_handcomputed():
 
 
 def test_aupro_perfect_segmentation_is_one():
+    pytest.importorskip("anomalib")  # baseline-extra dep; AUPRO cross-check skips without it
     # Single image, one anomaly region, anomaly_map equals the mask.
     # Per-region overlap is 1.0 at FPR=0 -> integrated AUPRO is 1.0.
     mask = torch.zeros((1, 16, 16), dtype=torch.uint8)
@@ -127,6 +128,7 @@ def test_aupro_perfect_segmentation_is_one():
 
 
 def test_aupro_random_is_around_fpr_limit_over_2():
+    pytest.importorskip("anomalib")  # baseline-extra dep; AUPRO cross-check skips without it
     # Random scores on a small image with one region should give AUPRO around
     # fpr_limit / 2 (a diagonal in PRO vs FPR space). We just check it's in a
     # sane range [0, fpr_limit], normalized = [0, 1].
