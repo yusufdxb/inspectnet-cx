@@ -10,6 +10,7 @@ We do not train a real model here (too slow); we test:
 
 from __future__ import annotations
 
+import contextlib
 import importlib.util
 import inspect
 import random
@@ -17,7 +18,6 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import pytest
 
 REPO = Path(__file__).resolve().parents[1]
 SCRIPT = REPO / "scripts" / "train_patchcore.py"
@@ -55,10 +55,8 @@ def test_seed_flag_present_in_cli():
     mod = _load_module()
     # main() builds the parser; instead of invoking, inspect by parsing --help-like.
     # We use argparse's introspection via a fake call: parse a known-good arg list.
-    try:
+    with contextlib.suppress(SystemExit):
         mod.main(["--category", "x", "--output-dir", "/tmp/xx", "--seed", "7", "--help"])
-    except SystemExit:
-        pass
     # If we got here without "unrecognized arguments", the flag exists.
     # Also assert train() accepts a `seed` kwarg.
     sig = inspect.signature(mod.train)

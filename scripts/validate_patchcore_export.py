@@ -72,7 +72,6 @@ def pick_images(category_root: Path, n: int = 20) -> list[Path]:
 def export_patchcore(ckpt: Path, out_dir: Path) -> tuple[Path, Path]:
     """Export to ONNX and OpenVINO. Returns (onnx_path, openvino_xml_path)."""
     import torch
-
     from anomalib.deploy import ExportType
     from anomalib.engine import Engine
     from anomalib.models import Patchcore
@@ -177,7 +176,7 @@ def compare(onnx_path: Path, ov_path: Path, images: list[Path], image_size: int)
         # Map OV outputs positionally (same order as ONNX inside Engine.export)
         ov_out_list = [ov_out_raw[ov_outputs[i]] for i in range(len(ov_outputs))]
 
-        for name, o_val, v_val in zip(onnx_output_names, onnx_out, ov_out_list):
+        for name, o_val, v_val in zip(onnx_output_names, onnx_out, ov_out_list, strict=False):
             o_f = np.asarray(o_val)
             v_f = np.asarray(v_val)
             if o_f.dtype == bool or v_f.dtype == bool:
@@ -294,13 +293,18 @@ def main() -> int:
                 and cmp_stats["pred_mask_pixel_flip_fraction"] <= 1e-4
                 else "parity_imperfect"
             )
-    except Exception as e:  # noqa: BLE001
+    except Exception as e:
         result["status"] = "export_failed"
         result["error"] = f"{type(e).__name__}: {e}"
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(result["summary"] if "summary" in result else {"status": result["status"], "error": result.get("error")}, indent=2))
+    summary = (
+        result["summary"]
+        if "summary" in result
+        else {"status": result["status"], "error": result.get("error")}
+    )
+    print(json.dumps(summary, indent=2))
     return 0
 
 

@@ -15,7 +15,6 @@ import argparse
 import datetime as _dt
 import hashlib
 import json
-import os
 import platform
 import subprocess
 import sys
@@ -118,11 +117,13 @@ def pixel_auroc(anomaly_maps: np.ndarray, gt_masks: np.ndarray) -> float:
     return float(roc_auc_score(y, s))
 
 
-def compute_aupro(anomaly_maps_t: torch.Tensor, gt_masks_t: torch.Tensor, fpr_limit: float = 0.3) -> float:
+def compute_aupro(
+    anomaly_maps_t: torch.Tensor, gt_masks_t: torch.Tensor, fpr_limit: float = 0.3
+) -> float:
     """anomalib's per-region AUPRO at fpr_limit (standard MVTec setting = 0.3)."""
-    from anomalib.metrics.aupro import AUPRO as _Wrapper  # noqa: N811
+    from anomalib.metrics.aupro import AUPRO as _Wrapper
 
-    raw = [c for c in _Wrapper.__mro__ if c.__name__ == "_AUPRO"][0]
+    raw = next(c for c in _Wrapper.__mro__ if c.__name__ == "_AUPRO")
     metric = raw(fpr_limit=fpr_limit)
     # Only anomaly-containing images contribute regions; passing the full set is
     # also fine, since fully-normal masks produce zero connected components.

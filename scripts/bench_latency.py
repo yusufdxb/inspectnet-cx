@@ -16,8 +16,6 @@ import argparse
 import datetime as _dt
 import json
 import platform
-import re
-import statistics
 import subprocess
 import sys
 import time
@@ -73,7 +71,10 @@ def _lib_versions() -> dict[str, str]:
 
 def _load_test_images(category_root: Path, n: int, image_size: int) -> torch.Tensor:
     good = category_root / "test" / "good"
-    paths = sorted([p for p in good.iterdir() if p.is_file() and p.suffix.lower() in {".png", ".jpg", ".jpeg", ".bmp"}])
+    exts = {".png", ".jpg", ".jpeg", ".bmp"}
+    paths = sorted(
+        p for p in good.iterdir() if p.is_file() and p.suffix.lower() in exts
+    )
     if not paths:
         raise FileNotFoundError(f"no test/good images under {good}")
     # If we have fewer than n, loop with replacement to hit n.
@@ -133,7 +134,9 @@ def benchmark(
     dev = torch.device("cuda" if device == "cuda" else "cpu")
     model = model.to(dev)
 
-    imgs = _load_test_images(dataset_root / category, n=n_images + n_warmup, image_size=image_size).to(dev)
+    imgs = _load_test_images(
+        dataset_root / category, n=n_images + n_warmup, image_size=image_size
+    ).to(dev)
 
     timings_ms: list[float] = []
     with torch.no_grad():

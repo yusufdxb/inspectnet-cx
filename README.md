@@ -3,9 +3,11 @@
 ![InspectNet-CX release visual](hf_package/inspectnet-cx/assets/release_visual.svg)
 
 InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships a
-natively-trained reverse-distillation detector, two verified classical baselines (PaDiM and
-PatchCore), a cross-category transfer study, and an ONNX/OpenVINO export-parity investigation
-with a root-caused fix. The emphasis is reproducibility and honest, head-to-head evidence.
+native reverse-distillation detector (source plus eval evidence; no trained checkpoint is
+bundled), two verified reference baselines (PaDiM and PatchCore), a cross-category transfer
+study, and an ONNX/OpenVINO export-parity investigation with a root-caused fix. The emphasis is
+reproducibility and honest, head-to-head evidence. This is a research and reproduction harness,
+not production factory-inspection software and not a fully validated edge model.
 
 ## Headline Results
 
@@ -98,7 +100,8 @@ The local `bottle` subset used for the verified evidence is ~151 MB (209 normal-
 ## Reproduce
 
 ```bash
-# Train + evaluate the native InspectNet-CX reverse-distillation detector (shipped)
+# Train + evaluate the native InspectNet-CX reverse-distillation detector
+# (source and eval JSONs are shipped; no trained checkpoint is bundled)
 PYTHONPATH=src python3 scripts/train_inspectnet_cx.py \
   --model reverse_distill --category bottle --dataset-root ~/datasets/mvtec_ad \
   --epochs 150 --batch-size 16 --lr 5e-3 --device cuda \
