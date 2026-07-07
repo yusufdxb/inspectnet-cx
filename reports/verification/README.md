@@ -85,7 +85,7 @@ and they are not factory deployment evidence.
 ```bash
 python3 -m pip install -e '.[all]'
 python3 scripts/check_datasets.py --root /home/yusuf/datasets --output reports/verification/dataset_check_rerun_mvtec_bottle.json
-python3 scripts/check_proof_readiness.py --output reports/verification/proof_readiness_after_agent_b.json
+python3 scripts/check_proof_readiness.py --output reports/verification/proof_readiness_after_verification.json
 make baseline-anomalib-padim
 python3 scripts/run_baseline.py --method classical-range --dataset mvtec_ad --category bottle --data-root /home/yusuf/datasets --output reports/verification/classical_range_mvtec_ad_bottle_result.json
 python3 scripts/create_phase0_model.py --output artifacts/agent_b/inspectnet-cx-phase0 --image-size 224

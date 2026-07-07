@@ -29,7 +29,7 @@ NON_BENCHMARK_REPORTS = {
     "predictions_classical_examples.json",
     "predictions_padim_examples.json",
     "proof_readiness.json",
-    "proof_readiness_after_agent_b.json",
+    "proof_readiness_after_verification.json",
     "proof_readiness_rerun.json",
 }
 
