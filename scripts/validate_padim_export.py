@@ -30,7 +30,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         ),
     )
     parser.add_argument(
-        "--output", type=Path, default=Path("reports/agent_b/anomalib_padim_export_smoke.json")
+        "--output", type=Path, default=Path("reports/verification/anomalib_padim_export_smoke.json")
     )
     return parser.parse_args(argv)
 

@@ -95,7 +95,7 @@ python3 scripts/download_mvtec.py --category bottle --data-root ~/datasets
 
 The local `bottle` subset used for the verified evidence is ~151 MB (209 normal-train,
 20 normal-test, 63 anomaly-test images). Provenance and checksum are recorded in
-`reports/agent_b/dataset_provenance_mvtec_ad_bottle.json`.
+`reports/verification/dataset_provenance_mvtec_ad_bottle.json`.
 
 ## Reproduce
 

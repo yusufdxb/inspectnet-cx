@@ -44,7 +44,7 @@ PYTHONPATH=src python3 scripts/validate_padim_export.py \
   --openvino artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml \
   --input ~/datasets/mvtec_ad/bottle/test \
   --inference-precision f32 \
-  --output reports/agent_b/anomalib_padim_export_smoke_f32_bottle_test.json
+  --output reports/verification/anomalib_padim_export_smoke_f32_bottle_test.json
 ```
 
 Result with `--inference-precision f32`:
@@ -78,7 +78,7 @@ PYTHONPATH=src python3 scripts/investigate_openvino_parity.py \
   --onnx artifacts/agent_b/inspectnet-cx-phase0-rerun/model.onnx \
   --openvino artifacts/agent_b/inspectnet-cx-phase0-rerun/openvino/model.xml \
   --inference-precision f32 \
-  --output reports/agent_b/openvino_parity_investigation.json
+  --output reports/verification/openvino_parity_investigation.json
 ```
 
 | Quantity                        | Before (default BF16) | After (f32 hint) |
@@ -116,9 +116,9 @@ The new flag is recorded in both report payloads as `inference_precision_hint`. 
 
 - `scripts/validate_padim_export.py`: added `--inference-precision`, `pred_mask` pixel-flip accounting, `passed_mask_boundary_unstable` status.
 - `scripts/investigate_openvino_parity.py`: added `--inference-precision`, recorded in report payload.
-- `reports/agent_b/openvino_parity_investigation.json`: regenerated with `--inference-precision f32`.
-- `reports/agent_b/anomalib_padim_export_smoke.json`: regenerated with `--inference-precision f32` on a single fixture image.
-- `reports/agent_b/anomalib_padim_export_smoke_f32_bottle_test.json`: full 83-image bottle test sweep.
+- `reports/verification/openvino_parity_investigation.json`: regenerated with `--inference-precision f32`.
+- `reports/verification/anomalib_padim_export_smoke.json`: regenerated with `--inference-precision f32` on a single fixture image.
+- `reports/verification/anomalib_padim_export_smoke_f32_bottle_test.json`: full 83-image bottle test sweep.
 - `hf_package/inspectnet-cx/reports/openvino_parity_investigation.json`: mirror of the regenerated phase 0 report.
 
 ## What this resolution does NOT prove

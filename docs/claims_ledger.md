@@ -1,6 +1,6 @@
 # InspectNet-CX Public Claims Ledger
 
-This ledger is scoped to the public README, model card, proof status, Agent B report, and
+This ledger is scoped to the public README, model card, proof status, verification report, and
 `hf_package/inspectnet-cx` package draft. Every verified claim below points to a local source
 artifact. These are local-machine evidence claims only, not production or edge-deployment claims.
 
@@ -8,17 +8,17 @@ artifact. These are local-machine evidence claims only, not production or edge-d
 
 | claim | source artifact |
 | --- | --- |
-| Real MVTec AD `bottle` data is configured locally with 209 normal train images, 20 normal test images, 63 anomalous test images, and 63 masks. | `reports/agent_b/dataset_provenance_mvtec_ad_bottle.json`; `reports/agent_b/anomalib_padim_mvtec_ad_bottle_result.json` |
-| Preserved Anomalib PaDiM, ResNet-18, CPU fit/test completed on local MVTec AD `bottle` with image AUROC `0.9960`, image F1 `0.9756`, pixel AUROC `0.9794`, and pixel F1 `0.6808`. | `reports/agent_b/anomalib_padim_mvtec_ad_bottle_result.json` |
-| Additional PaDiM rerun completed on the same local category with image AUROC `0.9984`, image F1 `0.9841`, pixel AUROC `0.9786`, and pixel F1 `0.6747`. | `reports/agent_b/padim_rerun_mvtec_ad_bottle_result.json` |
-| CPU classical patch-difference sanity baseline completed with image AUROC `0.9151`, image F1 `0.7692`, pixel AUROC `0.8765`, and pixel F1 `0.4750`. | `reports/agent_b/classical_patchdiff_rerun_mvtec_ad_bottle_result.json` |
-| Reusable Anomalib PaDiM checkpoint inference predicts `normal` for MVTec AD `bottle/test/good/000.png`. | `reports/agent_b/prediction_padim_good_000.json` |
-| Reusable Anomalib PaDiM checkpoint inference predicts `anomaly` for MVTec AD `bottle/test/broken_large/000.png`. | `reports/agent_b/prediction_padim_broken_large_000.json` |
-| Prediction JSONs include expected labels, predicted labels, backend metadata, and checkpoint provenance for the PaDiM backend. | `reports/agent_b/prediction_padim_good_000.json`; `reports/agent_b/prediction_padim_broken_large_000.json` |
-| Phase 0 ONNX export exists and ONNX Runtime verification passed for the placeholder model. | `reports/agent_b/onnx_export_phase0.json` |
-| Phase 0 OpenVINO conversion exists, while binary mask parity remains unstable around threshold boundaries. | `reports/agent_b/openvino_export_phase0.json`; `reports/agent_b/openvino_parity_phase0.json`; `reports/agent_b/openvino_parity_investigation.json` |
-| Trained Anomalib PaDiM ONNX and OpenVINO export artifacts were created. | `reports/agent_b/anomalib_padim_export_status.json` |
-| Trained exported PaDiM ONNX/OpenVINO artifacts load, but parity fails over the 83-image local bottle test folder. | `reports/agent_b/anomalib_padim_export_smoke.json` |
+| Real MVTec AD `bottle` data is configured locally with 209 normal train images, 20 normal test images, 63 anomalous test images, and 63 masks. | `reports/verification/dataset_provenance_mvtec_ad_bottle.json`; `reports/verification/anomalib_padim_mvtec_ad_bottle_result.json` |
+| Preserved Anomalib PaDiM, ResNet-18, CPU fit/test completed on local MVTec AD `bottle` with image AUROC `0.9960`, image F1 `0.9756`, pixel AUROC `0.9794`, and pixel F1 `0.6808`. | `reports/verification/anomalib_padim_mvtec_ad_bottle_result.json` |
+| Additional PaDiM rerun completed on the same local category with image AUROC `0.9984`, image F1 `0.9841`, pixel AUROC `0.9786`, and pixel F1 `0.6747`. | `reports/verification/padim_rerun_mvtec_ad_bottle_result.json` |
+| CPU classical patch-difference sanity baseline completed with image AUROC `0.9151`, image F1 `0.7692`, pixel AUROC `0.8765`, and pixel F1 `0.4750`. | `reports/verification/classical_patchdiff_rerun_mvtec_ad_bottle_result.json` |
+| Reusable Anomalib PaDiM checkpoint inference predicts `normal` for MVTec AD `bottle/test/good/000.png`. | `reports/verification/prediction_padim_good_000.json` |
+| Reusable Anomalib PaDiM checkpoint inference predicts `anomaly` for MVTec AD `bottle/test/broken_large/000.png`. | `reports/verification/prediction_padim_broken_large_000.json` |
+| Prediction JSONs include expected labels, predicted labels, backend metadata, and checkpoint provenance for the PaDiM backend. | `reports/verification/prediction_padim_good_000.json`; `reports/verification/prediction_padim_broken_large_000.json` |
+| Phase 0 ONNX export exists and ONNX Runtime verification passed for the placeholder model. | `reports/verification/onnx_export_phase0.json` |
+| Phase 0 OpenVINO conversion exists, while binary mask parity remains unstable around threshold boundaries. | `reports/verification/openvino_export_phase0.json`; `reports/verification/openvino_parity_phase0.json`; `reports/verification/openvino_parity_investigation.json` |
+| Trained Anomalib PaDiM ONNX and OpenVINO export artifacts were created. | `reports/verification/anomalib_padim_export_status.json` |
+| Trained exported PaDiM ONNX/OpenVINO artifacts load, but parity fails over the 83-image local bottle test folder. | `reports/verification/anomalib_padim_export_smoke.json` |
 | The HF package draft includes report copies, example prediction JSONs, dependency pins, an artifact index, and a dataset not-bundled note. | `hf_package/inspectnet-cx/artifact_index.json`; `hf_package/inspectnet-cx/README.md` |
 | Workstation latency measured on mewtwo (AMD Ryzen 9 9900X + NVIDIA RTX 5070): CUDA 256 px median 0.275 ms/img (p95 0.391 ms), CUDA 512 px median 0.474 ms/img (p95 0.622 ms), CPU 256 px median 0.685 ms/img (p95 0.894 ms), CPU 512 px median 2.956 ms/img (p95 3.217 ms). | `reports/latency_mewtwo.json` (gitignored; captured 2026-05-17) |
 
@@ -27,18 +27,18 @@ artifact. These are local-machine evidence claims only, not production or edge-d
 | claim | current boundary |
 | --- | --- |
 | ONNX/OpenVINO export path exists. | Verified as artifact creation and smoke loading, but trained export parity is not clean and checkpoint-to-export parity is not established. |
-| OpenVINO Phase 0 parity is close. | Continuous outputs are close in `reports/agent_b/openvino_parity_investigation.json`, but binary masks are unstable at hard-threshold boundaries. |
+| OpenVINO Phase 0 parity is close. | Continuous outputs are close in `reports/verification/openvino_parity_investigation.json`, but binary masks are unstable at hard-threshold boundaries. |
 | The prediction CLI can be run by another user. | Commands are documented and local examples work; another user must provide their own MVTec AD copy and local checkpoint artifacts because dataset files are not bundled. |
 
 ## Blocked Claims
 
 | blocked claim | blocker artifact or note |
 | --- | --- |
-| Production or factory deployment readiness. | Explicitly not proven in `docs/proof_status.md`; requires trained checkpoint parity, target-hardware latency, monitoring, calibration, and operator workflow evidence. |
+| Production or factory deployment readiness. | Explicitly not proven; requires trained checkpoint parity, target-hardware latency, monitoring, calibration, and operator workflow evidence. |
 | Jetson Orin NX edge validation. | Jetson Orin NX 16GB is untested; listed as future hardware in `docs/positioning.md`. |
 | TensorRT compatibility. | No TensorRT validation artifact exists. |
 | Cross-category or cross-dataset benchmark quality. | Only MVTec AD `bottle` is locally evaluated. |
-| Clean trained PaDiM ONNX/OpenVINO parity. | `reports/agent_b/anomalib_padim_export_smoke.json` is `loaded_parity_failed`. |
+| Clean trained PaDiM ONNX/OpenVINO parity. | `reports/verification/anomalib_padim_export_smoke.json` is `loaded_parity_failed`. |
 | Trained native InspectNet-CX detector checkpoint. | No trained native InspectNet-CX checkpoint artifact exists. |
 
 ## Claims To Remove Or Soften

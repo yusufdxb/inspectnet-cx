@@ -12,7 +12,7 @@ make latency
 
 Generated reports are machine-specific evidence, not portable benchmark claims.
 
-Current Agent B evidence files:
+Current verification evidence files:
 
 - `agent_b/padim_rerun_mvtec_ad_bottle_result.json`: real local Anomalib PaDiM fit/test on
   MVTec AD `bottle`.
