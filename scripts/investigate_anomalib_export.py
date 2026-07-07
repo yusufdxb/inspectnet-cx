@@ -24,7 +24,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--export-root", type=Path, default=Path("artifacts/agent_b/anomalib_padim_export")
     )
     parser.add_argument(
-        "--output", type=Path, default=Path("reports/verification/anomalib_padim_export_status.json")
+        "--output",
+        type=Path,
+        default=Path("reports/verification/anomalib_padim_export_status.json"),
     )
     return parser.parse_args(argv)
 

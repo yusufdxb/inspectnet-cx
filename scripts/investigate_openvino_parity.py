@@ -26,7 +26,9 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         ),
     )
     parser.add_argument(
-        "--output", type=Path, default=Path("reports/verification/openvino_parity_investigation.json")
+        "--output",
+        type=Path,
+        default=Path("reports/verification/openvino_parity_investigation.json"),
     )
     return parser.parse_args(argv)
 
