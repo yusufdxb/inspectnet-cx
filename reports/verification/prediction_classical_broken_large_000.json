@@ -20,7 +20,7 @@
       "image_score": 5.643487453460693,
       "predicted_label": "anomaly",
       "predicted_anomaly": true,
-      "mask_path": "reports/agent_b/prediction_classical_broken_large_000_masks/000_mask.png",
+      "mask_path": "reports/verification/prediction_classical_broken_large_000_masks/000_mask.png",
       "mask_semantics": "classical_patchdiff heatmap >= normal-score threshold"
     }
   ],

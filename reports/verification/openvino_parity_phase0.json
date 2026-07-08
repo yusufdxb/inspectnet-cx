@@ -1,7 +1,7 @@
 {
   "status": "failed",
-  "onnx_path": "artifacts/agent_b/inspectnet-cx-phase0/model.onnx",
-  "openvino_path": "artifacts/agent_b/inspectnet-cx-phase0/openvino/model.xml",
+  "onnx_path": "artifacts/verification/inspectnet-cx-phase0/model.onnx",
+  "openvino_path": "artifacts/verification/inspectnet-cx-phase0/openvino/model.xml",
   "provider": "CPU",
   "output_names": [
     "image_score",

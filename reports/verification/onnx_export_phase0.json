@@ -1,7 +1,7 @@
 {
   "status": "exported_phase0_onnx",
   "format": "onnx",
-  "path": "artifacts/agent_b/inspectnet-cx-phase0/model.onnx",
+  "path": "artifacts/verification/inspectnet-cx-phase0/model.onnx",
   "image_size": 224,
   "opset": 18,
   "verified_with_onnxruntime": true,

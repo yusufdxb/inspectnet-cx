@@ -7,7 +7,7 @@ from typing import Any
 
 REQUIRED_FILES = (
     "README.md",
-    "requirements-agent_b_verified.txt",
+    "requirements-verified.txt",
     "requirements.txt",
     "assets/release_visual.svg",
     "artifact_index.json",

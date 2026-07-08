@@ -17,7 +17,7 @@ reports/*.md
 # These are reproducible from the documented training commands and exceed
 # GitHub's 100 MB file size limit.
 reports/**/*.ckpt
-reports/agent_b/
+reports/verification/
 reports/tmp_padim_probe2/
 
 # Canonical HF model-card clone lives here but is its own git repo.

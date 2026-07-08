@@ -2,7 +2,7 @@
   "status": "ready",
   "export_format": "openvino",
   "model_dir": null,
-  "onnx_path": "artifacts/agent_b/inspectnet-cx-phase0/model.onnx",
+  "onnx_path": "artifacts/verification/inspectnet-cx-phase0/model.onnx",
   "packages": {
     "torch": {
       "installed": true,

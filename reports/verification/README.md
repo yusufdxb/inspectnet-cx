@@ -7,7 +7,7 @@ checkout only. Fixture-only results are not presented as real metrics.
 
 - Python: 3.10.12
 - Platform: Linux x86_64, CUDA available on NVIDIA GeForce RTX 5070
-- Pinned optional stack: see `../../requirements/agent_b_verified.txt`
+- Pinned optional stack: see `../../requirements/verified.txt`
 - Installed package versions: `environment_versions.json`
 
 ## Dataset
@@ -58,19 +58,19 @@ Older verification files such as `anomalib_padim_mvtec_ad_bottle_result.json` an
 
 ## Export And Runtime
 
-- ONNX Phase 0 placeholder export: `artifacts/agent_b/inspectnet-cx-phase0/model.onnx`
+- ONNX Phase 0 placeholder export: `artifacts/verification/inspectnet-cx-phase0/model.onnx`
 - ONNX Runtime verification: passed for the Phase 0 placeholder graph
-- OpenVINO IR conversion: `artifacts/agent_b/inspectnet-cx-phase0/openvino/model.xml`
+- OpenVINO IR conversion: `artifacts/verification/inspectnet-cx-phase0/openvino/model.xml`
 - OpenVINO parity investigation: `openvino_parity_investigation.json` shows continuous outputs
   pass at `1e-4` max absolute tolerance, but binary masks can flip at threshold boundaries.
 
 - Trained PaDiM checkpoint:
-  `artifacts/agent_b/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt`
+  `artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt`
 - Reusable checkpoint prediction examples:
   `prediction_padim_good_000.json` and `prediction_padim_broken_large_000.json`
 - Trained PaDiM export artifacts:
-  `artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx` and
-  `artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml`
+  `artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx` and
+  `artifacts/verification/anomalib_padim_export/weights/openvino/model.xml`
 - Trained PaDiM export status: `anomalib_padim_export_status.json` records successful ONNX and
   OpenVINO artifact creation.
 - Trained PaDiM export smoke: `anomalib_padim_export_smoke.json` loads both artifacts across 83
@@ -88,16 +88,16 @@ python3 scripts/check_datasets.py --root /home/yusuf/datasets --output reports/v
 python3 scripts/check_proof_readiness.py --output reports/verification/proof_readiness_after_verification.json
 make baseline-anomalib-padim
 python3 scripts/run_baseline.py --method classical-range --dataset mvtec_ad --category bottle --data-root /home/yusuf/datasets --output reports/verification/classical_range_mvtec_ad_bottle_result.json
-python3 scripts/create_phase0_model.py --output artifacts/agent_b/inspectnet-cx-phase0 --image-size 224
-python3 scripts/export_phase0.py --check-only --format onnx --model artifacts/agent_b/inspectnet-cx-phase0
-python3 scripts/export_phase0.py --format onnx --model artifacts/agent_b/inspectnet-cx-phase0 --output artifacts/agent_b/inspectnet-cx-phase0/model.onnx --verify
-python3 scripts/export_phase0.py --check-only --format openvino --source-onnx artifacts/agent_b/inspectnet-cx-phase0/model.onnx
-python3 scripts/export_phase0.py --format openvino --source-onnx artifacts/agent_b/inspectnet-cx-phase0/model.onnx --output artifacts/agent_b/inspectnet-cx-phase0/openvino/model.xml
+python3 scripts/create_phase0_model.py --output artifacts/verification/inspectnet-cx-phase0 --image-size 224
+python3 scripts/export_phase0.py --check-only --format onnx --model artifacts/verification/inspectnet-cx-phase0
+python3 scripts/export_phase0.py --format onnx --model artifacts/verification/inspectnet-cx-phase0 --output artifacts/verification/inspectnet-cx-phase0/model.onnx --verify
+python3 scripts/export_phase0.py --check-only --format openvino --source-onnx artifacts/verification/inspectnet-cx-phase0/model.onnx
+python3 scripts/export_phase0.py --format openvino --source-onnx artifacts/verification/inspectnet-cx-phase0/model.onnx --output artifacts/verification/inspectnet-cx-phase0/openvino/model.xml
 PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input /home/yusuf/datasets/mvtec_ad/bottle/test/good/000.png --dataset-root /home/yusuf/datasets --dataset mvtec_ad --category bottle --output reports/verification/prediction_padim_good_000.json
 PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input /home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/000.png --dataset-root /home/yusuf/datasets --dataset mvtec_ad --category bottle --output reports/verification/prediction_padim_broken_large_000.json
-PYTHONPATH=src python3 scripts/investigate_anomalib_export.py --checkpoint artifacts/agent_b/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt --dataset-root /home/yusuf/datasets --dataset mvtec_ad --category bottle --output reports/verification/anomalib_padim_export_status.json
-PYTHONPATH=src python3 scripts/validate_padim_export.py --onnx artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx --openvino artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml --input /home/yusuf/datasets/mvtec_ad/bottle/test --output reports/verification/anomalib_padim_export_smoke.json
-PYTHONPATH=src python3 scripts/investigate_openvino_parity.py --onnx artifacts/agent_b/inspectnet-cx-phase0-rerun/model.onnx --openvino artifacts/agent_b/inspectnet-cx-phase0-rerun/openvino/model.xml --output reports/verification/openvino_parity_investigation.json
+PYTHONPATH=src python3 scripts/investigate_anomalib_export.py --checkpoint artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt --dataset-root /home/yusuf/datasets --dataset mvtec_ad --category bottle --output reports/verification/anomalib_padim_export_status.json
+PYTHONPATH=src python3 scripts/validate_padim_export.py --onnx artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx --openvino artifacts/verification/anomalib_padim_export/weights/openvino/model.xml --input /home/yusuf/datasets/mvtec_ad/bottle/test --output reports/verification/anomalib_padim_export_smoke.json
+PYTHONPATH=src python3 scripts/investigate_openvino_parity.py --onnx artifacts/verification/inspectnet-cx-phase0-rerun/model.onnx --openvino artifacts/verification/inspectnet-cx-phase0-rerun/openvino/model.xml --output reports/verification/openvino_parity_investigation.json
 python3 scripts/validate_results.py --input reports/verification
 ruff check src tests scripts
 pytest -q

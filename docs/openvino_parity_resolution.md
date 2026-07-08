@@ -19,8 +19,8 @@ Reproducer:
 
 ```bash
 PYTHONPATH=src python3 scripts/validate_padim_export.py \
-  --onnx artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx \
-  --openvino artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml \
+  --onnx artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx \
+  --openvino artifacts/verification/anomalib_padim_export/weights/openvino/model.xml \
   --input ~/datasets/mvtec_ad/bottle/test/good/000.png \
   --inference-precision <f32|default>
 ```
@@ -40,8 +40,8 @@ Reproducer:
 
 ```bash
 PYTHONPATH=src python3 scripts/validate_padim_export.py \
-  --onnx artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx \
-  --openvino artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml \
+  --onnx artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx \
+  --openvino artifacts/verification/anomalib_padim_export/weights/openvino/model.xml \
   --input ~/datasets/mvtec_ad/bottle/test \
   --inference-precision f32 \
   --output reports/verification/anomalib_padim_export_smoke_f32_bottle_test.json
@@ -75,8 +75,8 @@ Reproducer:
 
 ```bash
 PYTHONPATH=src python3 scripts/investigate_openvino_parity.py \
-  --onnx artifacts/agent_b/inspectnet-cx-phase0-rerun/model.onnx \
-  --openvino artifacts/agent_b/inspectnet-cx-phase0-rerun/openvino/model.xml \
+  --onnx artifacts/verification/inspectnet-cx-phase0-rerun/model.onnx \
+  --openvino artifacts/verification/inspectnet-cx-phase0-rerun/openvino/model.xml \
   --inference-precision f32 \
   --output reports/verification/openvino_parity_investigation.json
 ```

@@ -39,9 +39,9 @@
       "pixel_F1Score": 0.6746558547019958
     }
   ],
-  "run_root": "reports/agent_b/padim_rerun",
+  "run_root": "reports/verification/padim_rerun",
   "checkpoints": [
-    "reports/agent_b/padim_rerun/Padim/MVTecAD/bottle/v0/weights/lightning/model.ckpt"
+    "reports/verification/padim_rerun/Padim/MVTecAD/bottle/v0/weights/lightning/model.ckpt"
   ],
   "proof_note": "Real Anomalib PaDiM fit/test on the local MVTec AD category. Metrics are local benchmark evidence for this exact dataset, model configuration, and environment. They do not prove Jetson latency or factory deployment readiness."
 }

@@ -2,7 +2,7 @@
   "status": "export_succeeded",
   "dataset": "mvtec_ad",
   "category": "bottle",
-  "checkpoint": "artifacts/agent_b/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt",
+  "checkpoint": "artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt",
   "checkpoint_exists": true,
   "checkpoint_size_bytes": 176679475,
   "sample_image": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/000.png",
@@ -22,23 +22,23 @@
       "name": "export_onnx",
       "success": true,
       "export_type": "onnx",
-      "export_root": "artifacts/agent_b/anomalib_padim_export",
-      "path": "artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx",
+      "export_root": "artifacts/verification/anomalib_padim_export",
+      "path": "artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx",
       "path_exists": true
     },
     {
       "name": "export_openvino",
       "success": true,
       "export_type": "openvino",
-      "export_root": "artifacts/agent_b/anomalib_padim_export",
-      "path": "artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml",
+      "export_root": "artifacts/verification/anomalib_padim_export",
+      "path": "artifacts/verification/anomalib_padim_export/weights/openvino/model.xml",
       "path_exists": true
     }
   ],
   "is_reusable_for_prediction": true,
   "exported_artifacts": [
-    "artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx",
-    "artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml"
+    "artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx",
+    "artifacts/verification/anomalib_padim_export/weights/openvino/model.xml"
   ],
   "is_export_real": true,
   "next_precise_action": "Validate exported PaDiM inference parity against the Lightning checkpoint before making deployment claims."

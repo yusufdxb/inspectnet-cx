@@ -35,7 +35,7 @@ artifact. These are local-machine evidence claims only, not production or edge-d
 | blocked claim | blocker artifact or note |
 | --- | --- |
 | Production or factory deployment readiness. | Explicitly not proven; requires trained checkpoint parity, target-hardware latency, monitoring, calibration, and operator workflow evidence. |
-| Jetson Orin NX edge validation. | Jetson Orin NX 16GB is untested; listed as future hardware in `docs/positioning.md`. |
+| Jetson Orin NX edge validation. | Jetson Orin NX 16GB is untested; edge validation is future work. |
 | TensorRT compatibility. | No TensorRT validation artifact exists. |
 | Cross-category or cross-dataset benchmark quality. | Only MVTec AD `bottle` is locally evaluated. |
 | Clean trained PaDiM ONNX/OpenVINO parity. | `reports/verification/anomalib_padim_export_smoke.json` is `loaded_parity_failed`. |

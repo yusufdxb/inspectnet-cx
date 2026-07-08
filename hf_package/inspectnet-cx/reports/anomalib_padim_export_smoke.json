@@ -1,7 +1,7 @@
 {
   "status": "loaded_parity_failed",
-  "onnx_path": "artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx",
-  "openvino_path": "artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml",
+  "onnx_path": "artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx",
+  "openvino_path": "artifacts/verification/anomalib_padim_export/weights/openvino/model.xml",
   "provider": "CPU",
   "image_size": 256,
   "input_count": 83,

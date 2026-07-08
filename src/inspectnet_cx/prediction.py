@@ -12,7 +12,7 @@ from inspectnet_cx.data.dataset_check import COMMON_IMAGE_EXTENSIONS
 
 NORMAL_NAMES = {"good", "normal"}
 DEFAULT_PADIM_CHECKPOINT = Path(
-    "artifacts/agent_b/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt"
+    "artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt"
 )
 
 

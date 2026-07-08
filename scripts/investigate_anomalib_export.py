@@ -13,7 +13,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--checkpoint",
         type=Path,
         default=Path(
-            "artifacts/agent_b/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt"
+            "artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt"
         ),
     )
     parser.add_argument("--dataset-root", type=Path, default=Path("~/datasets").expanduser())
@@ -21,7 +21,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--category", default="bottle")
     parser.add_argument("--sample-image", type=Path)
     parser.add_argument(
-        "--export-root", type=Path, default=Path("artifacts/agent_b/anomalib_padim_export")
+        "--export-root", type=Path, default=Path("artifacts/verification/anomalib_padim_export")
     )
     parser.add_argument(
         "--output",
@@ -97,7 +97,7 @@ def investigate(args: argparse.Namespace) -> dict[str, Any]:
                 "status": "blocked",
                 "blocked_reason": f"Anomalib import failed: {type(exc).__name__}: {exc}",
                 "next_precise_action": (
-                    "Install the pinned optional stack from requirements/agent_b_verified.txt."
+                    "Install the pinned optional stack from requirements/verified.txt."
                 ),
             }
         )

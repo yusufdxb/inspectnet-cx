@@ -55,21 +55,21 @@
             "claim": "Dataset source, checksum, license, local path, and split counts."
         }
     ],
-  "dependency_file": "requirements-agent_b_verified.txt",
+  "dependency_file": "requirements-verified.txt",
   "source_install_file": "requirements.txt",
     "reproduction_commands": [
         "python3 -m pip install -e '.[all]'",
-        "python3 scripts/check_datasets.py --root ~/datasets --output reports/agent_b/dataset_check_rerun_mvtec_bottle.json",
-        "PYTHONPATH=src python3 scripts/run_anomalib_baseline.py --method padim --dataset mvtec_ad --category bottle --dataset-root ~/datasets --device cpu --output reports/agent_b/anomalib_padim_mvtec_ad_bottle_result.json --work-dir artifacts/agent_b/anomalib",
-        "PYTHONPATH=src python3 scripts/run_classical_baseline.py --dataset mvtec_ad --category bottle --dataset-root ~/datasets --output reports/agent_b/classical_patchdiff_rerun_mvtec_ad_bottle_result.json",
-        "PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input ~/datasets/mvtec_ad/bottle/test/good/000.png --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/agent_b/prediction_padim_good_000.json",
-        "PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input ~/datasets/mvtec_ad/bottle/test/broken_large/000.png --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/agent_b/prediction_padim_broken_large_000.json",
-        "PYTHONPATH=src python3 scripts/investigate_anomalib_export.py --checkpoint artifacts/agent_b/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/agent_b/anomalib_padim_export_status.json",
-        "PYTHONPATH=src python3 scripts/validate_padim_export.py --onnx artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx --openvino artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml --input ~/datasets/mvtec_ad/bottle/test --output reports/agent_b/anomalib_padim_export_smoke.json",
-        "PYTHONPATH=src python3 scripts/investigate_openvino_parity.py --onnx artifacts/agent_b/inspectnet-cx-phase0-rerun/model.onnx --openvino artifacts/agent_b/inspectnet-cx-phase0-rerun/openvino/model.xml --output reports/agent_b/openvino_parity_investigation.json",
+        "python3 scripts/check_datasets.py --root ~/datasets --output reports/verification/dataset_check_rerun_mvtec_bottle.json",
+        "PYTHONPATH=src python3 scripts/run_anomalib_baseline.py --method padim --dataset mvtec_ad --category bottle --dataset-root ~/datasets --device cpu --output reports/verification/anomalib_padim_mvtec_ad_bottle_result.json --work-dir artifacts/verification/anomalib",
+        "PYTHONPATH=src python3 scripts/run_classical_baseline.py --dataset mvtec_ad --category bottle --dataset-root ~/datasets --output reports/verification/classical_patchdiff_rerun_mvtec_ad_bottle_result.json",
+        "PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input ~/datasets/mvtec_ad/bottle/test/good/000.png --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/verification/prediction_padim_good_000.json",
+        "PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input ~/datasets/mvtec_ad/bottle/test/broken_large/000.png --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/verification/prediction_padim_broken_large_000.json",
+        "PYTHONPATH=src python3 scripts/investigate_anomalib_export.py --checkpoint artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/verification/anomalib_padim_export_status.json",
+        "PYTHONPATH=src python3 scripts/validate_padim_export.py --onnx artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx --openvino artifacts/verification/anomalib_padim_export/weights/openvino/model.xml --input ~/datasets/mvtec_ad/bottle/test --output reports/verification/anomalib_padim_export_smoke.json",
+        "PYTHONPATH=src python3 scripts/investigate_openvino_parity.py --onnx artifacts/verification/inspectnet-cx-phase0-rerun/model.onnx --openvino artifacts/verification/inspectnet-cx-phase0-rerun/openvino/model.xml --output reports/verification/openvino_parity_investigation.json",
         "PYTHONPATH=src pytest -q",
         "ruff check src tests scripts",
-        "PYTHONPATH=src python3 scripts/validate_results.py --input reports/agent_b",
+        "PYTHONPATH=src python3 scripts/validate_results.py --input reports/verification",
         "PYTHONPATH=src python3 scripts/check_hf_package.py"
     ],
     "primary_limitations": [

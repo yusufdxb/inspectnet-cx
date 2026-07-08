@@ -1,7 +1,7 @@
 {
   "status": "ready",
   "export_format": "onnx",
-  "model_dir": "artifacts/agent_b/inspectnet-cx-phase0",
+  "model_dir": "artifacts/verification/inspectnet-cx-phase0",
   "onnx_path": null,
   "packages": {
     "torch": {
