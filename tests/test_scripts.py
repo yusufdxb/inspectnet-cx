@@ -12,8 +12,6 @@ def test_scripts_import():
         "check_proof_readiness.py",
         "create_phase0_model.py",
         "export_phase0.py",
-        "investigate_anomalib_export.py",
-        "investigate_openvino_parity.py",
         "predict_anomaly.py",
         "run_anomalib_baseline.py",
         "run_baseline.py",
