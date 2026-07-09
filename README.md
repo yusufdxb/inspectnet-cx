@@ -138,10 +138,10 @@ python -m build
 
 ## Repository Layout
 
-- `src/inspectnet_cx/` — package: model API scaffold, eval, calibration, latency, training.
-- `scripts/` — baseline, eval-harness, export-parity, cross-category, and latency CLIs.
-- `reports/` — tracked result JSONs (no dataset images are committed).
-- `docs/` — the cross-category transfer study, OpenVINO parity resolution, claims ledger,
+- `src/inspectnet_cx/` - package: model API scaffold, eval, calibration, latency, training.
+- `scripts/` - baseline, eval-harness, export-parity, cross-category, and latency CLIs.
+- `reports/` - tracked result JSONs (no dataset images are committed).
+- `docs/` - the cross-category transfer study, OpenVINO parity resolution, claims ledger,
   benchmark protocol, and latency baseline.
 
 ## License
