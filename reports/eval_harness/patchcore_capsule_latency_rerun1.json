@@ -5,7 +5,7 @@
   "dataset_root": "/home/yusuf/datasets/mvtec_ad",
   "hardware": {
     "cpu": "AMD Ryzen 9 9900X 12-Core Processor",
-    "gpu": "NVIDIA GeForce RTX 5070, 570.211.01, 12227 MiB",
+    "gpu": "NVIDIA Blackwell consumer GPU, 570.211.01",
     "platform": "Linux-6.8.0-117-generic-x86_64-with-glibc2.35"
   },
   "library_versions": {

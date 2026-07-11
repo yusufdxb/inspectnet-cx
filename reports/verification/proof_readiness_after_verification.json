@@ -5,7 +5,7 @@
   "is_jetson_orin_nx": false,
   "cuda_available": true,
   "cuda_devices": [
-    "NVIDIA GeForce RTX 5070"
+    "NVIDIA Blackwell consumer GPU"
   ],
   "packages": {
     "torch": {

@@ -15,7 +15,7 @@ This module replaces that scaffold with a reconstruction-style baseline:
   across the image (or any reduction; mean is reported here).
 
 Rationale: a small CNN autoencoder is the simplest honest baseline that
-fits on the RTX 5070, trains in minutes per category, and produces a
+fits on an NVIDIA (Blackwell) consumer GPU, trains in minutes per category, and produces a
 calibrated per-image anomaly score that can be compared head to head
 against PaDiM with the same AUROC + bootstrap-CI methodology. It is not
 state of the art; it is an honest learned baseline.

@@ -6,7 +6,7 @@ checkout only. Fixture-only results are not presented as real metrics.
 ## Environment
 
 - Python: 3.10.12
-- Platform: Linux x86_64, CUDA available on NVIDIA GeForce RTX 5070
+- Platform: Linux x86_64, CUDA available on an NVIDIA (Blackwell) consumer GPU
 - Pinned optional stack: see `../../requirements/verified.txt`
 - Installed package versions: `environment_versions.json`
 

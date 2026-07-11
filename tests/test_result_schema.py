@@ -167,14 +167,16 @@ def test_validate_results_skips_non_benchmark_proof_reports(tmp_path):
     assert validate_results(tmp_path) == {}
 
 
-def test_validate_results_skips_mewtwo_latency_reports(tmp_path):
-    # mewtwo_latency.json is the canonical workstation latency output; it must be skipped
-    # just like jetson_latency.json (it is not a benchmark result payload)
-    (tmp_path / "mewtwo_latency_smoke.json").write_text(
-        '{"status": "local_phase0_latency", "device": "cuda", "target_hardware": "mewtwo"}'
+def test_validate_results_skips_workstation_latency_reports(tmp_path):
+    # workstation_latency.json is the canonical workstation latency output; it must be
+    # skipped just like jetson_latency.json (it is not a benchmark result payload)
+    (tmp_path / "workstation_latency_smoke.json").write_text(
+        '{"status": "local_phase0_latency", "device": "cuda", '
+        '"target_hardware": "dev-workstation"}'
     )
-    (tmp_path / "mewtwo_latency.json").write_text(
-        '{"status": "local_phase0_latency", "device": "cuda", "target_hardware": "mewtwo"}'
+    (tmp_path / "workstation_latency.json").write_text(
+        '{"status": "local_phase0_latency", "device": "cuda", '
+        '"target_hardware": "dev-workstation"}'
     )
 
     assert validate_results(tmp_path) == {}

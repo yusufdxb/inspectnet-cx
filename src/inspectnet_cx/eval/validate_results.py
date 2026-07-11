@@ -20,7 +20,7 @@ NON_BENCHMARK_REPORTS = {
     "anomalib_padim_export_smoke.json",
     "jetson_latency.json",
     "local_latency.json",
-    "mewtwo_latency.json",
+    "workstation_latency.json",
     "normal_threshold.json",
     "onnx_export_phase0.json",
     "openvino_export_phase0.json",
@@ -53,7 +53,7 @@ def _is_non_benchmark_report(path: Path, payload: dict[str, object]) -> bool:
         return True
     if path.name.startswith("prediction_"):
         return True
-    if path.name.startswith(("jetson_latency", "local_latency", "mewtwo_latency")):
+    if path.name.startswith(("jetson_latency", "local_latency", "workstation_latency")):
         return True
     if payload.get("status") == "completed_predictions" and "backend" in payload:
         return True

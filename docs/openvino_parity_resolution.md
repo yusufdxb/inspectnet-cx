@@ -1,7 +1,7 @@
 # OpenVINO PaDiM Parity Resolution
 
 Date: 2026-05-17
-Host: mewtwo (Intel CPU with native AVX-512 BF16)
+Host: the dev workstation (Intel CPU with native AVX-512 BF16)
 onnxruntime: 1.23.2
 openvino: 2026.1.0-21367-63e31528c62-releases/2026/1
 
