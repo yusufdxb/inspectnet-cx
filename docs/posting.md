@@ -50,6 +50,6 @@ make create-phase0-model
 Upload `artifacts/inspectnet-cx-phase0` only as a Phase 0 scaffold checkpoint. Use the
 model card wording from `MODEL_CARD.md`.
 
-Do not upload `artifacts/agent_b/inspectnet-cx-phase0` as a trained detector. It is still a
+Do not upload `artifacts/verification/inspectnet-cx-phase0` as a trained detector. It is still a
 Phase 0 scaffold with additional ONNX/OpenVINO export files; the OpenVINO parity report is
 failed.

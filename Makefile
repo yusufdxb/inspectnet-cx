@@ -32,7 +32,7 @@ baseline-efficientad:
 	$(PYTHON) scripts/run_baseline.py --method efficientad --dataset mvtec_ad --category bottle --device cpu --output reports/efficientad_mvtec_ad_bottle.json
 
 baseline-anomalib-padim:
-	$(PYTHON) scripts/run_anomalib_baseline.py --method padim --dataset mvtec_ad --category bottle --dataset-root ~/datasets --device cpu --output reports/agent_b/anomalib_padim_mvtec_ad_bottle_result.json --work-dir artifacts/agent_b/anomalib
+	$(PYTHON) scripts/run_anomalib_baseline.py --method padim --dataset mvtec_ad --category bottle --dataset-root ~/datasets --device cpu --output reports/verification/anomalib_padim_mvtec_ad_bottle_result.json --work-dir artifacts/verification/anomalib
 
 baseline-classical-range:
 	$(PYTHON) scripts/run_baseline.py --method classical-range --dataset mvtec_ad --category bottle --data-root ~/datasets --output reports/baseline_classical_range_v1/mvtec_ad_bottle/result.json

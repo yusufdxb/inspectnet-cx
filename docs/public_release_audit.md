@@ -35,7 +35,7 @@ inspectnet-validate-results --input reports/fixture_smoke
 inspectnet-create-phase0-model --output artifacts/inspectnet-cx-phase0-clean
 inspectnet-infer --model artifacts/inspectnet-cx-phase0-clean --image reports/fixture_smoke/datasets/mvtec_ad/bottle/test/good/000.png --output reports/release_clean_inference.json
 PYTHONPATH=src python3 scripts/predict_anomaly.py --backend classical_patchdiff --input reports/fixture_smoke/datasets/mvtec_ad/bottle/test/good/000.png --dataset-root reports/fixture_smoke/datasets --dataset mvtec_ad --category bottle --output reports/release_prediction_classical_good.json
-PYTHONPATH=src python3 scripts/validate_results.py --input reports/agent_b
+PYTHONPATH=src python3 scripts/validate_results.py --input reports/verification
 PYTHONPATH=src python3 scripts/check_hf_package.py
 python scripts/release_smoke.py
 ```

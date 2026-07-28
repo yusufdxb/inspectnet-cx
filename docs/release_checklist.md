@@ -16,7 +16,7 @@ Use this checklist before posting the repository or a Hugging Face model repo.
 - [ ] `inspectnet-dataset-check --root ~/datasets` has been run or explicitly blocked.
 - [ ] Any PaDiM/classical numbers in docs cite their exact JSON report path.
 - [ ] OpenVINO claims mention the current parity status; no deployment claim is made while
-      `reports/agent_b/openvino_parity_phase0.json` is `failed`.
+      `reports/verification/openvino_parity_phase0.json` is `failed`.
 - [x] Workstation latency is measured on mewtwo (AMD Ryzen 9 9900X + RTX 5070): CUDA median 0.474 ms/img (p95 0.622 ms) at 512 px; CPU median 2.956 ms/img (p95 3.217 ms) at 512 px.
 - [ ] Jetson Orin NX 16GB latency is explicitly marked as future hardware (unmeasured); use `--require-jetson` opt-in if Jetson gating is needed.
 
@@ -27,7 +27,7 @@ Use this checklist before posting the repository or a Hugging Face model repo.
 - [ ] Inspect `artifacts/inspectnet-cx-phase0/README.md`.
 - [ ] Verify `InspectNetCXForAnomalyDetection.from_pretrained(...)`.
 - [ ] Push only as a Phase 0 scaffold checkpoint.
-- [ ] Do not describe Agent B export artifacts as a trained or deployable model.
+- [ ] Do not describe the verification export artifacts as a trained or deployable model.
 
 ## Claims Not Allowed Yet
 

@@ -1,7 +1,7 @@
 # OpenVINO PaDiM Parity Resolution
 
 Date: 2026-05-17
-Host: mewtwo (Intel CPU with native AVX-512 BF16)
+Host: x86_64 Linux workstation, CPU with native AVX-512 BF16
 onnxruntime: 1.23.2
 openvino: 2026.1.0-21367-63e31528c62-releases/2026/1
 
@@ -19,8 +19,8 @@ Reproducer:
 
 ```bash
 PYTHONPATH=src python3 scripts/validate_padim_export.py \
-  --onnx artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx \
-  --openvino artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml \
+  --onnx artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx \
+  --openvino artifacts/verification/anomalib_padim_export/weights/openvino/model.xml \
   --input ~/datasets/mvtec_ad/bottle/test/good/000.png \
   --inference-precision <f32|default>
 ```
@@ -40,11 +40,11 @@ Reproducer:
 
 ```bash
 PYTHONPATH=src python3 scripts/validate_padim_export.py \
-  --onnx artifacts/agent_b/anomalib_padim_export/weights/onnx/model.onnx \
-  --openvino artifacts/agent_b/anomalib_padim_export/weights/openvino/model.xml \
+  --onnx artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx \
+  --openvino artifacts/verification/anomalib_padim_export/weights/openvino/model.xml \
   --input ~/datasets/mvtec_ad/bottle/test \
   --inference-precision f32 \
-  --output reports/agent_b/anomalib_padim_export_smoke_f32_bottle_test.json
+  --output reports/verification/anomalib_padim_export_smoke_f32_bottle_test.json
 ```
 
 Result with `--inference-precision f32`:
@@ -75,10 +75,10 @@ Reproducer:
 
 ```bash
 PYTHONPATH=src python3 scripts/investigate_openvino_parity.py \
-  --onnx artifacts/agent_b/inspectnet-cx-phase0-rerun/model.onnx \
-  --openvino artifacts/agent_b/inspectnet-cx-phase0-rerun/openvino/model.xml \
+  --onnx artifacts/verification/inspectnet-cx-phase0-rerun/model.onnx \
+  --openvino artifacts/verification/inspectnet-cx-phase0-rerun/openvino/model.xml \
   --inference-precision f32 \
-  --output reports/agent_b/openvino_parity_investigation.json
+  --output reports/verification/openvino_parity_investigation.json
 ```
 
 | Quantity                        | Before (default BF16) | After (f32 hint) |
@@ -116,9 +116,10 @@ The new flag is recorded in both report payloads as `inference_precision_hint`. 
 
 - `scripts/validate_padim_export.py`: added `--inference-precision`, `pred_mask` pixel-flip accounting, `passed_mask_boundary_unstable` status.
 - `scripts/investigate_openvino_parity.py`: added `--inference-precision`, recorded in report payload.
-- `reports/agent_b/openvino_parity_investigation.json`: regenerated with `--inference-precision f32`.
-- `reports/agent_b/anomalib_padim_export_smoke.json`: regenerated with `--inference-precision f32` on a single fixture image.
-- `reports/agent_b/anomalib_padim_export_smoke_f32_bottle_test.json`: full 83-image bottle test sweep.
+- `reports/verification/openvino_parity_investigation.json`: regenerated with `--inference-precision f32`.
+- `reports/verification/anomalib_padim_export_smoke.json`: regenerated with `--inference-precision f32` on a single fixture image.
+- Full 83-image bottle test sweep: run locally, output not retained in this repo. Regenerate with
+  the `validate_padim_export.py` command above before citing its numbers anywhere.
 - `hf_package/inspectnet-cx/reports/openvino_parity_investigation.json`: mirror of the regenerated phase 0 report.
 
 ## What this resolution does NOT prove
