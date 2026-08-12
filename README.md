@@ -1,13 +1,23 @@
 # InspectNet-CX
 
+**A reproducible benchmark harness for industrial visual anomaly detection on MVTec AD, built so that every number reported here can be regenerated from the committed scripts and result JSONs.**
+
+Choosing an anomaly detector for an inspection line leaves you with three questions that a published AUROC table does not answer. Does a learned detector actually beat a simple memory-bank baseline on your parts, or are you paying training cost for nothing? Does a model fit on one part category transfer to the next one, or do you need a separate model per SKU? And does the exported ONNX or OpenVINO artifact still agree with the PyTorch model you validated? InspectNet-CX answers all three on the same four MVTec AD categories, with the run commands, the result JSONs, and the failed attempts committed next to the wins.
+
+**This is a research and reproduction harness, not production factory-inspection software and not a fully validated edge model.** No trained checkpoint is bundled: the native detector ships as source plus its evaluation evidence, so reproducing it means training it yourself.
+
 ![InspectNet-CX release visual](hf_package/inspectnet-cx/assets/release_visual.svg)
 
-InspectNet-CX is a reproducible industrial anomaly-inspection harness on MVTec AD. It ships a
-native reverse-distillation detector (source plus eval evidence; no trained checkpoint is
-bundled), two verified reference baselines (PaDiM and PatchCore), a cross-category transfer
-study, and an ONNX/OpenVINO export-parity investigation with a root-caused fix. The emphasis is
-reproducibility and honest, head-to-head evidence. This is a research and reproduction harness,
-not production factory-inspection software and not a fully validated edge model.
+## Status at a glance
+
+| Question | Verified answer | Evidence |
+| -------- | --------------- | -------- |
+| Does the native detector beat the classical baselines? | Beats PaDiM on 4 of 4 categories. Ties PatchCore on 2 of 4 (bottle and leather, both 1.000), still trails it on cable (0.885 vs 0.991) and capsule (0.901 vs 0.994). | `reports/eval_harness/inspectnet_rd_*.json`, `reports/eval_harness/patchcore_*.json` |
+| Does a PaDiM memory bank transfer across categories? | No. Image AUROC drops 0.431 (95% bootstrap CI [0.403, 0.458]) off-diagonal, and all 12 off-diagonal cells collapse to roughly chance. | `reports/cross_padim_matrix.json` |
+| Do ONNX Runtime and OpenVINO agree after export? | Not by default, and the cause is root-caused: OpenVINO's CPU plugin picks BF16. Forcing FP32 cuts `pred_score` max-abs error from 7.9e-4 to 3.0e-8. | `docs/openvino_parity_resolution.md` |
+| Test suite | 80 tests passing, ruff clean, builds as a wheel. | `pytest -q` |
+| Trained checkpoint | Not shipped (source and eval JSONs only). | see [Scope](#scope) |
+| Hardware coverage | Parity fix verified on CPU only. No Jetson or TensorRT measurement. | see [Scope](#scope) |
 
 ## Headline Results
 
@@ -22,24 +32,23 @@ matched train/test):
 | leather  | 0.993 | 1.000 | 1.000 |
 
 `InspectNet-CX (reverse distillation)` is the repo's own from-scratch detector (a frozen
-wide_resnet50_2 teacher; a bottleneck + decoder learn to reconstruct the teacher's multi-scale
-features on normal images; reconstruction failure is the anomaly score). It is trained here, not
-borrowed. Honest standing: it **ties PatchCore on `bottle` and `leather` (both 1.000)** and
-**beats PaDiM on all four categories**, but it does **not** beat PatchCore overall, PatchCore
-still leads on `cable` (0.991 vs 0.885) and `capsule` (0.994 vs 0.901). PaDiM/PatchCore are the
-references, not the author's results. Numbers are read from
-`reports/eval_harness/inspectnet_rd_*.json` (ours), `reports/cross_padim_matrix.json` (PaDiM
-diagonal), and `reports/eval_harness/patchcore_*.json`.
+wide_resnet50_2 teacher; a bottleneck plus decoder learn to reconstruct the teacher's
+multi-scale features on normal images; reconstruction failure is the anomaly score). It is
+trained here, not borrowed. It does **not** beat PatchCore overall: PatchCore still leads on
+`cable` and `capsule`. PaDiM and PatchCore are the references, not the author's results.
+Numbers are read from `reports/eval_harness/inspectnet_rd_*.json` (ours),
+`reports/cross_padim_matrix.json` (PaDiM diagonal), and
+`reports/eval_harness/patchcore_*.json`.
 
 The path here is documented in `docs/native_detector_ablations.md`: a vanilla student-teacher
 trails badly (cable 0.751), a wider student-teacher backbone *collapses* to near-chance (its
 capacity erases the anomaly residual), and reverse distillation, the frozen-teacher /
 bottleneck / decoder paradigm, is what closed most of the gap. Fully matching PatchCore on
-`cable`/`capsule` is open work (a faithful one-class bottleneck and longer training).
+`cable` and `capsule` is open work (a faithful one-class bottleneck and longer training).
 
 **PaDiM is category-specific.** Fitting a PaDiM memory bank on one category and scoring another
 drops image AUROC by **0.431 (95% bootstrap CI [0.403, 0.458])**; the 12 off-diagonal cells
-collapse to chance (~0.50). The full transfer matrix is in
+collapse to chance (roughly 0.50). The full transfer matrix is in
 `docs/padim_cross_category_transfer.md` and `reports/cross_padim_matrix.json`.
 
 | train \ test | bottle | cable | capsule | leather |
@@ -50,10 +59,10 @@ collapse to chance (~0.50). The full transfer matrix is in
 | **leather**  | 0.509  | 0.514 | 0.482   | 0.993   |
 
 **ONNX/OpenVINO export-parity bug, root-caused and fixed.** The ONNX Runtime vs OpenVINO gap on
-the exported PaDiM model was not preprocessing or dynamic shape: OpenVINO's CPU plugin defaults
-`INFERENCE_PRECISION_HINT` to BF16 on AVX-512-BF16 hosts while ONNX Runtime stays FP32. Forcing
-`--inference-precision f32` closes it: `pred_score` max-abs error drops from 7.9e-4 to 3.0e-8.
-Full writeup in `docs/openvino_parity_resolution.md`.
+the exported PaDiM model was not preprocessing and not dynamic shape: OpenVINO's CPU plugin
+defaults `INFERENCE_PRECISION_HINT` to BF16 on AVX-512-BF16 hosts while ONNX Runtime stays
+FP32. Forcing `--inference-precision f32` closes it, and `pred_score` max-abs error drops from
+7.9e-4 to 3.0e-8. Full writeup in `docs/openvino_parity_resolution.md`.
 
 A latency-benchmark harness with hardware fingerprinting (`/proc/cpuinfo`, `nvidia-smi`,
 `/etc/nv_tegra_release`) is included; see `docs/latency_baseline.md`.
@@ -64,9 +73,10 @@ This is a research and reproduction harness, not deployable inspection software.
 
 - The native reverse-distillation detector (`src/inspectnet_cx/models/reverse_distill.py`) is
   really trained here and ties PatchCore on two of four categories, but still trails it on
-  `cable`/`capsule`; fully matching PatchCore is open work, not a solved claim. The earlier
+  `cable` and `capsule`; fully matching PatchCore is open work, not a solved claim. The earlier
   student-teacher (`student_teacher.py`) is kept for the ablation. The separate Hugging
   Face-style `InspectNetCX` class (`modeling_inspectnet_cx.py`) is a packaging/API scaffold.
+- No trained checkpoint is bundled. The repo ships source plus eval evidence.
 - All evidence is on local MVTec AD; no VisA / MVTec AD 2 / LOCO, no Jetson or TensorRT
   measurement. The OpenVINO parity fix is verified on CPU only.
 - Deployment would still require a trained checkpoint, held-out metrics on the target line,
@@ -138,10 +148,11 @@ python -m build
 
 ## Repository Layout
 
-- `src/inspectnet_cx/` - package: model API scaffold, eval, calibration, latency, training.
-- `scripts/` - baseline, eval-harness, export-parity, cross-category, and latency CLIs.
-- `reports/` - tracked result JSONs (no dataset images are committed).
-- `docs/` - the cross-category transfer study, OpenVINO parity resolution, claims ledger,
+- `src/inspectnet_cx/`: package with the model API scaffold, eval, calibration, latency, and
+  training code.
+- `scripts/`: baseline, eval-harness, export-parity, cross-category, and latency CLIs.
+- `reports/`: tracked result JSONs (no dataset images are committed).
+- `docs/`: the cross-category transfer study, OpenVINO parity resolution, claims ledger,
   benchmark protocol, and latency baseline.
 
 ## License
