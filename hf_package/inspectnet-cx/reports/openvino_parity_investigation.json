@@ -1,7 +1,7 @@
 {
   "status": "continuous_passed_mask_boundary_unstable",
-  "onnx_path": "artifacts/agent_b/inspectnet-cx-phase0-rerun/model.onnx",
-  "openvino_path": "artifacts/agent_b/inspectnet-cx-phase0-rerun/openvino/model.xml",
+  "onnx_path": "artifacts/verification/inspectnet-cx-phase0-rerun/model.onnx",
+  "openvino_path": "artifacts/verification/inspectnet-cx-phase0-rerun/openvino/model.xml",
   "provider": "CPU",
   "image_size": 224,
   "inference_precision_hint": "f32",

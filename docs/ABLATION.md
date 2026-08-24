@@ -4,7 +4,7 @@ All numbers below come from the Phase A frozen eval harness
 (`scripts/eval_harness.py`). PaDiM rows are reproduced from
 `reports/eval_harness/padim_<cat>_repro.json` (Phase A, CPU). PatchCore rows
 are produced by `scripts/train_patchcore.py` + the same harness with
-`--method patchcore`, run on the RTX 5070.
+`--method patchcore`, run on an NVIDIA (Blackwell) consumer GPU.
 
 Backbone: WideResNet-50 (`wide_resnet50_2`), layers `(layer2, layer3)`,
 anomalib 2.4.1 default for PatchCore. Single seed. AUPRO uses anomalib's
@@ -47,9 +47,9 @@ on disk). The sensitivity is dominated by sampling noise, not a clean trend.
 
 ## 3. Latency (PatchCore @ 0.01, batch size 1, 256x256)
 
-Measured by `scripts/bench_latency.py` on mewtwo
-(AMD Ryzen 9 9900X 12-core, NVIDIA GeForce RTX 5070, driver 570.211.01,
-12 GiB VRAM). 50 timed iterations after 10 warmup iterations, batch size 1,
+Measured by `scripts/bench_latency.py` on the dev workstation
+(AMD Ryzen 9 9900X 12-core, NVIDIA Blackwell consumer GPU,
+driver 570.211.01). 50 timed iterations after 10 warmup iterations, batch size 1,
 `torch.cuda.synchronize()` around GPU timing, `time.perf_counter`.
 
 | category | device | min ms | median ms | p95 ms | mean ms | std ms |
@@ -138,5 +138,6 @@ checkpoint SHA via `checkpoint_hash`.
 - AUPRO is anomalib's `_AUPRO` at `fpr_limit=0.3`. Different FPR limits or
   alternative AUPRO implementations will give different absolute numbers.
 - Latency is PyTorch eager forward, batch 1, 256x256, on this specific
-  hardware (Ryzen 9 9900X + RTX 5070). No ONNX, no OpenVINO, no TensorRT,
+  hardware (Ryzen 9 9900X + NVIDIA Blackwell consumer GPU). No ONNX,
+  no OpenVINO, no TensorRT,
   no Jetson, no end-to-end pipeline timing (no I/O, no preprocessing).

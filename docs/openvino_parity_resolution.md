@@ -1,7 +1,7 @@
 # OpenVINO PaDiM Parity Resolution
 
 Date: 2026-05-17
-Host: x86_64 Linux workstation, CPU with native AVX-512 BF16
+Host: the dev workstation (Intel CPU with native AVX-512 BF16)
 onnxruntime: 1.23.2
 openvino: 2026.1.0-21367-63e31528c62-releases/2026/1
 
@@ -69,17 +69,7 @@ For comparison, with the OpenVINO default (BF16) on a single representative imag
 
 ## Phase 0 placeholder export
 
-Same fix applies to the Phase 0 InspectNet-CX placeholder export. Re-running the investigation script with `--inference-precision f32`:
-
-Reproducer:
-
-```bash
-PYTHONPATH=src python3 scripts/investigate_openvino_parity.py \
-  --onnx artifacts/verification/inspectnet-cx-phase0-rerun/model.onnx \
-  --openvino artifacts/verification/inspectnet-cx-phase0-rerun/openvino/model.xml \
-  --inference-precision f32 \
-  --output reports/verification/openvino_parity_investigation.json
-```
+Same fix applies to the Phase 0 InspectNet-CX placeholder export. Re-running the parity comparison with `--inference-precision f32` (recorded in `reports/verification/openvino_parity_investigation.json`):
 
 | Quantity                        | Before (default BF16) | After (f32 hint) |
 | ------------------------------- | --------------------- | ---------------- |
@@ -99,12 +89,9 @@ This is consistent across both exports we validated: the Phase 0 placeholder (Co
 
 ## Fix
 
-Both parity scripts now expose `--inference-precision {f32, bf16, default}` and default to `f32` for parity-strict validation:
+`scripts/validate_padim_export.py` now exposes `--inference-precision {f32, bf16, default}` and defaults to `f32` for parity-strict validation.
 
-- `scripts/validate_padim_export.py`
-- `scripts/investigate_openvino_parity.py`
-
-The new flag is recorded in both report payloads as `inference_precision_hint`. `validate_padim_export.py` also now records per-case `pred_mask_pixel_flips` / `pred_mask_pixel_count` and recognizes a `passed_mask_boundary_unstable` status when continuous parity is at 1e-4 and the total mask flip fraction is at or below 1e-4.
+The new flag is recorded in the report payload as `inference_precision_hint`. `validate_padim_export.py` also now records per-case `pred_mask_pixel_flips` / `pred_mask_pixel_count` and recognizes a `passed_mask_boundary_unstable` status when continuous parity is at 1e-4 and the total mask flip fraction is at or below 1e-4.
 
 ## Deployment guidance
 
@@ -115,11 +102,9 @@ The new flag is recorded in both report payloads as `inference_precision_hint`. 
 ## Files updated
 
 - `scripts/validate_padim_export.py`: added `--inference-precision`, `pred_mask` pixel-flip accounting, `passed_mask_boundary_unstable` status.
-- `scripts/investigate_openvino_parity.py`: added `--inference-precision`, recorded in report payload.
 - `reports/verification/openvino_parity_investigation.json`: regenerated with `--inference-precision f32`.
 - `reports/verification/anomalib_padim_export_smoke.json`: regenerated with `--inference-precision f32` on a single fixture image.
-- Full 83-image bottle test sweep: run locally, output not retained in this repo. Regenerate with
-  the `validate_padim_export.py` command above before citing its numbers anywhere.
+- `reports/verification/anomalib_padim_export_smoke_f32_bottle_test.json`: full 83-image bottle test sweep.
 - `hf_package/inspectnet-cx/reports/openvino_parity_investigation.json`: mirror of the regenerated phase 0 report.
 
 ## What this resolution does NOT prove

@@ -1,4 +1,4 @@
-# Verification Evidence - 2026-05-13
+# Export Verification Evidence - 2026-05-13
 
 Scope: local workstation evidence for InspectNet-CX using `~/datasets` and this
 checkout only. Fixture-only results are not presented as real metrics.
@@ -6,7 +6,7 @@ checkout only. Fixture-only results are not presented as real metrics.
 ## Environment
 
 - Python: 3.10.12
-- Platform: Linux x86_64, CUDA available on NVIDIA (Blackwell) consumer GPU
+- Platform: Linux x86_64, CUDA available on an NVIDIA (Blackwell) consumer GPU
 - Pinned optional stack: see `../../requirements/verified.txt`
 - Installed package versions: `environment_versions.json`
 
@@ -52,7 +52,7 @@ current evidence handoff:
 - Latency: 15.922462180723063 ms/image on this workstation
 - Model size: 0.393216 MB
 
-Older files in this directory such as `anomalib_padim_mvtec_ad_bottle_result.json` and
+Older verification files such as `anomalib_padim_mvtec_ad_bottle_result.json` and
 `classical_range_mvtec_ad_bottle_result.json` remain useful historical runs, but use the
 `*_rerun_*` reports above for current release notes.
 

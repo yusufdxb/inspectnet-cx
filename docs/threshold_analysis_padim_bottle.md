@@ -18,8 +18,7 @@ emits ROC, AUROC, and operating-point recommendations.
 
 `reports/threshold_analysis_padim_bottle.json` is regenerable and is therefore
 not checked into git. The summary below is the canonical reference; the
-generator command is reproducible from a fresh venv as documented in the
-release audit (`docs/public_release_audit.md`).
+generator command is reproducible from a fresh venv.
 
 ## Test Split
 

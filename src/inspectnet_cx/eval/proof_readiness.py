@@ -128,7 +128,7 @@ def build_readiness_report(dataset_root: Path | None = None) -> dict[str, Any]:
             "inspectnet-export --check-only --format onnx",
             (
                 "inspectnet-latency --device auto --image-size 512"
-                " --output reports/latency_mewtwo.json"
+                " --output reports/latency_workstation.json"
             ),
         ],
         "proof_requirements": {
@@ -142,7 +142,8 @@ def build_readiness_report(dataset_root: Path | None = None) -> dict[str, Any]:
             ),
             "benchmark_metrics": "requires MVTec AD, VisA, AD2, and LOCO data",
             "workstation_latency": (
-                "measured on mewtwo (AMD Ryzen 9 9900X + RTX 5070); "
+                "measured on the dev workstation "
+                "(AMD Ryzen 9 9900X + NVIDIA Blackwell consumer GPU); "
                 "use --require-jetson opt-in if Jetson Orin NX gating is also needed"
             ),
             "deployability": (
