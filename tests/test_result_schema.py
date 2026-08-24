@@ -180,3 +180,24 @@ def test_validate_results_skips_workstation_latency_reports(tmp_path):
     )
 
     assert validate_results(tmp_path) == {}
+
+
+def test_validate_results_skips_derived_analysis_reports(tmp_path):
+    # bootstrap CI resamples, raw per-image score dumps, cross-category transfer
+    # matrices, and threshold sweeps are derived from benchmark results but are not
+    # benchmark results themselves; they carry their own "schema" identifier instead
+    # of method/dataset/category/image_auroc etc. at the top level.
+    (tmp_path / "bootstrap_padim_bottle.json").write_text(
+        '{"schema": "inspectnet_cx.bootstrap_auroc.v1", "category": "bottle"}'
+    )
+    (tmp_path / "scores_padim_bottle.json").write_text(
+        '{"schema": "inspectnet_cx.scores.v1", "category": "bottle"}'
+    )
+    (tmp_path / "cross_padim_matrix.json").write_text(
+        '{"schema": "inspectnet_cx.cross_category_matrix.v1", "categories": ["bottle"]}'
+    )
+    (tmp_path / "threshold_analysis_padim_bottle.json").write_text(
+        '{"schema": "inspectnet_cx.threshold_analysis.v1", "auroc": 1.0}'
+    )
+
+    assert validate_results(tmp_path) == {}

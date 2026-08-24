@@ -227,7 +227,7 @@ def main() -> int:
     ap.add_argument("--category", required=True)
     ap.add_argument("--checkpoint", type=Path, required=True)
     ap.add_argument(
-        "--dataset-root", type=Path, default=Path("/home/yusuf/datasets/mvtec_ad")
+        "--dataset-root", type=Path, default=Path("~/datasets/mvtec_ad").expanduser()
     )
     ap.add_argument("--image-size", type=int, default=256)
     ap.add_argument("--n-images", type=int, default=20)

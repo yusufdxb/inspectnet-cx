@@ -1,4 +1,4 @@
-# Verified Agent B optional stack, generated 2026-05-13 on Python 3.10.12 / x86_64 Linux.
+# Verified optional stack, generated 2026-05-13 on Python 3.10.12 / x86_64 Linux.
 anomalib==2.4.1
 onnx==1.21.0
 onnxruntime==1.23.2

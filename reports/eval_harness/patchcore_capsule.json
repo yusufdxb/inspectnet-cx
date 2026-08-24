@@ -5,7 +5,7 @@
   "dataset": "mvtec_ad",
   "split": "mvtec_ad_default_train_test",
   "split_hash": "a35a4767af802024bcbbdb6ef56b1c9074be26490b39d0345378c8b842d69ee6",
-  "checkpoint": "/home/yusuf/Projects/inspectnet-cx/artifacts/patchcore_capsule/Patchcore/MVTecAD/capsule/v0/weights/lightning/model.ckpt",
+  "checkpoint": "~/inspectnet-cx/artifacts/patchcore_capsule/Patchcore/MVTecAD/capsule/v0/weights/lightning/model.ckpt",
   "checkpoint_hash": "25454995713926187e9816613d0e76e8e9531d6ca99becdf2565e8e8ebda8feb",
   "image_auroc": 0.994415636218588,
   "pixel_auroc": 0.990176424065145,
