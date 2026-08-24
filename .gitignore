@@ -17,8 +17,24 @@ reports/*.md
 # These are reproducible from the documented training commands and exceed
 # GitHub's 100 MB file size limit.
 reports/**/*.ckpt
-reports/verification/
-reports/tmp_padim_probe2/
+
+# Machine-generated agent run artifacts and scratch probe trees. These are
+# process output, not evidence, and must never enter this public repo.
+# Curated, human-reviewed evidence lives in reports/verification/ instead.
+reports/agent_*/
+reports/**/agent_*/
+reports/tmp_*/
+reports/**/tmp_*/
+*_agent_report*.json
+
+# Agent plan / task / session markdown belongs in the private vault, not here.
+AGENTS.md
+**/AGENTS.md
+plans/
+sessions/
+*_plan.md
+*_fixlist.md
+*_punchlist.md
 
 # Canonical HF model-card clone lives here but is its own git repo.
 huggingface/inspectnet-cx/

@@ -1,6 +1,6 @@
 # Export Verification Evidence - 2026-05-13
 
-Scope: local workstation evidence for InspectNet-CX using `/home/yusuf/datasets` and this
+Scope: local workstation evidence for InspectNet-CX using `~/datasets` and this
 checkout only. Fixture-only results are not presented as real metrics.
 
 ## Environment
@@ -13,7 +13,7 @@ checkout only. Fixture-only results are not presented as real metrics.
 ## Dataset
 
 - Dataset: MVTec AD, `bottle` category
-- Local path: `/home/yusuf/datasets/mvtec_ad/bottle`
+- Local path: `~/datasets/mvtec_ad/bottle`
 - Source archive: Hugging Face mirror `micguida1/mvtech_anomaly_detection`
 - Official dataset page: `https://www.mvtec.com/research-teaching/datasets/mvtec-ad`
 - Archive SHA256: `cf4313b13603bec67abb49ca959488f7eedce2a9f7795ec54446c649ac98cd3d`
@@ -84,19 +84,19 @@ and they are not factory deployment evidence.
 
 ```bash
 python3 -m pip install -e '.[all]'
-python3 scripts/check_datasets.py --root /home/yusuf/datasets --output reports/verification/dataset_check_rerun_mvtec_bottle.json
+python3 scripts/check_datasets.py --root ~/datasets --output reports/verification/dataset_check_rerun_mvtec_bottle.json
 python3 scripts/check_proof_readiness.py --output reports/verification/proof_readiness_after_verification.json
 make baseline-anomalib-padim
-python3 scripts/run_baseline.py --method classical-range --dataset mvtec_ad --category bottle --data-root /home/yusuf/datasets --output reports/verification/classical_range_mvtec_ad_bottle_result.json
+python3 scripts/run_baseline.py --method classical-range --dataset mvtec_ad --category bottle --data-root ~/datasets --output reports/verification/classical_range_mvtec_ad_bottle_result.json
 python3 scripts/create_phase0_model.py --output artifacts/verification/inspectnet-cx-phase0 --image-size 224
 python3 scripts/export_phase0.py --check-only --format onnx --model artifacts/verification/inspectnet-cx-phase0
 python3 scripts/export_phase0.py --format onnx --model artifacts/verification/inspectnet-cx-phase0 --output artifacts/verification/inspectnet-cx-phase0/model.onnx --verify
 python3 scripts/export_phase0.py --check-only --format openvino --source-onnx artifacts/verification/inspectnet-cx-phase0/model.onnx
 python3 scripts/export_phase0.py --format openvino --source-onnx artifacts/verification/inspectnet-cx-phase0/model.onnx --output artifacts/verification/inspectnet-cx-phase0/openvino/model.xml
-PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input /home/yusuf/datasets/mvtec_ad/bottle/test/good/000.png --dataset-root /home/yusuf/datasets --dataset mvtec_ad --category bottle --output reports/verification/prediction_padim_good_000.json
-PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input /home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/000.png --dataset-root /home/yusuf/datasets --dataset mvtec_ad --category bottle --output reports/verification/prediction_padim_broken_large_000.json
-PYTHONPATH=src python3 scripts/investigate_anomalib_export.py --checkpoint artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt --dataset-root /home/yusuf/datasets --dataset mvtec_ad --category bottle --output reports/verification/anomalib_padim_export_status.json
-PYTHONPATH=src python3 scripts/validate_padim_export.py --onnx artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx --openvino artifacts/verification/anomalib_padim_export/weights/openvino/model.xml --input /home/yusuf/datasets/mvtec_ad/bottle/test --output reports/verification/anomalib_padim_export_smoke.json
+PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input ~/datasets/mvtec_ad/bottle/test/good/000.png --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/verification/prediction_padim_good_000.json
+PYTHONPATH=src python3 scripts/predict_anomaly.py --backend anomalib_padim --input ~/datasets/mvtec_ad/bottle/test/broken_large/000.png --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/verification/prediction_padim_broken_large_000.json
+PYTHONPATH=src python3 scripts/investigate_anomalib_export.py --checkpoint artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt --dataset-root ~/datasets --dataset mvtec_ad --category bottle --output reports/verification/anomalib_padim_export_status.json
+PYTHONPATH=src python3 scripts/validate_padim_export.py --onnx artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx --openvino artifacts/verification/anomalib_padim_export/weights/openvino/model.xml --input ~/datasets/mvtec_ad/bottle/test --output reports/verification/anomalib_padim_export_smoke.json
 PYTHONPATH=src python3 scripts/investigate_openvino_parity.py --onnx artifacts/verification/inspectnet-cx-phase0-rerun/model.onnx --openvino artifacts/verification/inspectnet-cx-phase0-rerun/openvino/model.xml --output reports/verification/openvino_parity_investigation.json
 python3 scripts/validate_results.py --input reports/verification
 ruff check src tests scripts

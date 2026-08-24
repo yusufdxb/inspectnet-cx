@@ -88,7 +88,7 @@
   ],
   "cases": [
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/000.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/000.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -145,7 +145,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/001.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/001.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -202,7 +202,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/002.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/002.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -259,7 +259,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/003.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/003.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -316,7 +316,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/004.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/004.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -373,7 +373,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/005.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/005.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -430,7 +430,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/006.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/006.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -487,7 +487,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/007.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/007.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -544,7 +544,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/008.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/008.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -601,7 +601,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/009.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/009.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -658,7 +658,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/010.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/010.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -715,7 +715,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/011.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/011.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -772,7 +772,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/012.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/012.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -829,7 +829,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/013.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/013.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -886,7 +886,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/014.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/014.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -943,7 +943,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/015.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/015.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1000,7 +1000,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/016.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/016.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1057,7 +1057,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/017.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/017.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1114,7 +1114,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/018.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/018.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1171,7 +1171,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/019.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/019.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1228,7 +1228,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/000.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/000.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1285,7 +1285,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/001.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/001.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1342,7 +1342,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/002.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/002.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1399,7 +1399,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/003.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/003.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1456,7 +1456,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/004.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/004.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1513,7 +1513,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/005.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/005.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1570,7 +1570,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/006.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/006.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1627,7 +1627,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/007.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/007.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1684,7 +1684,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/008.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/008.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1741,7 +1741,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/009.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/009.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1798,7 +1798,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/010.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/010.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1855,7 +1855,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/011.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/011.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1912,7 +1912,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/012.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/012.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -1969,7 +1969,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/013.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/013.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2026,7 +2026,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/014.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/014.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2083,7 +2083,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/015.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/015.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2140,7 +2140,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/016.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/016.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2197,7 +2197,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/017.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/017.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2254,7 +2254,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/018.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/018.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2311,7 +2311,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/019.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/019.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2368,7 +2368,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/020.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/020.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2425,7 +2425,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_small/021.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_small/021.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2482,7 +2482,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/000.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/000.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2539,7 +2539,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/001.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/001.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2596,7 +2596,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/002.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/002.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2653,7 +2653,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/003.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/003.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2710,7 +2710,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/004.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/004.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2767,7 +2767,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/005.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/005.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2824,7 +2824,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/006.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/006.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2881,7 +2881,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/007.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/007.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2938,7 +2938,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/008.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/008.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -2995,7 +2995,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/009.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/009.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3052,7 +3052,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/010.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/010.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3109,7 +3109,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/011.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/011.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3166,7 +3166,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/012.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/012.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3223,7 +3223,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/013.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/013.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3280,7 +3280,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/014.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/014.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3337,7 +3337,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/015.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/015.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3394,7 +3394,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/016.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/016.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3451,7 +3451,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/017.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/017.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3508,7 +3508,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/018.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/018.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3565,7 +3565,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/019.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/019.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3622,7 +3622,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/contamination/020.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/contamination/020.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3679,7 +3679,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/000.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/000.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3736,7 +3736,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/001.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/001.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3793,7 +3793,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/002.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/002.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3850,7 +3850,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/003.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/003.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3907,7 +3907,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/004.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/004.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -3964,7 +3964,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/005.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/005.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4021,7 +4021,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/006.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/006.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4078,7 +4078,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/007.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/007.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4135,7 +4135,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/008.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/008.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4192,7 +4192,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/009.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/009.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4249,7 +4249,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/010.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/010.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4306,7 +4306,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/011.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/011.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4363,7 +4363,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/012.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/012.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4420,7 +4420,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/013.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/013.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4477,7 +4477,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/014.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/014.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4534,7 +4534,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/015.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/015.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4591,7 +4591,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/016.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/016.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4648,7 +4648,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/017.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/017.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4705,7 +4705,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/018.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/018.png",
       "outputs": [
         {
           "name": "pred_score",
@@ -4762,7 +4762,7 @@
       "pred_mask_pixel_count": 65536
     },
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/019.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/019.png",
       "outputs": [
         {
           "name": "pred_score",

@@ -5,7 +5,7 @@
   "checkpoint": "artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt",
   "checkpoint_exists": true,
   "checkpoint_size_bytes": 176679475,
-  "sample_image": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/000.png",
+  "sample_image": "~/datasets/mvtec_ad/bottle/test/broken_large/000.png",
   "attempted_commands": [
     "Engine.predict(model=Padim(...), ckpt_path=<checkpoint>, data_path=<sample_image>, return_predictions=True)",
     "Engine.export(model=Padim(...), export_type=ExportType.ONNX, ckpt_path=<checkpoint>)",
