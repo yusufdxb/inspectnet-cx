@@ -5,7 +5,7 @@
   "dataset": "mvtec_ad",
   "split": "mvtec_ad_default_train_test",
   "split_hash": "4c730802f339675b402c86c8079e1b7b57b07c0b00e6f4de45db073ebb52ad5c",
-  "checkpoint": "/home/yusuf/Projects/inspectnet-cx/artifacts/anomalib_scoring_leather/Padim/MVTecAD/leather/v0/weights/lightning/model.ckpt",
+  "checkpoint": "~/inspectnet-cx/artifacts/anomalib_scoring_leather/Padim/MVTecAD/leather/v0/weights/lightning/model.ckpt",
   "checkpoint_hash": "986cf8871aa86b666078435d83db585927adb056eb6153a2b30437167aafe718",
   "image_auroc": 0.9925271739130433,
   "pixel_auroc": 0.9882110318538196,

@@ -1,8 +1,8 @@
 {
   "schema": "inspectnet_cx.bench_latency.v1",
   "category": "leather",
-  "checkpoint": "/home/yusuf/Projects/inspectnet-cx/artifacts/patchcore_leather/Patchcore/MVTecAD/leather/v0/weights/lightning/model.ckpt",
-  "dataset_root": "/home/yusuf/datasets/mvtec_ad",
+  "checkpoint": "~/inspectnet-cx/artifacts/patchcore_leather/Patchcore/MVTecAD/leather/v0/weights/lightning/model.ckpt",
+  "dataset_root": "~/datasets/mvtec_ad",
   "hardware": {
     "cpu": "AMD Ryzen 9 9900X 12-Core Processor",
     "gpu": "NVIDIA Blackwell consumer GPU, 570.211.01",

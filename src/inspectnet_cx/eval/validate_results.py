@@ -32,6 +32,21 @@ NON_BENCHMARK_REPORTS = {
     "proof_readiness.json",
     "proof_readiness_after_verification.json",
     "proof_readiness_rerun.json",
+    # Raw local latency capture cited by docs/claims_ledger.md as "(gitignored;
+    # captured 2026-05-17)". Untracked and never enters the public repo; does not
+    # carry method/dataset/category/image_auroc etc.
+    "latency_workstation.json",
+}
+
+# Statistical/exploratory analysis artifacts derived from benchmark results, not
+# benchmark results themselves. They intentionally do not carry method/dataset/
+# category/image_auroc etc. at the top level and are identified by their own
+# "schema" field rather than by filename.
+NON_BENCHMARK_SCHEMAS = {
+    "inspectnet_cx.bootstrap_auroc.v1",
+    "inspectnet_cx.scores.v1",
+    "inspectnet_cx.cross_category_matrix.v1",
+    "inspectnet_cx.threshold_analysis.v1",
 }
 
 
@@ -51,6 +66,8 @@ def validate_results(input_dir: Path) -> dict[str, list[str]]:
 
 def _is_non_benchmark_report(path: Path, payload: dict[str, object]) -> bool:
     if path.name in NON_BENCHMARK_REPORTS:
+        return True
+    if payload.get("schema") in NON_BENCHMARK_SCHEMAS:
         return True
     if path.name.startswith("prediction_"):
         return True
