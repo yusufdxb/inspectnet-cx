@@ -18,6 +18,7 @@ NON_BENCHMARK_REPORTS = {
     "inference_phase0_mvtec_good_000.json",
     "anomalib_padim_export_status.json",
     "anomalib_padim_export_smoke.json",
+    "anomalib_padim_export_smoke_repro.json",
     "jetson_latency.json",
     "local_latency.json",
     "workstation_latency.json",

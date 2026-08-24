@@ -3,13 +3,13 @@
   "backend": "anomalib_padim",
   "dataset": "mvtec_ad",
   "category": "bottle",
-  "dataset_root": "/home/yusuf/datasets",
+  "dataset_root": "~/datasets",
   "checkpoint": "artifacts/verification/anomalib/Padim/MVTecAD/bottle/v1/weights/lightning/model.ckpt",
   "input_count": 1,
   "latency_ms_per_image": 3357.2311569987505,
   "predictions": [
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/broken_large/000.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/broken_large/000.png",
       "expected_label": "anomaly",
       "image_score": 0.8914961814880371,
       "predicted_label": "anomaly",

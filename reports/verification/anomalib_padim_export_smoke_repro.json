@@ -1,0 +1,150 @@
+{
+  "status": "loaded_parity_failed",
+  "onnx_path": "artifacts/verification/anomalib_padim_export/weights/onnx/model.onnx",
+  "openvino_path": "artifacts/verification/anomalib_padim_export/weights/openvino/model.xml",
+  "provider": "CPU",
+  "image_size": 256,
+  "input_count": 1,
+  "onnx_inputs": [
+    [
+      "input",
+      [
+        "batch_size",
+        3,
+        256,
+        256
+      ],
+      "tensor(float)"
+    ]
+  ],
+  "onnx_outputs": [
+    [
+      "pred_score",
+      [
+        "Clippred_score_dim_0",
+        "Clippred_score_dim_1"
+      ],
+      "tensor(float)"
+    ],
+    [
+      "pred_label",
+      [
+        "Clippred_score_dim_0",
+        "Clippred_score_dim_1"
+      ],
+      "tensor(bool)"
+    ],
+    [
+      "anomaly_map",
+      [
+        "Clippred_score_dim_0",
+        "Clippred_score_dim_1",
+        "Clipanomaly_map_dim_2",
+        "Clipanomaly_map_dim_3"
+      ],
+      "tensor(float)"
+    ],
+    [
+      "pred_mask",
+      [
+        "Clippred_score_dim_0",
+        "Clippred_score_dim_1",
+        "Clipanomaly_map_dim_2",
+        "Clipanomaly_map_dim_3"
+      ],
+      "tensor(bool)"
+    ]
+  ],
+  "openvino_outputs": [
+    {
+      "names": [
+        "pred_score"
+      ],
+      "partial_shape": "[?,1]",
+      "element_type": "<Type: 'float32'>"
+    },
+    {
+      "names": [
+        "pred_label"
+      ],
+      "partial_shape": "[?,1]",
+      "element_type": "<Type: 'char'>"
+    },
+    {
+      "names": [
+        "anomaly_map"
+      ],
+      "partial_shape": "[?,1,256,256]",
+      "element_type": "<Type: 'float32'>"
+    },
+    {
+      "names": [
+        "pred_mask"
+      ],
+      "partial_shape": "[?,1,256,256]",
+      "element_type": "<Type: 'char'>"
+    }
+  ],
+  "cases": [
+    {
+      "path": "~/datasets/mvtec_ad/bottle/test/good/000.png",
+      "outputs": [
+        {
+          "name": "pred_score",
+          "type": "continuous",
+          "max_abs_error": 0.0007933974266052246,
+          "mean_abs_error": 0.0007933974266052246,
+          "max_rel_error": 0.0022613336332142353,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "pred_label",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1
+          ]
+        },
+        {
+          "name": "anomaly_map",
+          "type": "continuous",
+          "max_abs_error": 0.018809109926223755,
+          "mean_abs_error": 0.0025749451015144587,
+          "max_rel_error": 0.05414893105626106,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        },
+        {
+          "name": "pred_mask",
+          "type": "boolean",
+          "matches": true,
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ]
+        }
+      ],
+      "boolean_outputs_match": true,
+      "max_abs_error": 0.018809109926223755,
+      "max_mean_abs_error": 0.0025749451015144587,
+      "max_rel_error": 0.05414893105626106
+    }
+  ],
+  "summary": {
+    "max_abs_error": 0.018809109926223755,
+    "max_mean_abs_error": 0.0025749451015144587,
+    "max_rel_error": 0.05414893105626106,
+    "boolean_outputs_match": true
+  },
+  "proof_note": "This checks whether exported trained Anomalib PaDiM ONNX/OpenVINO artifacts load and agree with each other on local images. A failed status means export files are present and loadable, but parity is not clean enough for deployment claims. This does not prove checkpoint-to-export parity, optimized runtime, or target hardware readiness."
+}

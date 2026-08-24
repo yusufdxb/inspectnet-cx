@@ -3,8 +3,8 @@
   "backend": "classical_patchdiff",
   "dataset": "mvtec_ad",
   "category": "bottle",
-  "dataset_root": "/home/yusuf/datasets",
-  "category_root": "/home/yusuf/datasets/mvtec_ad/bottle",
+  "dataset_root": "~/datasets",
+  "category_root": "~/datasets/mvtec_ad/bottle",
   "input_count": 1,
   "train_normal_count": 209,
   "threshold_info": {
@@ -15,7 +15,7 @@
   "latency_ms_per_image": 34.417001996189356,
   "predictions": [
     {
-      "path": "/home/yusuf/datasets/mvtec_ad/bottle/test/good/000.png",
+      "path": "~/datasets/mvtec_ad/bottle/test/good/000.png",
       "expected_label": "normal",
       "image_score": 3.1474151611328125,
       "predicted_label": "normal",
